@@ -33,6 +33,18 @@ Three small experiments established starting controls for independent investigat
 
 The effects probe exposed a defect in the replay harness. Copying each argument separately split aliases, so a fixture intended to read and write the same array could silently test two different arrays. The copier now clones each distinct buffer once per execution. A control tests a shared array, distinct equal arrays, distinct empty arrays and isolation across runs. The original corpus also passed with the correction. [Input copier](../src/Weightless/Fixtures.cs) · [Isolation control](../experiments/0006-Settlement/v1/Program.cs)
 
+## What the three labs found independently
+
+The prototype and its controls were frozen at `65fe4b9`. Three agents worked from the same code and each produced a v2 route. Their three Git commits have the same handoff parent, `0d2ba85`. The combined replay ran all seven v1 and v2 routes into one output root and reproduced all 15 retained files byte for byte. [Lab handoff, branch heads and next experiments](LAB-HANDOFF.md)
+
+| Lab | Result | Boundary |
+| --- | --- | --- |
+| Capacity | On 12 checked chains from 0 through 4,095 Adds, all 48 graph images round-tripped and all 288 observations matched C#. Three different fields widened at 126, 127 and 128 Adds. At 128, packed/constrained used **530 bytes** against **657** for baseline/plain. | Each codec pays for the wider references. The net budget still follows `1 − AddCount` on this corpus. [Field bytes and measurements](../experiments/0007-Capacity/evidence-v2/result.json) |
+| Transfer | At fixed `k = 1`, host selection used the transferred graph on **100 of 121** boundary pairs and the original on 21, per codec. All matched checked C#, including 20 final overflows among admitted inputs. | The selector runs outside the wire image. The candidate actually grew from 19 to 41 baseline bytes. The experiment establishes observed interchangeability under the guard. [Paths, endpoints and outcomes](../experiments/0008-Transfer/evidence-v2/result.json) |
+| Effect order | The guard admitted **406 of 448** reordered schedules. Every admission preserved the full observation. Of 42 refusals, 40 would lose a write before a failed read and two would change the value read from an aliased cell. | The contract observes exception type and ordered writes. Of the admissions, 224 stopped at checked overflow before touching memory. Adding the identity of the faulting operation would change what the guard may admit. [Decision counts and ten witnesses](../experiments/0009-EffectOrder/evidence-v2/result.json) |
+
+These experiments give Weightless a concrete choice at execution time. A decoded graph can be replaced on particular inputs and retained on others, and the saved evidence identifies why. The demonstrated gains are a byte budget and a wider choice of legal executions under explicit observations. The performance cost of choosing a path and the generality of those choices across programs remain open.
+
 ## Replay
 
 Run from the repository root with the .NET 10 SDK. The first command rebuilds the original measurements. The second reproduces the native eight-image experiment.
