@@ -1,0 +1,423 @@
+{
+  "pipeline": "0006-v1",
+  "route": "transfer/v2",
+  "parent": {
+    "id": "add.checked.plain",
+    "path": "experiments/0001-Addition/baseline-v1/add-checked.wlb",
+    "sha256": "F29EB79B426681794A0A7BDC22C47CF38B9792C93ADF96326CD3964563877B34"
+  },
+  "finding": {
+    "claim": "On the specified pure Int32 grid with k = 1, widened dispatch selects the intended decoded graph and matches the compiled checked C# sum.",
+    "verdict": "tested",
+    "checksPassed": true,
+    "evidence": {
+      "parentRoute": "transfer/v1",
+      "modelRelationship": "guarded-checked-transfer-model-v1",
+      "k": 1,
+      "observation": "Return value or exception type. Both operands are already evaluated.",
+      "selector": "Host C# computes a \u002B 1 and b - 1 in Int64 and tests both against the Int32 range.",
+      "grid": "Cartesian product of values with a outermost and b innermost",
+      "values": [
+        -2147483648,
+        -2147483647,
+        -2147483646,
+        -2,
+        -1,
+        0,
+        1,
+        2,
+        2147483645,
+        2147483646,
+        2147483647
+      ],
+      "runs": [
+        {
+          "codec": "Baseline",
+          "originalFile": "original.wlb",
+          "candidateFile": "transferred.wlb",
+          "gridCases": 121,
+          "transferred": 100,
+          "original": 21,
+          "admittedUpperOverflows": 10,
+          "admittedLowerOverflows": 10,
+          "gridMismatches": [],
+          "named": [
+            {
+              "name": "ordinary",
+              "trace": {
+                "a": 0,
+                "b": 1,
+                "widenedLeft": 1,
+                "widenedRight": 0,
+                "selected": "transferred",
+                "expectedPath": "transferred",
+                "expected": {
+                  "value": 1,
+                  "exceptionType": null
+                },
+                "actual": {
+                  "value": 1,
+                  "exceptionType": null
+                },
+                "match": true
+              }
+            },
+            {
+              "name": "parent-left-intermediate",
+              "trace": {
+                "a": 2147483647,
+                "b": 0,
+                "widenedLeft": 2147483648,
+                "widenedRight": -1,
+                "selected": "original",
+                "expectedPath": "original",
+                "expected": {
+                  "value": 2147483647,
+                  "exceptionType": null
+                },
+                "actual": {
+                  "value": 2147483647,
+                  "exceptionType": null
+                },
+                "match": true
+              }
+            },
+            {
+              "name": "parent-right-intermediate",
+              "trace": {
+                "a": 0,
+                "b": -2147483648,
+                "widenedLeft": 1,
+                "widenedRight": -2147483649,
+                "selected": "original",
+                "expectedPath": "original",
+                "expected": {
+                  "value": -2147483648,
+                  "exceptionType": null
+                },
+                "actual": {
+                  "value": -2147483648,
+                  "exceptionType": null
+                },
+                "match": true
+              }
+            },
+            {
+              "name": "both-intermediates-out-of-range",
+              "trace": {
+                "a": 2147483647,
+                "b": -2147483648,
+                "widenedLeft": 2147483648,
+                "widenedRight": -2147483649,
+                "selected": "original",
+                "expectedPath": "original",
+                "expected": {
+                  "value": -1,
+                  "exceptionType": null
+                },
+                "actual": {
+                  "value": -1,
+                  "exceptionType": null
+                },
+                "match": true
+              }
+            },
+            {
+              "name": "left-hits-maximum",
+              "trace": {
+                "a": 2147483646,
+                "b": 0,
+                "widenedLeft": 2147483647,
+                "widenedRight": -1,
+                "selected": "transferred",
+                "expectedPath": "transferred",
+                "expected": {
+                  "value": 2147483646,
+                  "exceptionType": null
+                },
+                "actual": {
+                  "value": 2147483646,
+                  "exceptionType": null
+                },
+                "match": true
+              }
+            },
+            {
+              "name": "right-hits-minimum",
+              "trace": {
+                "a": 0,
+                "b": -2147483647,
+                "widenedLeft": 1,
+                "widenedRight": -2147483648,
+                "selected": "transferred",
+                "expectedPath": "transferred",
+                "expected": {
+                  "value": -2147483647,
+                  "exceptionType": null
+                },
+                "actual": {
+                  "value": -2147483647,
+                  "exceptionType": null
+                },
+                "match": true
+              }
+            },
+            {
+              "name": "admitted-final-upper-overflow",
+              "trace": {
+                "a": 2147483646,
+                "b": 2,
+                "widenedLeft": 2147483647,
+                "widenedRight": 1,
+                "selected": "transferred",
+                "expectedPath": "transferred",
+                "expected": {
+                  "value": null,
+                  "exceptionType": "OverflowException"
+                },
+                "actual": {
+                  "value": null,
+                  "exceptionType": "OverflowException"
+                },
+                "match": true
+              }
+            },
+            {
+              "name": "admitted-final-lower-overflow",
+              "trace": {
+                "a": -2147483648,
+                "b": -1,
+                "widenedLeft": -2147483647,
+                "widenedRight": -2,
+                "selected": "transferred",
+                "expectedPath": "transferred",
+                "expected": {
+                  "value": null,
+                  "exceptionType": "OverflowException"
+                },
+                "actual": {
+                  "value": null,
+                  "exceptionType": "OverflowException"
+                },
+                "match": true
+              }
+            },
+            {
+              "name": "fallback-final-overflow",
+              "trace": {
+                "a": 2147483647,
+                "b": 1,
+                "widenedLeft": 2147483648,
+                "widenedRight": 0,
+                "selected": "original",
+                "expectedPath": "original",
+                "expected": {
+                  "value": null,
+                  "exceptionType": "OverflowException"
+                },
+                "actual": {
+                  "value": null,
+                  "exceptionType": "OverflowException"
+                },
+                "match": true
+              }
+            }
+          ]
+        },
+        {
+          "codec": "Packed",
+          "originalFile": "original.wlp",
+          "candidateFile": "transferred.wlp",
+          "gridCases": 121,
+          "transferred": 100,
+          "original": 21,
+          "admittedUpperOverflows": 10,
+          "admittedLowerOverflows": 10,
+          "gridMismatches": [],
+          "named": [
+            {
+              "name": "ordinary",
+              "trace": {
+                "a": 0,
+                "b": 1,
+                "widenedLeft": 1,
+                "widenedRight": 0,
+                "selected": "transferred",
+                "expectedPath": "transferred",
+                "expected": {
+                  "value": 1,
+                  "exceptionType": null
+                },
+                "actual": {
+                  "value": 1,
+                  "exceptionType": null
+                },
+                "match": true
+              }
+            },
+            {
+              "name": "parent-left-intermediate",
+              "trace": {
+                "a": 2147483647,
+                "b": 0,
+                "widenedLeft": 2147483648,
+                "widenedRight": -1,
+                "selected": "original",
+                "expectedPath": "original",
+                "expected": {
+                  "value": 2147483647,
+                  "exceptionType": null
+                },
+                "actual": {
+                  "value": 2147483647,
+                  "exceptionType": null
+                },
+                "match": true
+              }
+            },
+            {
+              "name": "parent-right-intermediate",
+              "trace": {
+                "a": 0,
+                "b": -2147483648,
+                "widenedLeft": 1,
+                "widenedRight": -2147483649,
+                "selected": "original",
+                "expectedPath": "original",
+                "expected": {
+                  "value": -2147483648,
+                  "exceptionType": null
+                },
+                "actual": {
+                  "value": -2147483648,
+                  "exceptionType": null
+                },
+                "match": true
+              }
+            },
+            {
+              "name": "both-intermediates-out-of-range",
+              "trace": {
+                "a": 2147483647,
+                "b": -2147483648,
+                "widenedLeft": 2147483648,
+                "widenedRight": -2147483649,
+                "selected": "original",
+                "expectedPath": "original",
+                "expected": {
+                  "value": -1,
+                  "exceptionType": null
+                },
+                "actual": {
+                  "value": -1,
+                  "exceptionType": null
+                },
+                "match": true
+              }
+            },
+            {
+              "name": "left-hits-maximum",
+              "trace": {
+                "a": 2147483646,
+                "b": 0,
+                "widenedLeft": 2147483647,
+                "widenedRight": -1,
+                "selected": "transferred",
+                "expectedPath": "transferred",
+                "expected": {
+                  "value": 2147483646,
+                  "exceptionType": null
+                },
+                "actual": {
+                  "value": 2147483646,
+                  "exceptionType": null
+                },
+                "match": true
+              }
+            },
+            {
+              "name": "right-hits-minimum",
+              "trace": {
+                "a": 0,
+                "b": -2147483647,
+                "widenedLeft": 1,
+                "widenedRight": -2147483648,
+                "selected": "transferred",
+                "expectedPath": "transferred",
+                "expected": {
+                  "value": -2147483647,
+                  "exceptionType": null
+                },
+                "actual": {
+                  "value": -2147483647,
+                  "exceptionType": null
+                },
+                "match": true
+              }
+            },
+            {
+              "name": "admitted-final-upper-overflow",
+              "trace": {
+                "a": 2147483646,
+                "b": 2,
+                "widenedLeft": 2147483647,
+                "widenedRight": 1,
+                "selected": "transferred",
+                "expectedPath": "transferred",
+                "expected": {
+                  "value": null,
+                  "exceptionType": "OverflowException"
+                },
+                "actual": {
+                  "value": null,
+                  "exceptionType": "OverflowException"
+                },
+                "match": true
+              }
+            },
+            {
+              "name": "admitted-final-lower-overflow",
+              "trace": {
+                "a": -2147483648,
+                "b": -1,
+                "widenedLeft": -2147483647,
+                "widenedRight": -2,
+                "selected": "transferred",
+                "expectedPath": "transferred",
+                "expected": {
+                  "value": null,
+                  "exceptionType": "OverflowException"
+                },
+                "actual": {
+                  "value": null,
+                  "exceptionType": "OverflowException"
+                },
+                "match": true
+              }
+            },
+            {
+              "name": "fallback-final-overflow",
+              "trace": {
+                "a": 2147483647,
+                "b": 1,
+                "widenedLeft": 2147483648,
+                "widenedRight": 0,
+                "selected": "original",
+                "expectedPath": "original",
+                "expected": {
+                  "value": null,
+                  "exceptionType": "OverflowException"
+                },
+                "actual": {
+                  "value": null,
+                  "exceptionType": "OverflowException"
+                },
+                "match": true
+              }
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

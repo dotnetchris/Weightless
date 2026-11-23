@@ -12,3 +12,16 @@ A changed return, lost or new overflow, wrong selection, or input outside the in
 dotnet run -c Release --project experiments/0008-Transfer/v1 -- artifacts/labs
 dotnet run -c Release --project experiments/0008-Transfer/v2 -- artifacts/labs
 ```
+
+## V2 results
+
+**Tested.** Each codec passed 121 grid pairs and nine named probes. The C# host computed both widened intermediates and selected a decoded graph. For this fixed transfer, `a == int.MaxValue || b == int.MinValue` specifies exactly when either intermediate fails to fit. This gave an independent check on the identity of the graph handed to the interpreter. Every returned integer and exception type matched the compiled C# expression `checked(a + b)`. The nine named probes also occur in the grid. [Inputs, selected paths, outcomes and counts](evidence-v2/result.json)
+
+| Route selected | Grid pairs per codec | Observed behavior |
+| --- | ---: | --- |
+| Transferred | 100 | 80 returned normally. Ten sums exceeded the upper limit and ten crossed the lower limit. All 20 produced `OverflowException`. |
+| Original | 21 | Both v1 counterexamples took this path, returning `int.MaxValue` and `int.MinValue`. With both intermediates out of range, `(int.MaxValue, int.MinValue)` returned `-1`. |
+
+The original uses 19 baseline bytes and 18 packed bytes. The specialized transfer uses 41 and 38. All four images reconstructed their own graphs and re-encoded byte for byte. The selector runs in host C# and contributes no bytes to those wire sizes. This experiment measures outcome agreement for already evaluated operands. The existing Lean theorem covers the arithmetic model under value-or-overflow observation. Interpreter correspondence and the execution cost of dispatch are separate questions. [Saved wires](evidence-v2/) · [Model theorem](../0005-GuardedAddition/CheckedTransfer.lean)
+
+**Next experiment.** Build a v3 candidate that encodes the same selection using typed range tests and a branch. Run the same 121 pairs through both decoders, compare the executed branch and outcome against the independent v2 oracle, and charge the complete branched graph to each wire format. Either a wrong branch or a lost final overflow defeats that candidate.
