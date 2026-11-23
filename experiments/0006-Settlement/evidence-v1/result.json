@@ -1,0 +1,402 @@
+{
+  "pipeline": "0006-v1",
+  "route": "settlement/v1",
+  "parent": {
+    "id": "add.checked.plain",
+    "path": "experiments/0001-Addition/baseline-v1/add-checked.wlb",
+    "sha256": "F29EB79B426681794A0A7BDC22C47CF38B9792C93ADF96326CD3964563877B34"
+  },
+  "finding": {
+    "claim": "For the two operand orders, the recovered Add tag pays for the enforced nonnegative contract on the seven recorded pure inputs.",
+    "verdict": "tested",
+    "checksPassed": true,
+    "evidence": {
+      "inputs": [
+        {
+          "a": 2,
+          "b": 3
+        },
+        {
+          "a": -1,
+          "b": 0
+        },
+        {
+          "a": -1,
+          "b": 1
+        },
+        {
+          "a": 2147483647,
+          "b": 0
+        },
+        {
+          "a": 0,
+          "b": -2147483648
+        },
+        {
+          "a": 2147483647,
+          "b": 1
+        },
+        {
+          "a": -2147483648,
+          "b": -1
+        }
+      ],
+      "rows": [
+        {
+          "order": "a\u002Bb",
+          "contract": "None",
+          "codec": "Baseline",
+          "size": 19,
+          "hex": "574C4201000101020101020201010001080003",
+          "comparisons": [
+            {
+              "value": 5,
+              "exceptionType": null,
+              "match": true
+            },
+            {
+              "value": -1,
+              "exceptionType": null,
+              "match": true
+            },
+            {
+              "value": 0,
+              "exceptionType": null,
+              "match": true
+            },
+            {
+              "value": 2147483647,
+              "exceptionType": null,
+              "match": true
+            },
+            {
+              "value": -2147483648,
+              "exceptionType": null,
+              "match": true
+            },
+            {
+              "value": null,
+              "exceptionType": "OverflowException",
+              "match": true
+            },
+            {
+              "value": null,
+              "exceptionType": "OverflowException",
+              "match": true
+            }
+          ]
+        },
+        {
+          "order": "a\u002Bb",
+          "contract": "None",
+          "codec": "Packed",
+          "size": 18,
+          "hex": "574C50010001010201010202010001080003",
+          "comparisons": [
+            {
+              "value": 5,
+              "exceptionType": null,
+              "match": true
+            },
+            {
+              "value": -1,
+              "exceptionType": null,
+              "match": true
+            },
+            {
+              "value": 0,
+              "exceptionType": null,
+              "match": true
+            },
+            {
+              "value": 2147483647,
+              "exceptionType": null,
+              "match": true
+            },
+            {
+              "value": -2147483648,
+              "exceptionType": null,
+              "match": true
+            },
+            {
+              "value": null,
+              "exceptionType": "OverflowException",
+              "match": true
+            },
+            {
+              "value": null,
+              "exceptionType": "OverflowException",
+              "match": true
+            }
+          ]
+        },
+        {
+          "order": "a\u002Bb",
+          "contract": "NonNegativeInt32",
+          "codec": "Baseline",
+          "size": 20,
+          "hex": "574C420101010101020101020201010001080003",
+          "comparisons": [
+            {
+              "value": 5,
+              "exceptionType": null,
+              "match": true
+            },
+            {
+              "value": null,
+              "exceptionType": "PostconditionViolationException",
+              "match": true
+            },
+            {
+              "value": 0,
+              "exceptionType": null,
+              "match": true
+            },
+            {
+              "value": 2147483647,
+              "exceptionType": null,
+              "match": true
+            },
+            {
+              "value": null,
+              "exceptionType": "PostconditionViolationException",
+              "match": true
+            },
+            {
+              "value": null,
+              "exceptionType": "OverflowException",
+              "match": true
+            },
+            {
+              "value": null,
+              "exceptionType": "OverflowException",
+              "match": true
+            }
+          ]
+        },
+        {
+          "order": "a\u002Bb",
+          "contract": "NonNegativeInt32",
+          "codec": "Packed",
+          "size": 19,
+          "hex": "574C5001010101010201010202010001080003",
+          "comparisons": [
+            {
+              "value": 5,
+              "exceptionType": null,
+              "match": true
+            },
+            {
+              "value": null,
+              "exceptionType": "PostconditionViolationException",
+              "match": true
+            },
+            {
+              "value": 0,
+              "exceptionType": null,
+              "match": true
+            },
+            {
+              "value": 2147483647,
+              "exceptionType": null,
+              "match": true
+            },
+            {
+              "value": null,
+              "exceptionType": "PostconditionViolationException",
+              "match": true
+            },
+            {
+              "value": null,
+              "exceptionType": "OverflowException",
+              "match": true
+            },
+            {
+              "value": null,
+              "exceptionType": "OverflowException",
+              "match": true
+            }
+          ]
+        },
+        {
+          "order": "b\u002Ba",
+          "contract": "None",
+          "codec": "Baseline",
+          "size": 19,
+          "hex": "574C4201000101020101020201010100080003",
+          "comparisons": [
+            {
+              "value": 5,
+              "exceptionType": null,
+              "match": true
+            },
+            {
+              "value": -1,
+              "exceptionType": null,
+              "match": true
+            },
+            {
+              "value": 0,
+              "exceptionType": null,
+              "match": true
+            },
+            {
+              "value": 2147483647,
+              "exceptionType": null,
+              "match": true
+            },
+            {
+              "value": -2147483648,
+              "exceptionType": null,
+              "match": true
+            },
+            {
+              "value": null,
+              "exceptionType": "OverflowException",
+              "match": true
+            },
+            {
+              "value": null,
+              "exceptionType": "OverflowException",
+              "match": true
+            }
+          ]
+        },
+        {
+          "order": "b\u002Ba",
+          "contract": "None",
+          "codec": "Packed",
+          "size": 18,
+          "hex": "574C50010001010201010202010100080003",
+          "comparisons": [
+            {
+              "value": 5,
+              "exceptionType": null,
+              "match": true
+            },
+            {
+              "value": -1,
+              "exceptionType": null,
+              "match": true
+            },
+            {
+              "value": 0,
+              "exceptionType": null,
+              "match": true
+            },
+            {
+              "value": 2147483647,
+              "exceptionType": null,
+              "match": true
+            },
+            {
+              "value": -2147483648,
+              "exceptionType": null,
+              "match": true
+            },
+            {
+              "value": null,
+              "exceptionType": "OverflowException",
+              "match": true
+            },
+            {
+              "value": null,
+              "exceptionType": "OverflowException",
+              "match": true
+            }
+          ]
+        },
+        {
+          "order": "b\u002Ba",
+          "contract": "NonNegativeInt32",
+          "codec": "Baseline",
+          "size": 20,
+          "hex": "574C420101010101020101020201010100080003",
+          "comparisons": [
+            {
+              "value": 5,
+              "exceptionType": null,
+              "match": true
+            },
+            {
+              "value": null,
+              "exceptionType": "PostconditionViolationException",
+              "match": true
+            },
+            {
+              "value": 0,
+              "exceptionType": null,
+              "match": true
+            },
+            {
+              "value": 2147483647,
+              "exceptionType": null,
+              "match": true
+            },
+            {
+              "value": null,
+              "exceptionType": "PostconditionViolationException",
+              "match": true
+            },
+            {
+              "value": null,
+              "exceptionType": "OverflowException",
+              "match": true
+            },
+            {
+              "value": null,
+              "exceptionType": "OverflowException",
+              "match": true
+            }
+          ]
+        },
+        {
+          "order": "b\u002Ba",
+          "contract": "NonNegativeInt32",
+          "codec": "Packed",
+          "size": 19,
+          "hex": "574C5001010101010201010202010100080003",
+          "comparisons": [
+            {
+              "value": 5,
+              "exceptionType": null,
+              "match": true
+            },
+            {
+              "value": null,
+              "exceptionType": "PostconditionViolationException",
+              "match": true
+            },
+            {
+              "value": 0,
+              "exceptionType": null,
+              "match": true
+            },
+            {
+              "value": 2147483647,
+              "exceptionType": null,
+              "match": true
+            },
+            {
+              "value": null,
+              "exceptionType": "PostconditionViolationException",
+              "match": true
+            },
+            {
+              "value": null,
+              "exceptionType": "OverflowException",
+              "match": true
+            },
+            {
+              "value": null,
+              "exceptionType": "OverflowException",
+              "match": true
+            }
+          ]
+        }
+      ],
+      "distinctGraphs": true,
+      "aliasIsolation": true
+    }
+  }
+}

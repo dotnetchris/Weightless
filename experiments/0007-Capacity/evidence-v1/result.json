@@ -1,0 +1,49 @@
+{
+  "pipeline": "0006-v1",
+  "route": "capacity/v1",
+  "parent": {
+    "id": "add.checked.plain",
+    "path": "experiments/0001-Addition/baseline-v1/add-checked.wlb",
+    "sha256": "F29EB79B426681794A0A7BDC22C47CF38B9792C93ADF96326CD3964563877B34"
+  },
+  "finding": {
+    "claim": "With zero, one and two native Add nodes, packed/constrained costs 1 - AddCount bytes relative to baseline/plain.",
+    "verdict": "tested",
+    "checksPassed": true,
+    "evidence": {
+      "negativeWitness": [
+        -1,
+        0
+      ],
+      "rows": [
+        {
+          "adds": 0,
+          "baselinePlain": 14,
+          "packedPlain": 14,
+          "baselineRequired": 15,
+          "packedRequired": 15,
+          "delta": 1,
+          "negativeWitnessMatches": true
+        },
+        {
+          "adds": 1,
+          "baselinePlain": 19,
+          "packedPlain": 18,
+          "baselineRequired": 20,
+          "packedRequired": 19,
+          "delta": 0,
+          "negativeWitnessMatches": true
+        },
+        {
+          "adds": 2,
+          "baselinePlain": 24,
+          "packedPlain": 22,
+          "baselineRequired": 25,
+          "packedRequired": 23,
+          "delta": -1,
+          "negativeWitnessMatches": true
+        }
+      ]
+    }
+  }
+}
