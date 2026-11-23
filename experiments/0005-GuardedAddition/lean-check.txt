@@ -1,0 +1,9 @@
+Lean (version 4.8.0, x86_64-w64-windows-gnu, commit df668f00e6c0, Release)
+checked_transfer_under_guard (a b k : Int) (leftFits : FitsInt32 (a + k)) (rightFits : FitsInt32 (b - k)) :
+  checkedTransfer a b k = checkedInt32 (a + b)
+guarded_transfer_sound (a b k : Int) : guardedTransfer a b k = checkedInt32 (a + b)
+widened_intermediates_fit_int64 (a b k : Int) (aFits : FitsInt32 a) (bFits : FitsInt32 b) (kFits : FitsInt32 k) :
+  (-9223372036854775808 ≤ a + k ∧ a + k ≤ 9223372036854775807) ∧
+    -9223372036854775808 ≤ b - k ∧ b - k ≤ 9223372036854775807
+'guarded_transfer_sound' depends on axioms: [Classical.choice, propext, Quot.sound]
+'widened_intermediates_fit_int64' depends on axioms: [Classical.choice, propext, Quot.sound]

@@ -1,0 +1,1954 @@
+{
+  "verifierProcessId": 78888,
+  "passed": true,
+  "rows": [
+    {
+      "fixture": "add-checked",
+      "codec": "Baseline",
+      "bytes": 19,
+      "nodes": 2,
+      "graphEqual": true,
+      "deterministicBytes": true,
+      "observations": [
+        {
+          "case": "ordinary",
+          "arguments": [
+            0,
+            1
+          ],
+          "expected": {
+            "value": 1,
+            "exceptionType": null,
+            "output": "",
+            "effects": [],
+            "buffers": []
+          },
+          "actual": {
+            "value": 1,
+            "exceptionType": null,
+            "output": "",
+            "effects": [],
+            "buffers": []
+          },
+          "match": true
+        },
+        {
+          "case": "left-intermediate-overflow",
+          "arguments": [
+            2147483647,
+            0
+          ],
+          "expected": {
+            "value": 2147483647,
+            "exceptionType": null,
+            "output": "",
+            "effects": [],
+            "buffers": []
+          },
+          "actual": {
+            "value": 2147483647,
+            "exceptionType": null,
+            "output": "",
+            "effects": [],
+            "buffers": []
+          },
+          "match": true
+        },
+        {
+          "case": "right-intermediate-overflow",
+          "arguments": [
+            0,
+            -2147483648
+          ],
+          "expected": {
+            "value": -2147483648,
+            "exceptionType": null,
+            "output": "",
+            "effects": [],
+            "buffers": []
+          },
+          "actual": {
+            "value": -2147483648,
+            "exceptionType": null,
+            "output": "",
+            "effects": [],
+            "buffers": []
+          },
+          "match": true
+        },
+        {
+          "case": "sum-overflow",
+          "arguments": [
+            2147483647,
+            1
+          ],
+          "expected": {
+            "value": null,
+            "exceptionType": "OverflowException",
+            "output": "",
+            "effects": [],
+            "buffers": []
+          },
+          "actual": {
+            "value": null,
+            "exceptionType": "OverflowException",
+            "output": "",
+            "effects": [],
+            "buffers": []
+          },
+          "match": true
+        },
+        {
+          "case": "negative-result",
+          "arguments": [
+            -1,
+            0
+          ],
+          "expected": {
+            "value": -1,
+            "exceptionType": null,
+            "output": "",
+            "effects": [],
+            "buffers": []
+          },
+          "actual": {
+            "value": -1,
+            "exceptionType": null,
+            "output": "",
+            "effects": [],
+            "buffers": []
+          },
+          "match": true
+        },
+        {
+          "case": "zero-result",
+          "arguments": [
+            -1,
+            1
+          ],
+          "expected": {
+            "value": 0,
+            "exceptionType": null,
+            "output": "",
+            "effects": [],
+            "buffers": []
+          },
+          "actual": {
+            "value": 0,
+            "exceptionType": null,
+            "output": "",
+            "effects": [],
+            "buffers": []
+          },
+          "match": true
+        }
+      ],
+      "error": null,
+      "passed": true
+    },
+    {
+      "fixture": "add-checked",
+      "codec": "Packed",
+      "bytes": 18,
+      "nodes": 2,
+      "graphEqual": true,
+      "deterministicBytes": true,
+      "observations": [
+        {
+          "case": "ordinary",
+          "arguments": [
+            0,
+            1
+          ],
+          "expected": {
+            "value": 1,
+            "exceptionType": null,
+            "output": "",
+            "effects": [],
+            "buffers": []
+          },
+          "actual": {
+            "value": 1,
+            "exceptionType": null,
+            "output": "",
+            "effects": [],
+            "buffers": []
+          },
+          "match": true
+        },
+        {
+          "case": "left-intermediate-overflow",
+          "arguments": [
+            2147483647,
+            0
+          ],
+          "expected": {
+            "value": 2147483647,
+            "exceptionType": null,
+            "output": "",
+            "effects": [],
+            "buffers": []
+          },
+          "actual": {
+            "value": 2147483647,
+            "exceptionType": null,
+            "output": "",
+            "effects": [],
+            "buffers": []
+          },
+          "match": true
+        },
+        {
+          "case": "right-intermediate-overflow",
+          "arguments": [
+            0,
+            -2147483648
+          ],
+          "expected": {
+            "value": -2147483648,
+            "exceptionType": null,
+            "output": "",
+            "effects": [],
+            "buffers": []
+          },
+          "actual": {
+            "value": -2147483648,
+            "exceptionType": null,
+            "output": "",
+            "effects": [],
+            "buffers": []
+          },
+          "match": true
+        },
+        {
+          "case": "sum-overflow",
+          "arguments": [
+            2147483647,
+            1
+          ],
+          "expected": {
+            "value": null,
+            "exceptionType": "OverflowException",
+            "output": "",
+            "effects": [],
+            "buffers": []
+          },
+          "actual": {
+            "value": null,
+            "exceptionType": "OverflowException",
+            "output": "",
+            "effects": [],
+            "buffers": []
+          },
+          "match": true
+        },
+        {
+          "case": "negative-result",
+          "arguments": [
+            -1,
+            0
+          ],
+          "expected": {
+            "value": -1,
+            "exceptionType": null,
+            "output": "",
+            "effects": [],
+            "buffers": []
+          },
+          "actual": {
+            "value": -1,
+            "exceptionType": null,
+            "output": "",
+            "effects": [],
+            "buffers": []
+          },
+          "match": true
+        },
+        {
+          "case": "zero-result",
+          "arguments": [
+            -1,
+            1
+          ],
+          "expected": {
+            "value": 0,
+            "exceptionType": null,
+            "output": "",
+            "effects": [],
+            "buffers": []
+          },
+          "actual": {
+            "value": 0,
+            "exceptionType": null,
+            "output": "",
+            "effects": [],
+            "buffers": []
+          },
+          "match": true
+        }
+      ],
+      "error": null,
+      "passed": true
+    },
+    {
+      "fixture": "add-wrapping",
+      "codec": "Baseline",
+      "bytes": 19,
+      "nodes": 2,
+      "graphEqual": true,
+      "deterministicBytes": true,
+      "observations": [
+        {
+          "case": "ordinary",
+          "arguments": [
+            0,
+            1
+          ],
+          "expected": {
+            "value": 1,
+            "exceptionType": null,
+            "output": "",
+            "effects": [],
+            "buffers": []
+          },
+          "actual": {
+            "value": 1,
+            "exceptionType": null,
+            "output": "",
+            "effects": [],
+            "buffers": []
+          },
+          "match": true
+        },
+        {
+          "case": "left-intermediate-overflow",
+          "arguments": [
+            2147483647,
+            0
+          ],
+          "expected": {
+            "value": 2147483647,
+            "exceptionType": null,
+            "output": "",
+            "effects": [],
+            "buffers": []
+          },
+          "actual": {
+            "value": 2147483647,
+            "exceptionType": null,
+            "output": "",
+            "effects": [],
+            "buffers": []
+          },
+          "match": true
+        },
+        {
+          "case": "right-intermediate-overflow",
+          "arguments": [
+            0,
+            -2147483648
+          ],
+          "expected": {
+            "value": -2147483648,
+            "exceptionType": null,
+            "output": "",
+            "effects": [],
+            "buffers": []
+          },
+          "actual": {
+            "value": -2147483648,
+            "exceptionType": null,
+            "output": "",
+            "effects": [],
+            "buffers": []
+          },
+          "match": true
+        },
+        {
+          "case": "sum-overflow",
+          "arguments": [
+            2147483647,
+            1
+          ],
+          "expected": {
+            "value": -2147483648,
+            "exceptionType": null,
+            "output": "",
+            "effects": [],
+            "buffers": []
+          },
+          "actual": {
+            "value": -2147483648,
+            "exceptionType": null,
+            "output": "",
+            "effects": [],
+            "buffers": []
+          },
+          "match": true
+        },
+        {
+          "case": "negative-result",
+          "arguments": [
+            -1,
+            0
+          ],
+          "expected": {
+            "value": -1,
+            "exceptionType": null,
+            "output": "",
+            "effects": [],
+            "buffers": []
+          },
+          "actual": {
+            "value": -1,
+            "exceptionType": null,
+            "output": "",
+            "effects": [],
+            "buffers": []
+          },
+          "match": true
+        },
+        {
+          "case": "zero-result",
+          "arguments": [
+            -1,
+            1
+          ],
+          "expected": {
+            "value": 0,
+            "exceptionType": null,
+            "output": "",
+            "effects": [],
+            "buffers": []
+          },
+          "actual": {
+            "value": 0,
+            "exceptionType": null,
+            "output": "",
+            "effects": [],
+            "buffers": []
+          },
+          "match": true
+        }
+      ],
+      "error": null,
+      "passed": true
+    },
+    {
+      "fixture": "add-wrapping",
+      "codec": "Packed",
+      "bytes": 18,
+      "nodes": 2,
+      "graphEqual": true,
+      "deterministicBytes": true,
+      "observations": [
+        {
+          "case": "ordinary",
+          "arguments": [
+            0,
+            1
+          ],
+          "expected": {
+            "value": 1,
+            "exceptionType": null,
+            "output": "",
+            "effects": [],
+            "buffers": []
+          },
+          "actual": {
+            "value": 1,
+            "exceptionType": null,
+            "output": "",
+            "effects": [],
+            "buffers": []
+          },
+          "match": true
+        },
+        {
+          "case": "left-intermediate-overflow",
+          "arguments": [
+            2147483647,
+            0
+          ],
+          "expected": {
+            "value": 2147483647,
+            "exceptionType": null,
+            "output": "",
+            "effects": [],
+            "buffers": []
+          },
+          "actual": {
+            "value": 2147483647,
+            "exceptionType": null,
+            "output": "",
+            "effects": [],
+            "buffers": []
+          },
+          "match": true
+        },
+        {
+          "case": "right-intermediate-overflow",
+          "arguments": [
+            0,
+            -2147483648
+          ],
+          "expected": {
+            "value": -2147483648,
+            "exceptionType": null,
+            "output": "",
+            "effects": [],
+            "buffers": []
+          },
+          "actual": {
+            "value": -2147483648,
+            "exceptionType": null,
+            "output": "",
+            "effects": [],
+            "buffers": []
+          },
+          "match": true
+        },
+        {
+          "case": "sum-overflow",
+          "arguments": [
+            2147483647,
+            1
+          ],
+          "expected": {
+            "value": -2147483648,
+            "exceptionType": null,
+            "output": "",
+            "effects": [],
+            "buffers": []
+          },
+          "actual": {
+            "value": -2147483648,
+            "exceptionType": null,
+            "output": "",
+            "effects": [],
+            "buffers": []
+          },
+          "match": true
+        },
+        {
+          "case": "negative-result",
+          "arguments": [
+            -1,
+            0
+          ],
+          "expected": {
+            "value": -1,
+            "exceptionType": null,
+            "output": "",
+            "effects": [],
+            "buffers": []
+          },
+          "actual": {
+            "value": -1,
+            "exceptionType": null,
+            "output": "",
+            "effects": [],
+            "buffers": []
+          },
+          "match": true
+        },
+        {
+          "case": "zero-result",
+          "arguments": [
+            -1,
+            1
+          ],
+          "expected": {
+            "value": 0,
+            "exceptionType": null,
+            "output": "",
+            "effects": [],
+            "buffers": []
+          },
+          "actual": {
+            "value": 0,
+            "exceptionType": null,
+            "output": "",
+            "effects": [],
+            "buffers": []
+          },
+          "match": true
+        }
+      ],
+      "error": null,
+      "passed": true
+    },
+    {
+      "fixture": "add-constrained",
+      "codec": "Baseline",
+      "bytes": 20,
+      "nodes": 2,
+      "graphEqual": true,
+      "deterministicBytes": true,
+      "observations": [
+        {
+          "case": "ordinary",
+          "arguments": [
+            0,
+            1
+          ],
+          "expected": {
+            "value": 1,
+            "exceptionType": null,
+            "output": "",
+            "effects": [],
+            "buffers": []
+          },
+          "actual": {
+            "value": 1,
+            "exceptionType": null,
+            "output": "",
+            "effects": [],
+            "buffers": []
+          },
+          "match": true
+        },
+        {
+          "case": "left-intermediate-overflow",
+          "arguments": [
+            2147483647,
+            0
+          ],
+          "expected": {
+            "value": 2147483647,
+            "exceptionType": null,
+            "output": "",
+            "effects": [],
+            "buffers": []
+          },
+          "actual": {
+            "value": 2147483647,
+            "exceptionType": null,
+            "output": "",
+            "effects": [],
+            "buffers": []
+          },
+          "match": true
+        },
+        {
+          "case": "right-intermediate-overflow",
+          "arguments": [
+            0,
+            -2147483648
+          ],
+          "expected": {
+            "value": null,
+            "exceptionType": "PostconditionViolationException",
+            "output": "",
+            "effects": [],
+            "buffers": []
+          },
+          "actual": {
+            "value": null,
+            "exceptionType": "PostconditionViolationException",
+            "output": "",
+            "effects": [],
+            "buffers": []
+          },
+          "match": true
+        },
+        {
+          "case": "sum-overflow",
+          "arguments": [
+            2147483647,
+            1
+          ],
+          "expected": {
+            "value": null,
+            "exceptionType": "OverflowException",
+            "output": "",
+            "effects": [],
+            "buffers": []
+          },
+          "actual": {
+            "value": null,
+            "exceptionType": "OverflowException",
+            "output": "",
+            "effects": [],
+            "buffers": []
+          },
+          "match": true
+        },
+        {
+          "case": "negative-result",
+          "arguments": [
+            -1,
+            0
+          ],
+          "expected": {
+            "value": null,
+            "exceptionType": "PostconditionViolationException",
+            "output": "",
+            "effects": [],
+            "buffers": []
+          },
+          "actual": {
+            "value": null,
+            "exceptionType": "PostconditionViolationException",
+            "output": "",
+            "effects": [],
+            "buffers": []
+          },
+          "match": true
+        },
+        {
+          "case": "zero-result",
+          "arguments": [
+            -1,
+            1
+          ],
+          "expected": {
+            "value": 0,
+            "exceptionType": null,
+            "output": "",
+            "effects": [],
+            "buffers": []
+          },
+          "actual": {
+            "value": 0,
+            "exceptionType": null,
+            "output": "",
+            "effects": [],
+            "buffers": []
+          },
+          "match": true
+        }
+      ],
+      "error": null,
+      "passed": true
+    },
+    {
+      "fixture": "add-constrained",
+      "codec": "Packed",
+      "bytes": 19,
+      "nodes": 2,
+      "graphEqual": true,
+      "deterministicBytes": true,
+      "observations": [
+        {
+          "case": "ordinary",
+          "arguments": [
+            0,
+            1
+          ],
+          "expected": {
+            "value": 1,
+            "exceptionType": null,
+            "output": "",
+            "effects": [],
+            "buffers": []
+          },
+          "actual": {
+            "value": 1,
+            "exceptionType": null,
+            "output": "",
+            "effects": [],
+            "buffers": []
+          },
+          "match": true
+        },
+        {
+          "case": "left-intermediate-overflow",
+          "arguments": [
+            2147483647,
+            0
+          ],
+          "expected": {
+            "value": 2147483647,
+            "exceptionType": null,
+            "output": "",
+            "effects": [],
+            "buffers": []
+          },
+          "actual": {
+            "value": 2147483647,
+            "exceptionType": null,
+            "output": "",
+            "effects": [],
+            "buffers": []
+          },
+          "match": true
+        },
+        {
+          "case": "right-intermediate-overflow",
+          "arguments": [
+            0,
+            -2147483648
+          ],
+          "expected": {
+            "value": null,
+            "exceptionType": "PostconditionViolationException",
+            "output": "",
+            "effects": [],
+            "buffers": []
+          },
+          "actual": {
+            "value": null,
+            "exceptionType": "PostconditionViolationException",
+            "output": "",
+            "effects": [],
+            "buffers": []
+          },
+          "match": true
+        },
+        {
+          "case": "sum-overflow",
+          "arguments": [
+            2147483647,
+            1
+          ],
+          "expected": {
+            "value": null,
+            "exceptionType": "OverflowException",
+            "output": "",
+            "effects": [],
+            "buffers": []
+          },
+          "actual": {
+            "value": null,
+            "exceptionType": "OverflowException",
+            "output": "",
+            "effects": [],
+            "buffers": []
+          },
+          "match": true
+        },
+        {
+          "case": "negative-result",
+          "arguments": [
+            -1,
+            0
+          ],
+          "expected": {
+            "value": null,
+            "exceptionType": "PostconditionViolationException",
+            "output": "",
+            "effects": [],
+            "buffers": []
+          },
+          "actual": {
+            "value": null,
+            "exceptionType": "PostconditionViolationException",
+            "output": "",
+            "effects": [],
+            "buffers": []
+          },
+          "match": true
+        },
+        {
+          "case": "zero-result",
+          "arguments": [
+            -1,
+            1
+          ],
+          "expected": {
+            "value": 0,
+            "exceptionType": null,
+            "output": "",
+            "effects": [],
+            "buffers": []
+          },
+          "actual": {
+            "value": 0,
+            "exceptionType": null,
+            "output": "",
+            "effects": [],
+            "buffers": []
+          },
+          "match": true
+        }
+      ],
+      "error": null,
+      "passed": true
+    },
+    {
+      "fixture": "hello-world",
+      "codec": "Baseline",
+      "bytes": 31,
+      "nodes": 3,
+      "graphEqual": true,
+      "deterministicBytes": true,
+      "observations": [
+        {
+          "case": "top-level-statement",
+          "arguments": [],
+          "expected": {
+            "value": null,
+            "exceptionType": null,
+            "output": "Hello, World!\r\n",
+            "effects": [
+              {
+                "kind": "stdout-write",
+                "text": "Hello, World!\r\n",
+                "buffer": null,
+                "index": null,
+                "value": null
+              }
+            ],
+            "buffers": []
+          },
+          "actual": {
+            "value": null,
+            "exceptionType": null,
+            "output": "Hello, World!\r\n",
+            "effects": [
+              {
+                "kind": "stdout-write",
+                "text": "Hello, World!\r\n",
+                "buffer": null,
+                "index": null,
+                "value": null
+              }
+            ],
+            "buffers": []
+          },
+          "match": true
+        }
+      ],
+      "error": null,
+      "passed": true
+    },
+    {
+      "fixture": "hello-world",
+      "codec": "Packed",
+      "bytes": 31,
+      "nodes": 3,
+      "graphEqual": true,
+      "deterministicBytes": true,
+      "observations": [
+        {
+          "case": "top-level-statement",
+          "arguments": [],
+          "expected": {
+            "value": null,
+            "exceptionType": null,
+            "output": "Hello, World!\r\n",
+            "effects": [
+              {
+                "kind": "stdout-write",
+                "text": "Hello, World!\r\n",
+                "buffer": null,
+                "index": null,
+                "value": null
+              }
+            ],
+            "buffers": []
+          },
+          "actual": {
+            "value": null,
+            "exceptionType": null,
+            "output": "Hello, World!\r\n",
+            "effects": [
+              {
+                "kind": "stdout-write",
+                "text": "Hello, World!\r\n",
+                "buffer": null,
+                "index": null,
+                "value": null
+              }
+            ],
+            "buffers": []
+          },
+          "match": true
+        }
+      ],
+      "error": null,
+      "passed": true
+    },
+    {
+      "fixture": "buffer-call",
+      "codec": "Baseline",
+      "bytes": 62,
+      "nodes": 8,
+      "graphEqual": true,
+      "deterministicBytes": true,
+      "observations": [
+        {
+          "case": "store-and-load",
+          "arguments": [
+            [
+              10,
+              20,
+              30
+            ],
+            1,
+            1,
+            true,
+            98
+          ],
+          "expected": {
+            "value": 99,
+            "exceptionType": null,
+            "output": "",
+            "effects": [
+              {
+                "kind": "buffer-write",
+                "text": null,
+                "buffer": 0,
+                "index": 1,
+                "value": 99
+              }
+            ],
+            "buffers": [
+              [
+                10,
+                99,
+                30
+              ]
+            ]
+          },
+          "actual": {
+            "value": 99,
+            "exceptionType": null,
+            "output": "",
+            "effects": [
+              {
+                "kind": "buffer-write",
+                "text": null,
+                "buffer": 0,
+                "index": 1,
+                "value": 99
+              }
+            ],
+            "buffers": [
+              [
+                10,
+                99,
+                30
+              ]
+            ]
+          },
+          "match": true
+        },
+        {
+          "case": "skip-invalid-store",
+          "arguments": [
+            [
+              10,
+              20,
+              30
+            ],
+            99,
+            1,
+            false,
+            98
+          ],
+          "expected": {
+            "value": 20,
+            "exceptionType": null,
+            "output": "",
+            "effects": [],
+            "buffers": [
+              [
+                10,
+                20,
+                30
+              ]
+            ]
+          },
+          "actual": {
+            "value": 20,
+            "exceptionType": null,
+            "output": "",
+            "effects": [],
+            "buffers": [
+              [
+                10,
+                20,
+                30
+              ]
+            ]
+          },
+          "match": true
+        },
+        {
+          "case": "load-fails-after-store",
+          "arguments": [
+            [
+              10,
+              20,
+              30
+            ],
+            1,
+            3,
+            true,
+            98
+          ],
+          "expected": {
+            "value": null,
+            "exceptionType": "IndexOutOfRangeException",
+            "output": "",
+            "effects": [
+              {
+                "kind": "buffer-write",
+                "text": null,
+                "buffer": 0,
+                "index": 1,
+                "value": 99
+              }
+            ],
+            "buffers": [
+              [
+                10,
+                99,
+                30
+              ]
+            ]
+          },
+          "actual": {
+            "value": null,
+            "exceptionType": "IndexOutOfRangeException",
+            "output": "",
+            "effects": [
+              {
+                "kind": "buffer-write",
+                "text": null,
+                "buffer": 0,
+                "index": 1,
+                "value": 99
+              }
+            ],
+            "buffers": [
+              [
+                10,
+                99,
+                30
+              ]
+            ]
+          },
+          "match": true
+        },
+        {
+          "case": "store-fails",
+          "arguments": [
+            [
+              10,
+              20,
+              30
+            ],
+            -1,
+            1,
+            true,
+            98
+          ],
+          "expected": {
+            "value": null,
+            "exceptionType": "IndexOutOfRangeException",
+            "output": "",
+            "effects": [],
+            "buffers": [
+              [
+                10,
+                20,
+                30
+              ]
+            ]
+          },
+          "actual": {
+            "value": null,
+            "exceptionType": "IndexOutOfRangeException",
+            "output": "",
+            "effects": [],
+            "buffers": [
+              [
+                10,
+                20,
+                30
+              ]
+            ]
+          },
+          "match": true
+        },
+        {
+          "case": "addition-overflows-before-store",
+          "arguments": [
+            [
+              10,
+              20,
+              30
+            ],
+            1,
+            1,
+            true,
+            2147483647
+          ],
+          "expected": {
+            "value": null,
+            "exceptionType": "OverflowException",
+            "output": "",
+            "effects": [],
+            "buffers": [
+              [
+                10,
+                20,
+                30
+              ]
+            ]
+          },
+          "actual": {
+            "value": null,
+            "exceptionType": "OverflowException",
+            "output": "",
+            "effects": [],
+            "buffers": [
+              [
+                10,
+                20,
+                30
+              ]
+            ]
+          },
+          "match": true
+        },
+        {
+          "case": "load-fails-without-store",
+          "arguments": [
+            [
+              10,
+              20,
+              30
+            ],
+            1,
+            -1,
+            false,
+            98
+          ],
+          "expected": {
+            "value": null,
+            "exceptionType": "IndexOutOfRangeException",
+            "output": "",
+            "effects": [],
+            "buffers": [
+              [
+                10,
+                20,
+                30
+              ]
+            ]
+          },
+          "actual": {
+            "value": null,
+            "exceptionType": "IndexOutOfRangeException",
+            "output": "",
+            "effects": [],
+            "buffers": [
+              [
+                10,
+                20,
+                30
+              ]
+            ]
+          },
+          "match": true
+        }
+      ],
+      "error": null,
+      "passed": true
+    },
+    {
+      "fixture": "buffer-call",
+      "codec": "Packed",
+      "bytes": 61,
+      "nodes": 8,
+      "graphEqual": true,
+      "deterministicBytes": true,
+      "observations": [
+        {
+          "case": "store-and-load",
+          "arguments": [
+            [
+              10,
+              20,
+              30
+            ],
+            1,
+            1,
+            true,
+            98
+          ],
+          "expected": {
+            "value": 99,
+            "exceptionType": null,
+            "output": "",
+            "effects": [
+              {
+                "kind": "buffer-write",
+                "text": null,
+                "buffer": 0,
+                "index": 1,
+                "value": 99
+              }
+            ],
+            "buffers": [
+              [
+                10,
+                99,
+                30
+              ]
+            ]
+          },
+          "actual": {
+            "value": 99,
+            "exceptionType": null,
+            "output": "",
+            "effects": [
+              {
+                "kind": "buffer-write",
+                "text": null,
+                "buffer": 0,
+                "index": 1,
+                "value": 99
+              }
+            ],
+            "buffers": [
+              [
+                10,
+                99,
+                30
+              ]
+            ]
+          },
+          "match": true
+        },
+        {
+          "case": "skip-invalid-store",
+          "arguments": [
+            [
+              10,
+              20,
+              30
+            ],
+            99,
+            1,
+            false,
+            98
+          ],
+          "expected": {
+            "value": 20,
+            "exceptionType": null,
+            "output": "",
+            "effects": [],
+            "buffers": [
+              [
+                10,
+                20,
+                30
+              ]
+            ]
+          },
+          "actual": {
+            "value": 20,
+            "exceptionType": null,
+            "output": "",
+            "effects": [],
+            "buffers": [
+              [
+                10,
+                20,
+                30
+              ]
+            ]
+          },
+          "match": true
+        },
+        {
+          "case": "load-fails-after-store",
+          "arguments": [
+            [
+              10,
+              20,
+              30
+            ],
+            1,
+            3,
+            true,
+            98
+          ],
+          "expected": {
+            "value": null,
+            "exceptionType": "IndexOutOfRangeException",
+            "output": "",
+            "effects": [
+              {
+                "kind": "buffer-write",
+                "text": null,
+                "buffer": 0,
+                "index": 1,
+                "value": 99
+              }
+            ],
+            "buffers": [
+              [
+                10,
+                99,
+                30
+              ]
+            ]
+          },
+          "actual": {
+            "value": null,
+            "exceptionType": "IndexOutOfRangeException",
+            "output": "",
+            "effects": [
+              {
+                "kind": "buffer-write",
+                "text": null,
+                "buffer": 0,
+                "index": 1,
+                "value": 99
+              }
+            ],
+            "buffers": [
+              [
+                10,
+                99,
+                30
+              ]
+            ]
+          },
+          "match": true
+        },
+        {
+          "case": "store-fails",
+          "arguments": [
+            [
+              10,
+              20,
+              30
+            ],
+            -1,
+            1,
+            true,
+            98
+          ],
+          "expected": {
+            "value": null,
+            "exceptionType": "IndexOutOfRangeException",
+            "output": "",
+            "effects": [],
+            "buffers": [
+              [
+                10,
+                20,
+                30
+              ]
+            ]
+          },
+          "actual": {
+            "value": null,
+            "exceptionType": "IndexOutOfRangeException",
+            "output": "",
+            "effects": [],
+            "buffers": [
+              [
+                10,
+                20,
+                30
+              ]
+            ]
+          },
+          "match": true
+        },
+        {
+          "case": "addition-overflows-before-store",
+          "arguments": [
+            [
+              10,
+              20,
+              30
+            ],
+            1,
+            1,
+            true,
+            2147483647
+          ],
+          "expected": {
+            "value": null,
+            "exceptionType": "OverflowException",
+            "output": "",
+            "effects": [],
+            "buffers": [
+              [
+                10,
+                20,
+                30
+              ]
+            ]
+          },
+          "actual": {
+            "value": null,
+            "exceptionType": "OverflowException",
+            "output": "",
+            "effects": [],
+            "buffers": [
+              [
+                10,
+                20,
+                30
+              ]
+            ]
+          },
+          "match": true
+        },
+        {
+          "case": "load-fails-without-store",
+          "arguments": [
+            [
+              10,
+              20,
+              30
+            ],
+            1,
+            -1,
+            false,
+            98
+          ],
+          "expected": {
+            "value": null,
+            "exceptionType": "IndexOutOfRangeException",
+            "output": "",
+            "effects": [],
+            "buffers": [
+              [
+                10,
+                20,
+                30
+              ]
+            ]
+          },
+          "actual": {
+            "value": null,
+            "exceptionType": "IndexOutOfRangeException",
+            "output": "",
+            "effects": [],
+            "buffers": [
+              [
+                10,
+                20,
+                30
+              ]
+            ]
+          },
+          "match": true
+        }
+      ],
+      "error": null,
+      "passed": true
+    },
+    {
+      "fixture": "repeated-addition",
+      "codec": "Baseline",
+      "bytes": 334,
+      "nodes": 65,
+      "graphEqual": true,
+      "deterministicBytes": true,
+      "observations": [
+        {
+          "case": "ordinary",
+          "arguments": [
+            0,
+            1
+          ],
+          "expected": {
+            "value": 64,
+            "exceptionType": null,
+            "output": "",
+            "effects": [],
+            "buffers": []
+          },
+          "actual": {
+            "value": 64,
+            "exceptionType": null,
+            "output": "",
+            "effects": [],
+            "buffers": []
+          },
+          "match": true
+        },
+        {
+          "case": "left-intermediate-overflow",
+          "arguments": [
+            2147483647,
+            0
+          ],
+          "expected": {
+            "value": 2147483647,
+            "exceptionType": null,
+            "output": "",
+            "effects": [],
+            "buffers": []
+          },
+          "actual": {
+            "value": 2147483647,
+            "exceptionType": null,
+            "output": "",
+            "effects": [],
+            "buffers": []
+          },
+          "match": true
+        },
+        {
+          "case": "right-intermediate-overflow",
+          "arguments": [
+            0,
+            -2147483648
+          ],
+          "expected": {
+            "value": 0,
+            "exceptionType": null,
+            "output": "",
+            "effects": [],
+            "buffers": []
+          },
+          "actual": {
+            "value": 0,
+            "exceptionType": null,
+            "output": "",
+            "effects": [],
+            "buffers": []
+          },
+          "match": true
+        },
+        {
+          "case": "sum-overflow",
+          "arguments": [
+            2147483647,
+            1
+          ],
+          "expected": {
+            "value": -2147483585,
+            "exceptionType": null,
+            "output": "",
+            "effects": [],
+            "buffers": []
+          },
+          "actual": {
+            "value": -2147483585,
+            "exceptionType": null,
+            "output": "",
+            "effects": [],
+            "buffers": []
+          },
+          "match": true
+        },
+        {
+          "case": "negative-result",
+          "arguments": [
+            -1,
+            0
+          ],
+          "expected": {
+            "value": -1,
+            "exceptionType": null,
+            "output": "",
+            "effects": [],
+            "buffers": []
+          },
+          "actual": {
+            "value": -1,
+            "exceptionType": null,
+            "output": "",
+            "effects": [],
+            "buffers": []
+          },
+          "match": true
+        },
+        {
+          "case": "zero-result",
+          "arguments": [
+            -1,
+            1
+          ],
+          "expected": {
+            "value": 63,
+            "exceptionType": null,
+            "output": "",
+            "effects": [],
+            "buffers": []
+          },
+          "actual": {
+            "value": 63,
+            "exceptionType": null,
+            "output": "",
+            "effects": [],
+            "buffers": []
+          },
+          "match": true
+        }
+      ],
+      "error": null,
+      "passed": true
+    },
+    {
+      "fixture": "repeated-addition",
+      "codec": "Packed",
+      "bytes": 270,
+      "nodes": 65,
+      "graphEqual": true,
+      "deterministicBytes": true,
+      "observations": [
+        {
+          "case": "ordinary",
+          "arguments": [
+            0,
+            1
+          ],
+          "expected": {
+            "value": 64,
+            "exceptionType": null,
+            "output": "",
+            "effects": [],
+            "buffers": []
+          },
+          "actual": {
+            "value": 64,
+            "exceptionType": null,
+            "output": "",
+            "effects": [],
+            "buffers": []
+          },
+          "match": true
+        },
+        {
+          "case": "left-intermediate-overflow",
+          "arguments": [
+            2147483647,
+            0
+          ],
+          "expected": {
+            "value": 2147483647,
+            "exceptionType": null,
+            "output": "",
+            "effects": [],
+            "buffers": []
+          },
+          "actual": {
+            "value": 2147483647,
+            "exceptionType": null,
+            "output": "",
+            "effects": [],
+            "buffers": []
+          },
+          "match": true
+        },
+        {
+          "case": "right-intermediate-overflow",
+          "arguments": [
+            0,
+            -2147483648
+          ],
+          "expected": {
+            "value": 0,
+            "exceptionType": null,
+            "output": "",
+            "effects": [],
+            "buffers": []
+          },
+          "actual": {
+            "value": 0,
+            "exceptionType": null,
+            "output": "",
+            "effects": [],
+            "buffers": []
+          },
+          "match": true
+        },
+        {
+          "case": "sum-overflow",
+          "arguments": [
+            2147483647,
+            1
+          ],
+          "expected": {
+            "value": -2147483585,
+            "exceptionType": null,
+            "output": "",
+            "effects": [],
+            "buffers": []
+          },
+          "actual": {
+            "value": -2147483585,
+            "exceptionType": null,
+            "output": "",
+            "effects": [],
+            "buffers": []
+          },
+          "match": true
+        },
+        {
+          "case": "negative-result",
+          "arguments": [
+            -1,
+            0
+          ],
+          "expected": {
+            "value": -1,
+            "exceptionType": null,
+            "output": "",
+            "effects": [],
+            "buffers": []
+          },
+          "actual": {
+            "value": -1,
+            "exceptionType": null,
+            "output": "",
+            "effects": [],
+            "buffers": []
+          },
+          "match": true
+        },
+        {
+          "case": "zero-result",
+          "arguments": [
+            -1,
+            1
+          ],
+          "expected": {
+            "value": 63,
+            "exceptionType": null,
+            "output": "",
+            "effects": [],
+            "buffers": []
+          },
+          "actual": {
+            "value": 63,
+            "exceptionType": null,
+            "output": "",
+            "effects": [],
+            "buffers": []
+          },
+          "match": true
+        }
+      ],
+      "error": null,
+      "passed": true
+    }
+  ],
+  "contracts": [
+    {
+      "codec": "Baseline",
+      "plainFieldHex": "00",
+      "plainDecodedContract": "None",
+      "constrainedFieldHex": "0101",
+      "constrainedDecodedContract": "NonNegativeInt32",
+      "otherwiseSameGraph": true,
+      "rejections": [
+        {
+          "case": "unknown discriminator",
+          "hex": "574C420102010101020101020201010001080003",
+          "rejected": true,
+          "error": "Invalid postcondition discriminator or predicate."
+        },
+        {
+          "case": "unknown predicate",
+          "hex": "574C420101FF0101020101020201010001080003",
+          "rejected": true,
+          "error": "Invalid postcondition discriminator or predicate."
+        },
+        {
+          "case": "truncated predicate",
+          "hex": "574C420101",
+          "rejected": true,
+          "error": "Truncated graph encoding."
+        },
+        {
+          "case": "truncated instruction",
+          "hex": "574C4201010101010201010202010100010800",
+          "rejected": true,
+          "error": "Truncated graph encoding."
+        },
+        {
+          "case": "trailing byte",
+          "hex": "574C42010101010102010102020101000108000300",
+          "rejected": true,
+          "error": "Trailing bytes."
+        },
+        {
+          "case": "noncanonical function count",
+          "hex": "574C420100810001020101020201010001080003",
+          "rejected": true,
+          "error": "Out-of-range or noncanonical variable-length integer."
+        },
+        {
+          "case": "wrong operand type",
+          "hex": "574C4201000101020201020201010001080003",
+          "rejected": true,
+          "error": "Operand type does not match its use."
+        },
+        {
+          "case": "wrong codec header",
+          "hex": "574C4201000101020101020201010001080003",
+          "rejected": true,
+          "error": "Invalid codec header."
+        }
+      ],
+      "passed": true,
+      "error": null
+    },
+    {
+      "codec": "Packed",
+      "plainFieldHex": "00",
+      "plainDecodedContract": "None",
+      "constrainedFieldHex": "0101",
+      "constrainedDecodedContract": "NonNegativeInt32",
+      "otherwiseSameGraph": true,
+      "rejections": [
+        {
+          "case": "unknown discriminator",
+          "hex": "574C5001020101010201010202010001080003",
+          "rejected": true,
+          "error": "Invalid postcondition discriminator or predicate."
+        },
+        {
+          "case": "unknown predicate",
+          "hex": "574C500101FF01010201010202010001080003",
+          "rejected": true,
+          "error": "Invalid postcondition discriminator or predicate."
+        },
+        {
+          "case": "truncated predicate",
+          "hex": "574C500101",
+          "rejected": true,
+          "error": "Truncated graph encoding."
+        },
+        {
+          "case": "truncated instruction",
+          "hex": "574C50010101010102010102020100010800",
+          "rejected": true,
+          "error": "Truncated graph encoding."
+        },
+        {
+          "case": "trailing byte",
+          "hex": "574C500101010101020101020201000108000300",
+          "rejected": true,
+          "error": "Trailing bytes."
+        },
+        {
+          "case": "noncanonical function count",
+          "hex": "574C5001008100010201010202010001080003",
+          "rejected": true,
+          "error": "Out-of-range or noncanonical variable-length integer."
+        },
+        {
+          "case": "wrong operand type",
+          "hex": "574C50010001010202010202010001080003",
+          "rejected": true,
+          "error": "Cannot infer a packed addition result."
+        },
+        {
+          "case": "wrong codec header",
+          "hex": "574C50010001010201010202010001080003",
+          "rejected": true,
+          "error": "Invalid codec header."
+        }
+      ],
+      "passed": true,
+      "error": null
+    }
+  ]
+}

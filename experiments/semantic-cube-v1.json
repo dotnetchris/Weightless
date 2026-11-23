@@ -1,0 +1,94 @@
+{
+  "version": 1,
+  "graphs": [
+    {
+      "id": "add.checked.plain",
+      "representation": "Weightless graph v1",
+      "artifact": "0004-TypedContext/evidence-v1/encodings/add-checked.wlb"
+    },
+    {
+      "id": "add.checked.nonnegative",
+      "representation": "Weightless graph v1",
+      "artifact": "0004-TypedContext/evidence-v1/encodings/add-constrained.wlb"
+    },
+    {
+      "id": "add.wrapping.plain",
+      "representation": "Weightless graph v1",
+      "artifact": "0004-TypedContext/evidence-v1/encodings/add-wrapping.wlb"
+    },
+    {
+      "id": "transfer.checked.unguarded",
+      "representation": "C# expression",
+      "expression": "checked((a + k) + (b - k))",
+      "artifact": "0001-Addition/CheckRewrite.cs"
+    },
+    {
+      "id": "transfer.wrapping.unguarded",
+      "representation": "C# expression",
+      "expression": "unchecked((a + k) + (b - k))",
+      "artifact": "0001-Addition/CheckRewrite.cs"
+    },
+    {
+      "id": "transfer.checked.guarded",
+      "representation": "C# expression",
+      "expression": "transfer when both widened intermediates fit in Int32, otherwise use the original",
+      "artifact": "0005-GuardedAddition/CheckGuard.cs"
+    },
+    {
+      "id": "model.checked.add",
+      "representation": "Lean 4 model",
+      "symbol": "checkedInt32 (a + b)",
+      "artifact": "0005-GuardedAddition/CheckedTransfer.lean"
+    },
+    {
+      "id": "model.checked.guarded",
+      "representation": "Lean 4 model",
+      "symbol": "guardedTransfer a b k",
+      "artifact": "0005-GuardedAddition/CheckedTransfer.lean"
+    }
+  ],
+  "relationships": [
+    {
+      "id": "checked-transfer-v1",
+      "kind": "observational equivalence",
+      "graphs": ["add.checked.plain", "transfer.checked.unguarded"],
+      "contract": "For all pure Int32 a, b, k, observe the return value or exception type.",
+      "evidence": ["0001-Addition/checked-transfer-v1.json"],
+      "status": "refuted"
+    },
+    {
+      "id": "wrapping-transfer-v1",
+      "kind": "observational equivalence",
+      "graphs": ["add.wrapping.plain", "transfer.wrapping.unguarded"],
+      "contract": "Pure wrapping Int32 arithmetic, observing the return value on the four recorded inputs.",
+      "evidence": ["0001-Addition/checked-transfer-v1.json"],
+      "status": "tested"
+    },
+    {
+      "id": "nonnegative-add-distinction-v1",
+      "kind": "observational distinction",
+      "graphs": ["add.checked.plain", "add.checked.nonnegative"],
+      "contract": "For input (-1, 0), the unrestricted graph returns -1 and the mandatory result predicate causes a postcondition violation.",
+      "evidence": ["0004-TypedContext/evidence-v1/verification.json"],
+      "status": "tested"
+    },
+    {
+      "id": "guarded-checked-transfer-csharp-v1",
+      "kind": "observational equivalence",
+      "parent": "checked-transfer-v1",
+      "graphs": ["add.checked.plain", "transfer.checked.guarded"],
+      "contract": "Pure Int32 operands, a widened fit check for each intermediate, and the return value or exception type as the observation.",
+      "evidence": ["0005-GuardedAddition/guard-v1.json"],
+      "status": "tested"
+    },
+    {
+      "id": "guarded-checked-transfer-model-v1",
+      "kind": "observational equivalence",
+      "parent": "guarded-checked-transfer-csharp-v1",
+      "graphs": ["model.checked.add", "model.checked.guarded"],
+      "contract": "The model uses unbounded guard arithmetic and an Int32 range check on every operation. It observes Option Int, using none for overflow.",
+      "evidence": ["0005-GuardedAddition/CheckedTransfer.lean", "0005-GuardedAddition/lean-check.txt"],
+      "status": "proved"
+    }
+  ]
+}

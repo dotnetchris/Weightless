@@ -1,0 +1,2665 @@
+{
+  "metadata": {
+    "baseRevision": "1552d9d541fcd1e0c6c4fec5ce16c44ded17a286",
+    "dirtyWorktree": true,
+    "sourceSha256": "1CC959C28A65E72C8E3CEF9DBB2CC70C7CF839292D1E025F6BD36827E439434C",
+    "sdk": "10.0.401",
+    "runtime": ".NET 10.0.12",
+    "os": "Microsoft Windows 10.0.26200",
+    "cpu": "Intel(R) Core(TM) 5 210H",
+    "logicalProcessors": 12,
+    "architecture": "X64",
+    "serverGc": false,
+    "tieredCompilationOverride": null,
+    "tieredPgoOverride": null,
+    "build": "Release",
+    "encoderProcessId": 24108,
+    "seed": 20261123,
+    "warmupPerRow": 3000,
+    "batches": 9,
+    "iterationsPerBatch": 2000,
+    "stopwatchHz": 10000000
+  },
+  "rows": [
+    {
+      "fixture": "add-checked",
+      "codec": "Baseline",
+      "stage": "Encode",
+      "medianNs": 155.1,
+      "minNs": 111.1,
+      "maxNs": 826.2,
+      "samples": [
+        {
+          "elapsedTicks": 16524,
+          "nanosecondsPerOperation": 826.2,
+          "checksum": -2007438063
+        },
+        {
+          "elapsedTicks": 4537,
+          "nanosecondsPerOperation": 226.85,
+          "checksum": -2007438063
+        },
+        {
+          "elapsedTicks": 2222,
+          "nanosecondsPerOperation": 111.1,
+          "checksum": -2007438063
+        },
+        {
+          "elapsedTicks": 5705,
+          "nanosecondsPerOperation": 285.25,
+          "checksum": -2007438063
+        },
+        {
+          "elapsedTicks": 2386,
+          "nanosecondsPerOperation": 119.3,
+          "checksum": -2007438063
+        },
+        {
+          "elapsedTicks": 4732,
+          "nanosecondsPerOperation": 236.6,
+          "checksum": -2007438063
+        },
+        {
+          "elapsedTicks": 3102,
+          "nanosecondsPerOperation": 155.1,
+          "checksum": -2007438063
+        },
+        {
+          "elapsedTicks": 2729,
+          "nanosecondsPerOperation": 136.45,
+          "checksum": -2007438063
+        },
+        {
+          "elapsedTicks": 2860,
+          "nanosecondsPerOperation": 143,
+          "checksum": -2007438063
+        }
+      ]
+    },
+    {
+      "fixture": "add-checked",
+      "codec": "Baseline",
+      "stage": "Decode \u002B validate",
+      "medianNs": 298.4,
+      "minNs": 175.25,
+      "maxNs": 1119.05,
+      "samples": [
+        {
+          "elapsedTicks": 22381,
+          "nanosecondsPerOperation": 1119.05,
+          "checksum": -1707474927
+        },
+        {
+          "elapsedTicks": 15160,
+          "nanosecondsPerOperation": 758,
+          "checksum": -1707474927
+        },
+        {
+          "elapsedTicks": 7411,
+          "nanosecondsPerOperation": 370.55,
+          "checksum": -1707474927
+        },
+        {
+          "elapsedTicks": 3505,
+          "nanosecondsPerOperation": 175.25,
+          "checksum": -1707474927
+        },
+        {
+          "elapsedTicks": 5968,
+          "nanosecondsPerOperation": 298.4,
+          "checksum": -1707474927
+        },
+        {
+          "elapsedTicks": 3777,
+          "nanosecondsPerOperation": 188.85,
+          "checksum": -1707474927
+        },
+        {
+          "elapsedTicks": 4983,
+          "nanosecondsPerOperation": 249.15,
+          "checksum": -1707474927
+        },
+        {
+          "elapsedTicks": 6868,
+          "nanosecondsPerOperation": 343.4,
+          "checksum": -1707474927
+        },
+        {
+          "elapsedTicks": 3954,
+          "nanosecondsPerOperation": 197.7,
+          "checksum": -1707474927
+        }
+      ]
+    },
+    {
+      "fixture": "add-checked",
+      "codec": "Baseline",
+      "stage": "Execute",
+      "medianNs": 535.65,
+      "minNs": 481.35,
+      "maxNs": 932.15,
+      "samples": [
+        {
+          "elapsedTicks": 18643,
+          "nanosecondsPerOperation": 932.15,
+          "checksum": -1355133299
+        },
+        {
+          "elapsedTicks": 9863,
+          "nanosecondsPerOperation": 493.15,
+          "checksum": -1355133299
+        },
+        {
+          "elapsedTicks": 10713,
+          "nanosecondsPerOperation": 535.65,
+          "checksum": -1355133299
+        },
+        {
+          "elapsedTicks": 11845,
+          "nanosecondsPerOperation": 592.25,
+          "checksum": -1355133299
+        },
+        {
+          "elapsedTicks": 9627,
+          "nanosecondsPerOperation": 481.35,
+          "checksum": -1355133299
+        },
+        {
+          "elapsedTicks": 13367,
+          "nanosecondsPerOperation": 668.35,
+          "checksum": -1355133299
+        },
+        {
+          "elapsedTicks": 10083,
+          "nanosecondsPerOperation": 504.15,
+          "checksum": -1355133299
+        },
+        {
+          "elapsedTicks": 10562,
+          "nanosecondsPerOperation": 528.1,
+          "checksum": -1355133299
+        },
+        {
+          "elapsedTicks": 12466,
+          "nanosecondsPerOperation": 623.3,
+          "checksum": -1355133299
+        }
+      ]
+    },
+    {
+      "fixture": "add-checked",
+      "codec": "Baseline",
+      "stage": "Decode \u002B execute",
+      "medianNs": 834.4,
+      "minNs": 697.1,
+      "maxNs": 2159.25,
+      "samples": [
+        {
+          "elapsedTicks": 43185,
+          "nanosecondsPerOperation": 2159.25,
+          "checksum": -1355133299
+        },
+        {
+          "elapsedTicks": 41851,
+          "nanosecondsPerOperation": 2092.55,
+          "checksum": -1355133299
+        },
+        {
+          "elapsedTicks": 15163,
+          "nanosecondsPerOperation": 758.15,
+          "checksum": -1355133299
+        },
+        {
+          "elapsedTicks": 13942,
+          "nanosecondsPerOperation": 697.1,
+          "checksum": -1355133299
+        },
+        {
+          "elapsedTicks": 14242,
+          "nanosecondsPerOperation": 712.1,
+          "checksum": -1355133299
+        },
+        {
+          "elapsedTicks": 17346,
+          "nanosecondsPerOperation": 867.3,
+          "checksum": -1355133299
+        },
+        {
+          "elapsedTicks": 16688,
+          "nanosecondsPerOperation": 834.4,
+          "checksum": -1355133299
+        },
+        {
+          "elapsedTicks": 18031,
+          "nanosecondsPerOperation": 901.55,
+          "checksum": -1355133299
+        },
+        {
+          "elapsedTicks": 14853,
+          "nanosecondsPerOperation": 742.65,
+          "checksum": -1355133299
+        }
+      ]
+    },
+    {
+      "fixture": "add-checked",
+      "codec": "Packed",
+      "stage": "Encode",
+      "medianNs": 146.5,
+      "minNs": 134.1,
+      "maxNs": 770.2,
+      "samples": [
+        {
+          "elapsedTicks": 15404,
+          "nanosecondsPerOperation": 770.2,
+          "checksum": 789303313
+        },
+        {
+          "elapsedTicks": 5608,
+          "nanosecondsPerOperation": 280.4,
+          "checksum": 789303313
+        },
+        {
+          "elapsedTicks": 5505,
+          "nanosecondsPerOperation": 275.25,
+          "checksum": 789303313
+        },
+        {
+          "elapsedTicks": 2682,
+          "nanosecondsPerOperation": 134.1,
+          "checksum": 789303313
+        },
+        {
+          "elapsedTicks": 2930,
+          "nanosecondsPerOperation": 146.5,
+          "checksum": 789303313
+        },
+        {
+          "elapsedTicks": 2844,
+          "nanosecondsPerOperation": 142.2,
+          "checksum": 789303313
+        },
+        {
+          "elapsedTicks": 2899,
+          "nanosecondsPerOperation": 144.95,
+          "checksum": 789303313
+        },
+        {
+          "elapsedTicks": 5289,
+          "nanosecondsPerOperation": 264.45,
+          "checksum": 789303313
+        },
+        {
+          "elapsedTicks": 2888,
+          "nanosecondsPerOperation": 144.4,
+          "checksum": 789303313
+        }
+      ]
+    },
+    {
+      "fixture": "add-checked",
+      "codec": "Packed",
+      "stage": "Decode \u002B validate",
+      "medianNs": 336.35,
+      "minNs": 171.8,
+      "maxNs": 1022.55,
+      "samples": [
+        {
+          "elapsedTicks": 20451,
+          "nanosecondsPerOperation": 1022.55,
+          "checksum": -1707474927
+        },
+        {
+          "elapsedTicks": 16211,
+          "nanosecondsPerOperation": 810.55,
+          "checksum": -1707474927
+        },
+        {
+          "elapsedTicks": 7770,
+          "nanosecondsPerOperation": 388.5,
+          "checksum": -1707474927
+        },
+        {
+          "elapsedTicks": 4239,
+          "nanosecondsPerOperation": 211.95,
+          "checksum": -1707474927
+        },
+        {
+          "elapsedTicks": 3923,
+          "nanosecondsPerOperation": 196.15,
+          "checksum": -1707474927
+        },
+        {
+          "elapsedTicks": 3643,
+          "nanosecondsPerOperation": 182.15,
+          "checksum": -1707474927
+        },
+        {
+          "elapsedTicks": 6727,
+          "nanosecondsPerOperation": 336.35,
+          "checksum": -1707474927
+        },
+        {
+          "elapsedTicks": 3436,
+          "nanosecondsPerOperation": 171.8,
+          "checksum": -1707474927
+        },
+        {
+          "elapsedTicks": 7229,
+          "nanosecondsPerOperation": 361.45,
+          "checksum": -1707474927
+        }
+      ]
+    },
+    {
+      "fixture": "add-checked",
+      "codec": "Packed",
+      "stage": "Execute",
+      "medianNs": 590.95,
+      "minNs": 466.45,
+      "maxNs": 1278.2,
+      "samples": [
+        {
+          "elapsedTicks": 23507,
+          "nanosecondsPerOperation": 1175.35,
+          "checksum": -1355133299
+        },
+        {
+          "elapsedTicks": 25564,
+          "nanosecondsPerOperation": 1278.2,
+          "checksum": -1355133299
+        },
+        {
+          "elapsedTicks": 11840,
+          "nanosecondsPerOperation": 592,
+          "checksum": -1355133299
+        },
+        {
+          "elapsedTicks": 9672,
+          "nanosecondsPerOperation": 483.6,
+          "checksum": -1355133299
+        },
+        {
+          "elapsedTicks": 11425,
+          "nanosecondsPerOperation": 571.25,
+          "checksum": -1355133299
+        },
+        {
+          "elapsedTicks": 11819,
+          "nanosecondsPerOperation": 590.95,
+          "checksum": -1355133299
+        },
+        {
+          "elapsedTicks": 12506,
+          "nanosecondsPerOperation": 625.3,
+          "checksum": -1355133299
+        },
+        {
+          "elapsedTicks": 10072,
+          "nanosecondsPerOperation": 503.6,
+          "checksum": -1355133299
+        },
+        {
+          "elapsedTicks": 9329,
+          "nanosecondsPerOperation": 466.45,
+          "checksum": -1355133299
+        }
+      ]
+    },
+    {
+      "fixture": "add-checked",
+      "codec": "Packed",
+      "stage": "Decode \u002B execute",
+      "medianNs": 872.5,
+      "minNs": 711.05,
+      "maxNs": 2095.15,
+      "samples": [
+        {
+          "elapsedTicks": 41903,
+          "nanosecondsPerOperation": 2095.15,
+          "checksum": -1355133299
+        },
+        {
+          "elapsedTicks": 17217,
+          "nanosecondsPerOperation": 860.85,
+          "checksum": -1355133299
+        },
+        {
+          "elapsedTicks": 25297,
+          "nanosecondsPerOperation": 1264.85,
+          "checksum": -1355133299
+        },
+        {
+          "elapsedTicks": 15894,
+          "nanosecondsPerOperation": 794.7,
+          "checksum": -1355133299
+        },
+        {
+          "elapsedTicks": 14221,
+          "nanosecondsPerOperation": 711.05,
+          "checksum": -1355133299
+        },
+        {
+          "elapsedTicks": 14707,
+          "nanosecondsPerOperation": 735.35,
+          "checksum": -1355133299
+        },
+        {
+          "elapsedTicks": 21862,
+          "nanosecondsPerOperation": 1093.1,
+          "checksum": -1355133299
+        },
+        {
+          "elapsedTicks": 24670,
+          "nanosecondsPerOperation": 1233.5,
+          "checksum": -1355133299
+        },
+        {
+          "elapsedTicks": 17450,
+          "nanosecondsPerOperation": 872.5,
+          "checksum": -1355133299
+        }
+      ]
+    },
+    {
+      "fixture": "add-wrapping",
+      "codec": "Baseline",
+      "stage": "Encode",
+      "medianNs": 255.85,
+      "minNs": 137.7,
+      "maxNs": 758.15,
+      "samples": [
+        {
+          "elapsedTicks": 15163,
+          "nanosecondsPerOperation": 758.15,
+          "checksum": -2007438063
+        },
+        {
+          "elapsedTicks": 2848,
+          "nanosecondsPerOperation": 142.4,
+          "checksum": -2007438063
+        },
+        {
+          "elapsedTicks": 8910,
+          "nanosecondsPerOperation": 445.5,
+          "checksum": -2007438063
+        },
+        {
+          "elapsedTicks": 5117,
+          "nanosecondsPerOperation": 255.85,
+          "checksum": -2007438063
+        },
+        {
+          "elapsedTicks": 2754,
+          "nanosecondsPerOperation": 137.7,
+          "checksum": -2007438063
+        },
+        {
+          "elapsedTicks": 2869,
+          "nanosecondsPerOperation": 143.45,
+          "checksum": -2007438063
+        },
+        {
+          "elapsedTicks": 3167,
+          "nanosecondsPerOperation": 158.35,
+          "checksum": -2007438063
+        },
+        {
+          "elapsedTicks": 5117,
+          "nanosecondsPerOperation": 255.85,
+          "checksum": -2007438063
+        },
+        {
+          "elapsedTicks": 6412,
+          "nanosecondsPerOperation": 320.6,
+          "checksum": -2007438063
+        }
+      ]
+    },
+    {
+      "fixture": "add-wrapping",
+      "codec": "Baseline",
+      "stage": "Decode \u002B validate",
+      "medianNs": 208.35,
+      "minNs": 170.6,
+      "maxNs": 696.35,
+      "samples": [
+        {
+          "elapsedTicks": 13927,
+          "nanosecondsPerOperation": 696.35,
+          "checksum": -1707474927
+        },
+        {
+          "elapsedTicks": 11626,
+          "nanosecondsPerOperation": 581.3,
+          "checksum": -1707474927
+        },
+        {
+          "elapsedTicks": 6145,
+          "nanosecondsPerOperation": 307.25,
+          "checksum": -1707474927
+        },
+        {
+          "elapsedTicks": 3412,
+          "nanosecondsPerOperation": 170.6,
+          "checksum": -1707474927
+        },
+        {
+          "elapsedTicks": 8896,
+          "nanosecondsPerOperation": 444.8,
+          "checksum": -1707474927
+        },
+        {
+          "elapsedTicks": 4071,
+          "nanosecondsPerOperation": 203.55,
+          "checksum": -1707474927
+        },
+        {
+          "elapsedTicks": 4167,
+          "nanosecondsPerOperation": 208.35,
+          "checksum": -1707474927
+        },
+        {
+          "elapsedTicks": 4075,
+          "nanosecondsPerOperation": 203.75,
+          "checksum": -1707474927
+        },
+        {
+          "elapsedTicks": 3517,
+          "nanosecondsPerOperation": 175.85,
+          "checksum": -1707474927
+        }
+      ]
+    },
+    {
+      "fixture": "add-wrapping",
+      "codec": "Baseline",
+      "stage": "Execute",
+      "medianNs": 189,
+      "minNs": 121.1,
+      "maxNs": 999.15,
+      "samples": [
+        {
+          "elapsedTicks": 19983,
+          "nanosecondsPerOperation": 999.15,
+          "checksum": -1064145469
+        },
+        {
+          "elapsedTicks": 4841,
+          "nanosecondsPerOperation": 242.05,
+          "checksum": -1064145469
+        },
+        {
+          "elapsedTicks": 3780,
+          "nanosecondsPerOperation": 189,
+          "checksum": -1064145469
+        },
+        {
+          "elapsedTicks": 2422,
+          "nanosecondsPerOperation": 121.1,
+          "checksum": -1064145469
+        },
+        {
+          "elapsedTicks": 3277,
+          "nanosecondsPerOperation": 163.85,
+          "checksum": -1064145469
+        },
+        {
+          "elapsedTicks": 3430,
+          "nanosecondsPerOperation": 171.5,
+          "checksum": -1064145469
+        },
+        {
+          "elapsedTicks": 3035,
+          "nanosecondsPerOperation": 151.75,
+          "checksum": -1064145469
+        },
+        {
+          "elapsedTicks": 5493,
+          "nanosecondsPerOperation": 274.65,
+          "checksum": -1064145469
+        },
+        {
+          "elapsedTicks": 5385,
+          "nanosecondsPerOperation": 269.25,
+          "checksum": -1064145469
+        }
+      ]
+    },
+    {
+      "fixture": "add-wrapping",
+      "codec": "Baseline",
+      "stage": "Decode \u002B execute",
+      "medianNs": 414,
+      "minNs": 339.1,
+      "maxNs": 2072.6,
+      "samples": [
+        {
+          "elapsedTicks": 41452,
+          "nanosecondsPerOperation": 2072.6,
+          "checksum": -1064145469
+        },
+        {
+          "elapsedTicks": 14331,
+          "nanosecondsPerOperation": 716.55,
+          "checksum": -1064145469
+        },
+        {
+          "elapsedTicks": 6782,
+          "nanosecondsPerOperation": 339.1,
+          "checksum": -1064145469
+        },
+        {
+          "elapsedTicks": 8400,
+          "nanosecondsPerOperation": 420,
+          "checksum": -1064145469
+        },
+        {
+          "elapsedTicks": 7429,
+          "nanosecondsPerOperation": 371.45,
+          "checksum": -1064145469
+        },
+        {
+          "elapsedTicks": 8034,
+          "nanosecondsPerOperation": 401.7,
+          "checksum": -1064145469
+        },
+        {
+          "elapsedTicks": 8280,
+          "nanosecondsPerOperation": 414,
+          "checksum": -1064145469
+        },
+        {
+          "elapsedTicks": 7405,
+          "nanosecondsPerOperation": 370.25,
+          "checksum": -1064145469
+        },
+        {
+          "elapsedTicks": 9702,
+          "nanosecondsPerOperation": 485.1,
+          "checksum": -1064145469
+        }
+      ]
+    },
+    {
+      "fixture": "add-wrapping",
+      "codec": "Packed",
+      "stage": "Encode",
+      "medianNs": 142.25,
+      "minNs": 124.45,
+      "maxNs": 465.05,
+      "samples": [
+        {
+          "elapsedTicks": 5412,
+          "nanosecondsPerOperation": 270.6,
+          "checksum": 789303313
+        },
+        {
+          "elapsedTicks": 2845,
+          "nanosecondsPerOperation": 142.25,
+          "checksum": 789303313
+        },
+        {
+          "elapsedTicks": 2673,
+          "nanosecondsPerOperation": 133.65,
+          "checksum": 789303313
+        },
+        {
+          "elapsedTicks": 2939,
+          "nanosecondsPerOperation": 146.95,
+          "checksum": 789303313
+        },
+        {
+          "elapsedTicks": 2614,
+          "nanosecondsPerOperation": 130.7,
+          "checksum": 789303313
+        },
+        {
+          "elapsedTicks": 4902,
+          "nanosecondsPerOperation": 245.1,
+          "checksum": 789303313
+        },
+        {
+          "elapsedTicks": 2782,
+          "nanosecondsPerOperation": 139.1,
+          "checksum": 789303313
+        },
+        {
+          "elapsedTicks": 9301,
+          "nanosecondsPerOperation": 465.05,
+          "checksum": 789303313
+        },
+        {
+          "elapsedTicks": 2489,
+          "nanosecondsPerOperation": 124.45,
+          "checksum": 789303313
+        }
+      ]
+    },
+    {
+      "fixture": "add-wrapping",
+      "codec": "Packed",
+      "stage": "Decode \u002B validate",
+      "medianNs": 218.2,
+      "minNs": 194.7,
+      "maxNs": 1254.05,
+      "samples": [
+        {
+          "elapsedTicks": 25081,
+          "nanosecondsPerOperation": 1254.05,
+          "checksum": -1707474927
+        },
+        {
+          "elapsedTicks": 4364,
+          "nanosecondsPerOperation": 218.2,
+          "checksum": -1707474927
+        },
+        {
+          "elapsedTicks": 4109,
+          "nanosecondsPerOperation": 205.45,
+          "checksum": -1707474927
+        },
+        {
+          "elapsedTicks": 3894,
+          "nanosecondsPerOperation": 194.7,
+          "checksum": -1707474927
+        },
+        {
+          "elapsedTicks": 5851,
+          "nanosecondsPerOperation": 292.55,
+          "checksum": -1707474927
+        },
+        {
+          "elapsedTicks": 4328,
+          "nanosecondsPerOperation": 216.4,
+          "checksum": -1707474927
+        },
+        {
+          "elapsedTicks": 4143,
+          "nanosecondsPerOperation": 207.15,
+          "checksum": -1707474927
+        },
+        {
+          "elapsedTicks": 6666,
+          "nanosecondsPerOperation": 333.3,
+          "checksum": -1707474927
+        },
+        {
+          "elapsedTicks": 5351,
+          "nanosecondsPerOperation": 267.55,
+          "checksum": -1707474927
+        }
+      ]
+    },
+    {
+      "fixture": "add-wrapping",
+      "codec": "Packed",
+      "stage": "Execute",
+      "medianNs": 154,
+      "minNs": 114,
+      "maxNs": 887.3,
+      "samples": [
+        {
+          "elapsedTicks": 17746,
+          "nanosecondsPerOperation": 887.3,
+          "checksum": -1064145469
+        },
+        {
+          "elapsedTicks": 5416,
+          "nanosecondsPerOperation": 270.8,
+          "checksum": -1064145469
+        },
+        {
+          "elapsedTicks": 6013,
+          "nanosecondsPerOperation": 300.65,
+          "checksum": -1064145469
+        },
+        {
+          "elapsedTicks": 2925,
+          "nanosecondsPerOperation": 146.25,
+          "checksum": -1064145469
+        },
+        {
+          "elapsedTicks": 4731,
+          "nanosecondsPerOperation": 236.55,
+          "checksum": -1064145469
+        },
+        {
+          "elapsedTicks": 2764,
+          "nanosecondsPerOperation": 138.2,
+          "checksum": -1064145469
+        },
+        {
+          "elapsedTicks": 2280,
+          "nanosecondsPerOperation": 114,
+          "checksum": -1064145469
+        },
+        {
+          "elapsedTicks": 2587,
+          "nanosecondsPerOperation": 129.35,
+          "checksum": -1064145469
+        },
+        {
+          "elapsedTicks": 3080,
+          "nanosecondsPerOperation": 154,
+          "checksum": -1064145469
+        }
+      ]
+    },
+    {
+      "fixture": "add-wrapping",
+      "codec": "Packed",
+      "stage": "Decode \u002B execute",
+      "medianNs": 422.1,
+      "minNs": 332.3,
+      "maxNs": 1698.85,
+      "samples": [
+        {
+          "elapsedTicks": 33977,
+          "nanosecondsPerOperation": 1698.85,
+          "checksum": -1064145469
+        },
+        {
+          "elapsedTicks": 10139,
+          "nanosecondsPerOperation": 506.95,
+          "checksum": -1064145469
+        },
+        {
+          "elapsedTicks": 6887,
+          "nanosecondsPerOperation": 344.35,
+          "checksum": -1064145469
+        },
+        {
+          "elapsedTicks": 8626,
+          "nanosecondsPerOperation": 431.3,
+          "checksum": -1064145469
+        },
+        {
+          "elapsedTicks": 7111,
+          "nanosecondsPerOperation": 355.55,
+          "checksum": -1064145469
+        },
+        {
+          "elapsedTicks": 8442,
+          "nanosecondsPerOperation": 422.1,
+          "checksum": -1064145469
+        },
+        {
+          "elapsedTicks": 9691,
+          "nanosecondsPerOperation": 484.55,
+          "checksum": -1064145469
+        },
+        {
+          "elapsedTicks": 7595,
+          "nanosecondsPerOperation": 379.75,
+          "checksum": -1064145469
+        },
+        {
+          "elapsedTicks": 6646,
+          "nanosecondsPerOperation": 332.3,
+          "checksum": -1064145469
+        }
+      ]
+    },
+    {
+      "fixture": "add-constrained",
+      "codec": "Baseline",
+      "stage": "Encode",
+      "medianNs": 135.6,
+      "minNs": 112.25,
+      "maxNs": 1383.05,
+      "samples": [
+        {
+          "elapsedTicks": 27661,
+          "nanosecondsPerOperation": 1383.05,
+          "checksum": -509212143
+        },
+        {
+          "elapsedTicks": 5736,
+          "nanosecondsPerOperation": 286.8,
+          "checksum": -509212143
+        },
+        {
+          "elapsedTicks": 3108,
+          "nanosecondsPerOperation": 155.4,
+          "checksum": -509212143
+        },
+        {
+          "elapsedTicks": 2331,
+          "nanosecondsPerOperation": 116.55,
+          "checksum": -509212143
+        },
+        {
+          "elapsedTicks": 2911,
+          "nanosecondsPerOperation": 145.55,
+          "checksum": -509212143
+        },
+        {
+          "elapsedTicks": 2712,
+          "nanosecondsPerOperation": 135.6,
+          "checksum": -509212143
+        },
+        {
+          "elapsedTicks": 2409,
+          "nanosecondsPerOperation": 120.45,
+          "checksum": -509212143
+        },
+        {
+          "elapsedTicks": 2625,
+          "nanosecondsPerOperation": 131.25,
+          "checksum": -509212143
+        },
+        {
+          "elapsedTicks": 2245,
+          "nanosecondsPerOperation": 112.25,
+          "checksum": -509212143
+        }
+      ]
+    },
+    {
+      "fixture": "add-constrained",
+      "codec": "Baseline",
+      "stage": "Decode \u002B validate",
+      "medianNs": 209.05,
+      "minNs": 183.65,
+      "maxNs": 1211.1,
+      "samples": [
+        {
+          "elapsedTicks": 24222,
+          "nanosecondsPerOperation": 1211.1,
+          "checksum": -1707474927
+        },
+        {
+          "elapsedTicks": 3996,
+          "nanosecondsPerOperation": 199.8,
+          "checksum": -1707474927
+        },
+        {
+          "elapsedTicks": 4181,
+          "nanosecondsPerOperation": 209.05,
+          "checksum": -1707474927
+        },
+        {
+          "elapsedTicks": 3964,
+          "nanosecondsPerOperation": 198.2,
+          "checksum": -1707474927
+        },
+        {
+          "elapsedTicks": 3673,
+          "nanosecondsPerOperation": 183.65,
+          "checksum": -1707474927
+        },
+        {
+          "elapsedTicks": 7323,
+          "nanosecondsPerOperation": 366.15,
+          "checksum": -1707474927
+        },
+        {
+          "elapsedTicks": 3696,
+          "nanosecondsPerOperation": 184.8,
+          "checksum": -1707474927
+        },
+        {
+          "elapsedTicks": 6306,
+          "nanosecondsPerOperation": 315.3,
+          "checksum": -1707474927
+        },
+        {
+          "elapsedTicks": 4234,
+          "nanosecondsPerOperation": 211.7,
+          "checksum": -1707474927
+        }
+      ]
+    },
+    {
+      "fixture": "add-constrained",
+      "codec": "Baseline",
+      "stage": "Execute",
+      "medianNs": 874.05,
+      "minNs": 829.25,
+      "maxNs": 2285.8,
+      "samples": [
+        {
+          "elapsedTicks": 28040,
+          "nanosecondsPerOperation": 1402,
+          "checksum": 293440729
+        },
+        {
+          "elapsedTicks": 45716,
+          "nanosecondsPerOperation": 2285.8,
+          "checksum": 293440729
+        },
+        {
+          "elapsedTicks": 17545,
+          "nanosecondsPerOperation": 877.25,
+          "checksum": 293440729
+        },
+        {
+          "elapsedTicks": 17616,
+          "nanosecondsPerOperation": 880.8,
+          "checksum": 293440729
+        },
+        {
+          "elapsedTicks": 16957,
+          "nanosecondsPerOperation": 847.85,
+          "checksum": 293440729
+        },
+        {
+          "elapsedTicks": 17002,
+          "nanosecondsPerOperation": 850.1,
+          "checksum": 293440729
+        },
+        {
+          "elapsedTicks": 16585,
+          "nanosecondsPerOperation": 829.25,
+          "checksum": 293440729
+        },
+        {
+          "elapsedTicks": 17298,
+          "nanosecondsPerOperation": 864.9,
+          "checksum": 293440729
+        },
+        {
+          "elapsedTicks": 17481,
+          "nanosecondsPerOperation": 874.05,
+          "checksum": 293440729
+        }
+      ]
+    },
+    {
+      "fixture": "add-constrained",
+      "codec": "Baseline",
+      "stage": "Decode \u002B execute",
+      "medianNs": 1294.3,
+      "minNs": 1143.45,
+      "maxNs": 2778.9,
+      "samples": [
+        {
+          "elapsedTicks": 55578,
+          "nanosecondsPerOperation": 2778.9,
+          "checksum": 293440729
+        },
+        {
+          "elapsedTicks": 45830,
+          "nanosecondsPerOperation": 2291.5,
+          "checksum": 293440729
+        },
+        {
+          "elapsedTicks": 41531,
+          "nanosecondsPerOperation": 2076.55,
+          "checksum": 293440729
+        },
+        {
+          "elapsedTicks": 23412,
+          "nanosecondsPerOperation": 1170.6,
+          "checksum": 293440729
+        },
+        {
+          "elapsedTicks": 25799,
+          "nanosecondsPerOperation": 1289.95,
+          "checksum": 293440729
+        },
+        {
+          "elapsedTicks": 22975,
+          "nanosecondsPerOperation": 1148.75,
+          "checksum": 293440729
+        },
+        {
+          "elapsedTicks": 27089,
+          "nanosecondsPerOperation": 1354.45,
+          "checksum": 293440729
+        },
+        {
+          "elapsedTicks": 25886,
+          "nanosecondsPerOperation": 1294.3,
+          "checksum": 293440729
+        },
+        {
+          "elapsedTicks": 22869,
+          "nanosecondsPerOperation": 1143.45,
+          "checksum": 293440729
+        }
+      ]
+    },
+    {
+      "fixture": "add-constrained",
+      "codec": "Packed",
+      "stage": "Encode",
+      "medianNs": 148,
+      "minNs": 124.75,
+      "maxNs": 767.45,
+      "samples": [
+        {
+          "elapsedTicks": 15349,
+          "nanosecondsPerOperation": 767.45,
+          "checksum": -2007438063
+        },
+        {
+          "elapsedTicks": 5563,
+          "nanosecondsPerOperation": 278.15,
+          "checksum": -2007438063
+        },
+        {
+          "elapsedTicks": 5843,
+          "nanosecondsPerOperation": 292.15,
+          "checksum": -2007438063
+        },
+        {
+          "elapsedTicks": 2495,
+          "nanosecondsPerOperation": 124.75,
+          "checksum": -2007438063
+        },
+        {
+          "elapsedTicks": 7244,
+          "nanosecondsPerOperation": 362.2,
+          "checksum": -2007438063
+        },
+        {
+          "elapsedTicks": 2807,
+          "nanosecondsPerOperation": 140.35,
+          "checksum": -2007438063
+        },
+        {
+          "elapsedTicks": 2593,
+          "nanosecondsPerOperation": 129.65,
+          "checksum": -2007438063
+        },
+        {
+          "elapsedTicks": 2960,
+          "nanosecondsPerOperation": 148,
+          "checksum": -2007438063
+        },
+        {
+          "elapsedTicks": 2916,
+          "nanosecondsPerOperation": 145.8,
+          "checksum": -2007438063
+        }
+      ]
+    },
+    {
+      "fixture": "add-constrained",
+      "codec": "Packed",
+      "stage": "Decode \u002B validate",
+      "medianNs": 225.7,
+      "minNs": 189,
+      "maxNs": 1590.8,
+      "samples": [
+        {
+          "elapsedTicks": 31816,
+          "nanosecondsPerOperation": 1590.8,
+          "checksum": -1707474927
+        },
+        {
+          "elapsedTicks": 14456,
+          "nanosecondsPerOperation": 722.8,
+          "checksum": -1707474927
+        },
+        {
+          "elapsedTicks": 4297,
+          "nanosecondsPerOperation": 214.85,
+          "checksum": -1707474927
+        },
+        {
+          "elapsedTicks": 6225,
+          "nanosecondsPerOperation": 311.25,
+          "checksum": -1707474927
+        },
+        {
+          "elapsedTicks": 4514,
+          "nanosecondsPerOperation": 225.7,
+          "checksum": -1707474927
+        },
+        {
+          "elapsedTicks": 3894,
+          "nanosecondsPerOperation": 194.7,
+          "checksum": -1707474927
+        },
+        {
+          "elapsedTicks": 3780,
+          "nanosecondsPerOperation": 189,
+          "checksum": -1707474927
+        },
+        {
+          "elapsedTicks": 4088,
+          "nanosecondsPerOperation": 204.4,
+          "checksum": -1707474927
+        },
+        {
+          "elapsedTicks": 4560,
+          "nanosecondsPerOperation": 228,
+          "checksum": -1707474927
+        }
+      ]
+    },
+    {
+      "fixture": "add-constrained",
+      "codec": "Packed",
+      "stage": "Execute",
+      "medianNs": 944.45,
+      "minNs": 830.8,
+      "maxNs": 1648,
+      "samples": [
+        {
+          "elapsedTicks": 31383,
+          "nanosecondsPerOperation": 1569.15,
+          "checksum": 293440729
+        },
+        {
+          "elapsedTicks": 32960,
+          "nanosecondsPerOperation": 1648,
+          "checksum": 293440729
+        },
+        {
+          "elapsedTicks": 17041,
+          "nanosecondsPerOperation": 852.05,
+          "checksum": 293440729
+        },
+        {
+          "elapsedTicks": 19079,
+          "nanosecondsPerOperation": 953.95,
+          "checksum": 293440729
+        },
+        {
+          "elapsedTicks": 20117,
+          "nanosecondsPerOperation": 1005.85,
+          "checksum": 293440729
+        },
+        {
+          "elapsedTicks": 18889,
+          "nanosecondsPerOperation": 944.45,
+          "checksum": 293440729
+        },
+        {
+          "elapsedTicks": 16616,
+          "nanosecondsPerOperation": 830.8,
+          "checksum": 293440729
+        },
+        {
+          "elapsedTicks": 16678,
+          "nanosecondsPerOperation": 833.9,
+          "checksum": 293440729
+        },
+        {
+          "elapsedTicks": 17123,
+          "nanosecondsPerOperation": 856.15,
+          "checksum": 293440729
+        }
+      ]
+    },
+    {
+      "fixture": "add-constrained",
+      "codec": "Packed",
+      "stage": "Decode \u002B execute",
+      "medianNs": 1208.75,
+      "minNs": 1103.95,
+      "maxNs": 3087.5,
+      "samples": [
+        {
+          "elapsedTicks": 61750,
+          "nanosecondsPerOperation": 3087.5,
+          "checksum": 293440729
+        },
+        {
+          "elapsedTicks": 23607,
+          "nanosecondsPerOperation": 1180.35,
+          "checksum": 293440729
+        },
+        {
+          "elapsedTicks": 24908,
+          "nanosecondsPerOperation": 1245.4,
+          "checksum": 293440729
+        },
+        {
+          "elapsedTicks": 24372,
+          "nanosecondsPerOperation": 1218.6,
+          "checksum": 293440729
+        },
+        {
+          "elapsedTicks": 22221,
+          "nanosecondsPerOperation": 1111.05,
+          "checksum": 293440729
+        },
+        {
+          "elapsedTicks": 22079,
+          "nanosecondsPerOperation": 1103.95,
+          "checksum": 293440729
+        },
+        {
+          "elapsedTicks": 24175,
+          "nanosecondsPerOperation": 1208.75,
+          "checksum": 293440729
+        },
+        {
+          "elapsedTicks": 23160,
+          "nanosecondsPerOperation": 1158,
+          "checksum": 293440729
+        },
+        {
+          "elapsedTicks": 25115,
+          "nanosecondsPerOperation": 1255.75,
+          "checksum": 293440729
+        }
+      ]
+    },
+    {
+      "fixture": "hello-world",
+      "codec": "Baseline",
+      "stage": "Encode",
+      "medianNs": 180.8,
+      "minNs": 137.45,
+      "maxNs": 745.65,
+      "samples": [
+        {
+          "elapsedTicks": 14913,
+          "nanosecondsPerOperation": 745.65,
+          "checksum": -1208596207
+        },
+        {
+          "elapsedTicks": 4696,
+          "nanosecondsPerOperation": 234.8,
+          "checksum": -1208596207
+        },
+        {
+          "elapsedTicks": 3539,
+          "nanosecondsPerOperation": 176.95,
+          "checksum": -1208596207
+        },
+        {
+          "elapsedTicks": 2809,
+          "nanosecondsPerOperation": 140.45,
+          "checksum": -1208596207
+        },
+        {
+          "elapsedTicks": 2749,
+          "nanosecondsPerOperation": 137.45,
+          "checksum": -1208596207
+        },
+        {
+          "elapsedTicks": 2813,
+          "nanosecondsPerOperation": 140.65,
+          "checksum": -1208596207
+        },
+        {
+          "elapsedTicks": 3616,
+          "nanosecondsPerOperation": 180.8,
+          "checksum": -1208596207
+        },
+        {
+          "elapsedTicks": 3906,
+          "nanosecondsPerOperation": 195.3,
+          "checksum": -1208596207
+        },
+        {
+          "elapsedTicks": 3962,
+          "nanosecondsPerOperation": 198.1,
+          "checksum": -1208596207
+        }
+      ]
+    },
+    {
+      "fixture": "hello-world",
+      "codec": "Baseline",
+      "stage": "Decode \u002B validate",
+      "medianNs": 274.9,
+      "minNs": 204.8,
+      "maxNs": 931.05,
+      "samples": [
+        {
+          "elapsedTicks": 18621,
+          "nanosecondsPerOperation": 931.05,
+          "checksum": -209249007
+        },
+        {
+          "elapsedTicks": 14810,
+          "nanosecondsPerOperation": 740.5,
+          "checksum": -209249007
+        },
+        {
+          "elapsedTicks": 8133,
+          "nanosecondsPerOperation": 406.65,
+          "checksum": -209249007
+        },
+        {
+          "elapsedTicks": 5498,
+          "nanosecondsPerOperation": 274.9,
+          "checksum": -209249007
+        },
+        {
+          "elapsedTicks": 4096,
+          "nanosecondsPerOperation": 204.8,
+          "checksum": -209249007
+        },
+        {
+          "elapsedTicks": 4354,
+          "nanosecondsPerOperation": 217.7,
+          "checksum": -209249007
+        },
+        {
+          "elapsedTicks": 6898,
+          "nanosecondsPerOperation": 344.9,
+          "checksum": -209249007
+        },
+        {
+          "elapsedTicks": 4891,
+          "nanosecondsPerOperation": 244.55,
+          "checksum": -209249007
+        },
+        {
+          "elapsedTicks": 5156,
+          "nanosecondsPerOperation": 257.8,
+          "checksum": -209249007
+        }
+      ]
+    },
+    {
+      "fixture": "hello-world",
+      "codec": "Baseline",
+      "stage": "Execute",
+      "medianNs": 248.55,
+      "minNs": 159.1,
+      "maxNs": 561.75,
+      "samples": [
+        {
+          "elapsedTicks": 10455,
+          "nanosecondsPerOperation": 522.75,
+          "checksum": -1413075951
+        },
+        {
+          "elapsedTicks": 11235,
+          "nanosecondsPerOperation": 561.75,
+          "checksum": -1413075951
+        },
+        {
+          "elapsedTicks": 5338,
+          "nanosecondsPerOperation": 266.9,
+          "checksum": -1413075951
+        },
+        {
+          "elapsedTicks": 4183,
+          "nanosecondsPerOperation": 209.15,
+          "checksum": -1413075951
+        },
+        {
+          "elapsedTicks": 4971,
+          "nanosecondsPerOperation": 248.55,
+          "checksum": -1413075951
+        },
+        {
+          "elapsedTicks": 5227,
+          "nanosecondsPerOperation": 261.35,
+          "checksum": -1413075951
+        },
+        {
+          "elapsedTicks": 3798,
+          "nanosecondsPerOperation": 189.9,
+          "checksum": -1413075951
+        },
+        {
+          "elapsedTicks": 3182,
+          "nanosecondsPerOperation": 159.1,
+          "checksum": -1413075951
+        },
+        {
+          "elapsedTicks": 3738,
+          "nanosecondsPerOperation": 186.9,
+          "checksum": -1413075951
+        }
+      ]
+    },
+    {
+      "fixture": "hello-world",
+      "codec": "Baseline",
+      "stage": "Decode \u002B execute",
+      "medianNs": 476.85,
+      "minNs": 359.95,
+      "maxNs": 1578.05,
+      "samples": [
+        {
+          "elapsedTicks": 31561,
+          "nanosecondsPerOperation": 1578.05,
+          "checksum": -1413075951
+        },
+        {
+          "elapsedTicks": 22274,
+          "nanosecondsPerOperation": 1113.7,
+          "checksum": -1413075951
+        },
+        {
+          "elapsedTicks": 15815,
+          "nanosecondsPerOperation": 790.75,
+          "checksum": -1413075951
+        },
+        {
+          "elapsedTicks": 9316,
+          "nanosecondsPerOperation": 465.8,
+          "checksum": -1413075951
+        },
+        {
+          "elapsedTicks": 7199,
+          "nanosecondsPerOperation": 359.95,
+          "checksum": -1413075951
+        },
+        {
+          "elapsedTicks": 10049,
+          "nanosecondsPerOperation": 502.45,
+          "checksum": -1413075951
+        },
+        {
+          "elapsedTicks": 8161,
+          "nanosecondsPerOperation": 408.05,
+          "checksum": -1413075951
+        },
+        {
+          "elapsedTicks": 7920,
+          "nanosecondsPerOperation": 396,
+          "checksum": -1413075951
+        },
+        {
+          "elapsedTicks": 9537,
+          "nanosecondsPerOperation": 476.85,
+          "checksum": -1413075951
+        }
+      ]
+    },
+    {
+      "fixture": "hello-world",
+      "codec": "Packed",
+      "stage": "Encode",
+      "medianNs": 157.9,
+      "minNs": 132.95,
+      "maxNs": 244.45,
+      "samples": [
+        {
+          "elapsedTicks": 4858,
+          "nanosecondsPerOperation": 242.9,
+          "checksum": -1208596207
+        },
+        {
+          "elapsedTicks": 2734,
+          "nanosecondsPerOperation": 136.7,
+          "checksum": -1208596207
+        },
+        {
+          "elapsedTicks": 3501,
+          "nanosecondsPerOperation": 175.05,
+          "checksum": -1208596207
+        },
+        {
+          "elapsedTicks": 2659,
+          "nanosecondsPerOperation": 132.95,
+          "checksum": -1208596207
+        },
+        {
+          "elapsedTicks": 3086,
+          "nanosecondsPerOperation": 154.3,
+          "checksum": -1208596207
+        },
+        {
+          "elapsedTicks": 3010,
+          "nanosecondsPerOperation": 150.5,
+          "checksum": -1208596207
+        },
+        {
+          "elapsedTicks": 3848,
+          "nanosecondsPerOperation": 192.4,
+          "checksum": -1208596207
+        },
+        {
+          "elapsedTicks": 4889,
+          "nanosecondsPerOperation": 244.45,
+          "checksum": -1208596207
+        },
+        {
+          "elapsedTicks": 3158,
+          "nanosecondsPerOperation": 157.9,
+          "checksum": -1208596207
+        }
+      ]
+    },
+    {
+      "fixture": "hello-world",
+      "codec": "Packed",
+      "stage": "Decode \u002B validate",
+      "medianNs": 221.25,
+      "minNs": 211.5,
+      "maxNs": 894.15,
+      "samples": [
+        {
+          "elapsedTicks": 17883,
+          "nanosecondsPerOperation": 894.15,
+          "checksum": -209249007
+        },
+        {
+          "elapsedTicks": 4230,
+          "nanosecondsPerOperation": 211.5,
+          "checksum": -209249007
+        },
+        {
+          "elapsedTicks": 4626,
+          "nanosecondsPerOperation": 231.3,
+          "checksum": -209249007
+        },
+        {
+          "elapsedTicks": 4285,
+          "nanosecondsPerOperation": 214.25,
+          "checksum": -209249007
+        },
+        {
+          "elapsedTicks": 4425,
+          "nanosecondsPerOperation": 221.25,
+          "checksum": -209249007
+        },
+        {
+          "elapsedTicks": 4862,
+          "nanosecondsPerOperation": 243.1,
+          "checksum": -209249007
+        },
+        {
+          "elapsedTicks": 4800,
+          "nanosecondsPerOperation": 240,
+          "checksum": -209249007
+        },
+        {
+          "elapsedTicks": 4318,
+          "nanosecondsPerOperation": 215.9,
+          "checksum": -209249007
+        },
+        {
+          "elapsedTicks": 4391,
+          "nanosecondsPerOperation": 219.55,
+          "checksum": -209249007
+        }
+      ]
+    },
+    {
+      "fixture": "hello-world",
+      "codec": "Packed",
+      "stage": "Execute",
+      "medianNs": 169.9,
+      "minNs": 148.7,
+      "maxNs": 644.4,
+      "samples": [
+        {
+          "elapsedTicks": 12888,
+          "nanosecondsPerOperation": 644.4,
+          "checksum": -1413075951
+        },
+        {
+          "elapsedTicks": 3174,
+          "nanosecondsPerOperation": 158.7,
+          "checksum": -1413075951
+        },
+        {
+          "elapsedTicks": 5546,
+          "nanosecondsPerOperation": 277.3,
+          "checksum": -1413075951
+        },
+        {
+          "elapsedTicks": 2974,
+          "nanosecondsPerOperation": 148.7,
+          "checksum": -1413075951
+        },
+        {
+          "elapsedTicks": 3355,
+          "nanosecondsPerOperation": 167.75,
+          "checksum": -1413075951
+        },
+        {
+          "elapsedTicks": 4156,
+          "nanosecondsPerOperation": 207.8,
+          "checksum": -1413075951
+        },
+        {
+          "elapsedTicks": 4142,
+          "nanosecondsPerOperation": 207.1,
+          "checksum": -1413075951
+        },
+        {
+          "elapsedTicks": 3398,
+          "nanosecondsPerOperation": 169.9,
+          "checksum": -1413075951
+        },
+        {
+          "elapsedTicks": 3161,
+          "nanosecondsPerOperation": 158.05,
+          "checksum": -1413075951
+        }
+      ]
+    },
+    {
+      "fixture": "hello-world",
+      "codec": "Packed",
+      "stage": "Decode \u002B execute",
+      "medianNs": 428.95,
+      "minNs": 394.3,
+      "maxNs": 1480.6,
+      "samples": [
+        {
+          "elapsedTicks": 29612,
+          "nanosecondsPerOperation": 1480.6,
+          "checksum": -1413075951
+        },
+        {
+          "elapsedTicks": 8006,
+          "nanosecondsPerOperation": 400.3,
+          "checksum": -1413075951
+        },
+        {
+          "elapsedTicks": 8200,
+          "nanosecondsPerOperation": 410,
+          "checksum": -1413075951
+        },
+        {
+          "elapsedTicks": 8195,
+          "nanosecondsPerOperation": 409.75,
+          "checksum": -1413075951
+        },
+        {
+          "elapsedTicks": 8605,
+          "nanosecondsPerOperation": 430.25,
+          "checksum": -1413075951
+        },
+        {
+          "elapsedTicks": 9649,
+          "nanosecondsPerOperation": 482.45,
+          "checksum": -1413075951
+        },
+        {
+          "elapsedTicks": 8579,
+          "nanosecondsPerOperation": 428.95,
+          "checksum": -1413075951
+        },
+        {
+          "elapsedTicks": 9790,
+          "nanosecondsPerOperation": 489.5,
+          "checksum": -1413075951
+        },
+        {
+          "elapsedTicks": 7886,
+          "nanosecondsPerOperation": 394.3,
+          "checksum": -1413075951
+        }
+      ]
+    },
+    {
+      "fixture": "buffer-call",
+      "codec": "Baseline",
+      "stage": "Encode",
+      "medianNs": 890.35,
+      "minNs": 635.05,
+      "maxNs": 5407.85,
+      "samples": [
+        {
+          "elapsedTicks": 108157,
+          "nanosecondsPerOperation": 5407.85,
+          "checksum": -2008232943
+        },
+        {
+          "elapsedTicks": 21792,
+          "nanosecondsPerOperation": 1089.6,
+          "checksum": -2008232943
+        },
+        {
+          "elapsedTicks": 23629,
+          "nanosecondsPerOperation": 1181.45,
+          "checksum": -2008232943
+        },
+        {
+          "elapsedTicks": 12701,
+          "nanosecondsPerOperation": 635.05,
+          "checksum": -2008232943
+        },
+        {
+          "elapsedTicks": 13850,
+          "nanosecondsPerOperation": 692.5,
+          "checksum": -2008232943
+        },
+        {
+          "elapsedTicks": 17807,
+          "nanosecondsPerOperation": 890.35,
+          "checksum": -2008232943
+        },
+        {
+          "elapsedTicks": 16332,
+          "nanosecondsPerOperation": 816.6,
+          "checksum": -2008232943
+        },
+        {
+          "elapsedTicks": 20225,
+          "nanosecondsPerOperation": 1011.25,
+          "checksum": -2008232943
+        },
+        {
+          "elapsedTicks": 14381,
+          "nanosecondsPerOperation": 719.05,
+          "checksum": -2008232943
+        }
+      ]
+    },
+    {
+      "fixture": "buffer-call",
+      "codec": "Baseline",
+      "stage": "Decode \u002B validate",
+      "medianNs": 988.6,
+      "minNs": 911.8,
+      "maxNs": 4003.2,
+      "samples": [
+        {
+          "elapsedTicks": 80064,
+          "nanosecondsPerOperation": 4003.2,
+          "checksum": -1707474927
+        },
+        {
+          "elapsedTicks": 68948,
+          "nanosecondsPerOperation": 3447.4,
+          "checksum": -1707474927
+        },
+        {
+          "elapsedTicks": 19067,
+          "nanosecondsPerOperation": 953.35,
+          "checksum": -1707474927
+        },
+        {
+          "elapsedTicks": 18236,
+          "nanosecondsPerOperation": 911.8,
+          "checksum": -1707474927
+        },
+        {
+          "elapsedTicks": 18427,
+          "nanosecondsPerOperation": 921.35,
+          "checksum": -1707474927
+        },
+        {
+          "elapsedTicks": 19772,
+          "nanosecondsPerOperation": 988.6,
+          "checksum": -1707474927
+        },
+        {
+          "elapsedTicks": 21355,
+          "nanosecondsPerOperation": 1067.75,
+          "checksum": -1707474927
+        },
+        {
+          "elapsedTicks": 19575,
+          "nanosecondsPerOperation": 978.75,
+          "checksum": -1707474927
+        },
+        {
+          "elapsedTicks": 21470,
+          "nanosecondsPerOperation": 1073.5,
+          "checksum": -1707474927
+        }
+      ]
+    },
+    {
+      "fixture": "buffer-call",
+      "codec": "Baseline",
+      "stage": "Execute",
+      "medianNs": 2035.8,
+      "minNs": 1803.85,
+      "maxNs": 3102.95,
+      "samples": [
+        {
+          "elapsedTicks": 62059,
+          "nanosecondsPerOperation": 3102.95,
+          "checksum": -917121536
+        },
+        {
+          "elapsedTicks": 49459,
+          "nanosecondsPerOperation": 2472.95,
+          "checksum": -917121536
+        },
+        {
+          "elapsedTicks": 38457,
+          "nanosecondsPerOperation": 1922.85,
+          "checksum": -917121536
+        },
+        {
+          "elapsedTicks": 40716,
+          "nanosecondsPerOperation": 2035.8,
+          "checksum": -917121536
+        },
+        {
+          "elapsedTicks": 36077,
+          "nanosecondsPerOperation": 1803.85,
+          "checksum": -917121536
+        },
+        {
+          "elapsedTicks": 38716,
+          "nanosecondsPerOperation": 1935.8,
+          "checksum": -917121536
+        },
+        {
+          "elapsedTicks": 42900,
+          "nanosecondsPerOperation": 2145,
+          "checksum": -917121536
+        },
+        {
+          "elapsedTicks": 52656,
+          "nanosecondsPerOperation": 2632.8,
+          "checksum": -917121536
+        },
+        {
+          "elapsedTicks": 36333,
+          "nanosecondsPerOperation": 1816.65,
+          "checksum": -917121536
+        }
+      ]
+    },
+    {
+      "fixture": "buffer-call",
+      "codec": "Baseline",
+      "stage": "Decode \u002B execute",
+      "medianNs": 3377.5,
+      "minNs": 2944,
+      "maxNs": 7998.15,
+      "samples": [
+        {
+          "elapsedTicks": 159963,
+          "nanosecondsPerOperation": 7998.15,
+          "checksum": -917121536
+        },
+        {
+          "elapsedTicks": 61340,
+          "nanosecondsPerOperation": 3067,
+          "checksum": -917121536
+        },
+        {
+          "elapsedTicks": 76822,
+          "nanosecondsPerOperation": 3841.1,
+          "checksum": -917121536
+        },
+        {
+          "elapsedTicks": 67550,
+          "nanosecondsPerOperation": 3377.5,
+          "checksum": -917121536
+        },
+        {
+          "elapsedTicks": 60874,
+          "nanosecondsPerOperation": 3043.7,
+          "checksum": -917121536
+        },
+        {
+          "elapsedTicks": 64908,
+          "nanosecondsPerOperation": 3245.4,
+          "checksum": -917121536
+        },
+        {
+          "elapsedTicks": 82805,
+          "nanosecondsPerOperation": 4140.25,
+          "checksum": -917121536
+        },
+        {
+          "elapsedTicks": 67836,
+          "nanosecondsPerOperation": 3391.8,
+          "checksum": -917121536
+        },
+        {
+          "elapsedTicks": 58880,
+          "nanosecondsPerOperation": 2944,
+          "checksum": -917121536
+        }
+      ]
+    },
+    {
+      "fixture": "buffer-call",
+      "codec": "Packed",
+      "stage": "Encode",
+      "medianNs": 786.9,
+      "minNs": 632.65,
+      "maxNs": 1065.1,
+      "samples": [
+        {
+          "elapsedTicks": 18407,
+          "nanosecondsPerOperation": 920.35,
+          "checksum": 788508433
+        },
+        {
+          "elapsedTicks": 21131,
+          "nanosecondsPerOperation": 1056.55,
+          "checksum": 788508433
+        },
+        {
+          "elapsedTicks": 15577,
+          "nanosecondsPerOperation": 778.85,
+          "checksum": 788508433
+        },
+        {
+          "elapsedTicks": 14862,
+          "nanosecondsPerOperation": 743.1,
+          "checksum": 788508433
+        },
+        {
+          "elapsedTicks": 16082,
+          "nanosecondsPerOperation": 804.1,
+          "checksum": 788508433
+        },
+        {
+          "elapsedTicks": 21302,
+          "nanosecondsPerOperation": 1065.1,
+          "checksum": 788508433
+        },
+        {
+          "elapsedTicks": 12653,
+          "nanosecondsPerOperation": 632.65,
+          "checksum": 788508433
+        },
+        {
+          "elapsedTicks": 15738,
+          "nanosecondsPerOperation": 786.9,
+          "checksum": 788508433
+        },
+        {
+          "elapsedTicks": 14265,
+          "nanosecondsPerOperation": 713.25,
+          "checksum": 788508433
+        }
+      ]
+    },
+    {
+      "fixture": "buffer-call",
+      "codec": "Packed",
+      "stage": "Decode \u002B validate",
+      "medianNs": 926.2,
+      "minNs": 812.9,
+      "maxNs": 4338.65,
+      "samples": [
+        {
+          "elapsedTicks": 86773,
+          "nanosecondsPerOperation": 4338.65,
+          "checksum": -1707474927
+        },
+        {
+          "elapsedTicks": 23246,
+          "nanosecondsPerOperation": 1162.3,
+          "checksum": -1707474927
+        },
+        {
+          "elapsedTicks": 17385,
+          "nanosecondsPerOperation": 869.25,
+          "checksum": -1707474927
+        },
+        {
+          "elapsedTicks": 16335,
+          "nanosecondsPerOperation": 816.75,
+          "checksum": -1707474927
+        },
+        {
+          "elapsedTicks": 20257,
+          "nanosecondsPerOperation": 1012.85,
+          "checksum": -1707474927
+        },
+        {
+          "elapsedTicks": 20554,
+          "nanosecondsPerOperation": 1027.7,
+          "checksum": -1707474927
+        },
+        {
+          "elapsedTicks": 16258,
+          "nanosecondsPerOperation": 812.9,
+          "checksum": -1707474927
+        },
+        {
+          "elapsedTicks": 17229,
+          "nanosecondsPerOperation": 861.45,
+          "checksum": -1707474927
+        },
+        {
+          "elapsedTicks": 18524,
+          "nanosecondsPerOperation": 926.2,
+          "checksum": -1707474927
+        }
+      ]
+    },
+    {
+      "fixture": "buffer-call",
+      "codec": "Packed",
+      "stage": "Execute",
+      "medianNs": 2056.45,
+      "minNs": 1842.85,
+      "maxNs": 3420.5,
+      "samples": [
+        {
+          "elapsedTicks": 64026,
+          "nanosecondsPerOperation": 3201.3,
+          "checksum": -917121536
+        },
+        {
+          "elapsedTicks": 68410,
+          "nanosecondsPerOperation": 3420.5,
+          "checksum": -917121536
+        },
+        {
+          "elapsedTicks": 36857,
+          "nanosecondsPerOperation": 1842.85,
+          "checksum": -917121536
+        },
+        {
+          "elapsedTicks": 37086,
+          "nanosecondsPerOperation": 1854.3,
+          "checksum": -917121536
+        },
+        {
+          "elapsedTicks": 40760,
+          "nanosecondsPerOperation": 2038,
+          "checksum": -917121536
+        },
+        {
+          "elapsedTicks": 41129,
+          "nanosecondsPerOperation": 2056.45,
+          "checksum": -917121536
+        },
+        {
+          "elapsedTicks": 43206,
+          "nanosecondsPerOperation": 2160.3,
+          "checksum": -917121536
+        },
+        {
+          "elapsedTicks": 41671,
+          "nanosecondsPerOperation": 2083.55,
+          "checksum": -917121536
+        },
+        {
+          "elapsedTicks": 40770,
+          "nanosecondsPerOperation": 2038.5,
+          "checksum": -917121536
+        }
+      ]
+    },
+    {
+      "fixture": "buffer-call",
+      "codec": "Packed",
+      "stage": "Decode \u002B execute",
+      "medianNs": 3108.1,
+      "minNs": 2892.2,
+      "maxNs": 8121.7,
+      "samples": [
+        {
+          "elapsedTicks": 153538,
+          "nanosecondsPerOperation": 7676.9,
+          "checksum": -917121536
+        },
+        {
+          "elapsedTicks": 162434,
+          "nanosecondsPerOperation": 8121.7,
+          "checksum": -917121536
+        },
+        {
+          "elapsedTicks": 72989,
+          "nanosecondsPerOperation": 3649.45,
+          "checksum": -917121536
+        },
+        {
+          "elapsedTicks": 58768,
+          "nanosecondsPerOperation": 2938.4,
+          "checksum": -917121536
+        },
+        {
+          "elapsedTicks": 58775,
+          "nanosecondsPerOperation": 2938.75,
+          "checksum": -917121536
+        },
+        {
+          "elapsedTicks": 58926,
+          "nanosecondsPerOperation": 2946.3,
+          "checksum": -917121536
+        },
+        {
+          "elapsedTicks": 62162,
+          "nanosecondsPerOperation": 3108.1,
+          "checksum": -917121536
+        },
+        {
+          "elapsedTicks": 76223,
+          "nanosecondsPerOperation": 3811.15,
+          "checksum": -917121536
+        },
+        {
+          "elapsedTicks": 57844,
+          "nanosecondsPerOperation": 2892.2,
+          "checksum": -917121536
+        }
+      ]
+    },
+    {
+      "fixture": "repeated-addition",
+      "codec": "Baseline",
+      "stage": "Encode",
+      "medianNs": 2315.1,
+      "minNs": 2062.7,
+      "maxNs": 11515.1,
+      "samples": [
+        {
+          "elapsedTicks": 230302,
+          "nanosecondsPerOperation": 11515.1,
+          "checksum": 1782291473
+        },
+        {
+          "elapsedTicks": 66527,
+          "nanosecondsPerOperation": 3326.35,
+          "checksum": 1782291473
+        },
+        {
+          "elapsedTicks": 41254,
+          "nanosecondsPerOperation": 2062.7,
+          "checksum": 1782291473
+        },
+        {
+          "elapsedTicks": 46302,
+          "nanosecondsPerOperation": 2315.1,
+          "checksum": 1782291473
+        },
+        {
+          "elapsedTicks": 46924,
+          "nanosecondsPerOperation": 2346.2,
+          "checksum": 1782291473
+        },
+        {
+          "elapsedTicks": 45694,
+          "nanosecondsPerOperation": 2284.7,
+          "checksum": 1782291473
+        },
+        {
+          "elapsedTicks": 45708,
+          "nanosecondsPerOperation": 2285.4,
+          "checksum": 1782291473
+        },
+        {
+          "elapsedTicks": 51139,
+          "nanosecondsPerOperation": 2556.95,
+          "checksum": 1782291473
+        },
+        {
+          "elapsedTicks": 45534,
+          "nanosecondsPerOperation": 2276.7,
+          "checksum": 1782291473
+        }
+      ]
+    },
+    {
+      "fixture": "repeated-addition",
+      "codec": "Baseline",
+      "stage": "Decode \u002B validate",
+      "medianNs": 3625.3,
+      "minNs": 3147.45,
+      "maxNs": 10936.9,
+      "samples": [
+        {
+          "elapsedTicks": 211983,
+          "nanosecondsPerOperation": 10599.15,
+          "checksum": -1808522479
+        },
+        {
+          "elapsedTicks": 218738,
+          "nanosecondsPerOperation": 10936.9,
+          "checksum": -1808522479
+        },
+        {
+          "elapsedTicks": 72506,
+          "nanosecondsPerOperation": 3625.3,
+          "checksum": -1808522479
+        },
+        {
+          "elapsedTicks": 69194,
+          "nanosecondsPerOperation": 3459.7,
+          "checksum": -1808522479
+        },
+        {
+          "elapsedTicks": 62949,
+          "nanosecondsPerOperation": 3147.45,
+          "checksum": -1808522479
+        },
+        {
+          "elapsedTicks": 73263,
+          "nanosecondsPerOperation": 3663.15,
+          "checksum": -1808522479
+        },
+        {
+          "elapsedTicks": 78305,
+          "nanosecondsPerOperation": 3915.25,
+          "checksum": -1808522479
+        },
+        {
+          "elapsedTicks": 68012,
+          "nanosecondsPerOperation": 3400.6,
+          "checksum": -1808522479
+        },
+        {
+          "elapsedTicks": 67534,
+          "nanosecondsPerOperation": 3376.7,
+          "checksum": -1808522479
+        }
+      ]
+    },
+    {
+      "fixture": "repeated-addition",
+      "codec": "Baseline",
+      "stage": "Execute",
+      "medianNs": 596.8,
+      "minNs": 527.25,
+      "maxNs": 2245.5,
+      "samples": [
+        {
+          "elapsedTicks": 44910,
+          "nanosecondsPerOperation": 2245.5,
+          "checksum": -1261723498
+        },
+        {
+          "elapsedTicks": 33429,
+          "nanosecondsPerOperation": 1671.45,
+          "checksum": -1261723498
+        },
+        {
+          "elapsedTicks": 17496,
+          "nanosecondsPerOperation": 874.8,
+          "checksum": -1261723498
+        },
+        {
+          "elapsedTicks": 10655,
+          "nanosecondsPerOperation": 532.75,
+          "checksum": -1261723498
+        },
+        {
+          "elapsedTicks": 11567,
+          "nanosecondsPerOperation": 578.35,
+          "checksum": -1261723498
+        },
+        {
+          "elapsedTicks": 12532,
+          "nanosecondsPerOperation": 626.6,
+          "checksum": -1261723498
+        },
+        {
+          "elapsedTicks": 11936,
+          "nanosecondsPerOperation": 596.8,
+          "checksum": -1261723498
+        },
+        {
+          "elapsedTicks": 11320,
+          "nanosecondsPerOperation": 566,
+          "checksum": -1261723498
+        },
+        {
+          "elapsedTicks": 10545,
+          "nanosecondsPerOperation": 527.25,
+          "checksum": -1261723498
+        }
+      ]
+    },
+    {
+      "fixture": "repeated-addition",
+      "codec": "Baseline",
+      "stage": "Decode \u002B execute",
+      "medianNs": 4103.75,
+      "minNs": 3782.7,
+      "maxNs": 18445,
+      "samples": [
+        {
+          "elapsedTicks": 368900,
+          "nanosecondsPerOperation": 18445,
+          "checksum": -1261723498
+        },
+        {
+          "elapsedTicks": 89487,
+          "nanosecondsPerOperation": 4474.35,
+          "checksum": -1261723498
+        },
+        {
+          "elapsedTicks": 101440,
+          "nanosecondsPerOperation": 5072,
+          "checksum": -1261723498
+        },
+        {
+          "elapsedTicks": 76132,
+          "nanosecondsPerOperation": 3806.6,
+          "checksum": -1261723498
+        },
+        {
+          "elapsedTicks": 81010,
+          "nanosecondsPerOperation": 4050.5,
+          "checksum": -1261723498
+        },
+        {
+          "elapsedTicks": 81797,
+          "nanosecondsPerOperation": 4089.85,
+          "checksum": -1261723498
+        },
+        {
+          "elapsedTicks": 84191,
+          "nanosecondsPerOperation": 4209.55,
+          "checksum": -1261723498
+        },
+        {
+          "elapsedTicks": 82075,
+          "nanosecondsPerOperation": 4103.75,
+          "checksum": -1261723498
+        },
+        {
+          "elapsedTicks": 75654,
+          "nanosecondsPerOperation": 3782.7,
+          "checksum": -1261723498
+        }
+      ]
+    },
+    {
+      "fixture": "repeated-addition",
+      "codec": "Packed",
+      "stage": "Encode",
+      "medianNs": 2170.05,
+      "minNs": 1875.95,
+      "maxNs": 10577.7,
+      "samples": [
+        {
+          "elapsedTicks": 211554,
+          "nanosecondsPerOperation": 10577.7,
+          "checksum": 385113105
+        },
+        {
+          "elapsedTicks": 55631,
+          "nanosecondsPerOperation": 2781.55,
+          "checksum": 385113105
+        },
+        {
+          "elapsedTicks": 43830,
+          "nanosecondsPerOperation": 2191.5,
+          "checksum": 385113105
+        },
+        {
+          "elapsedTicks": 37519,
+          "nanosecondsPerOperation": 1875.95,
+          "checksum": 385113105
+        },
+        {
+          "elapsedTicks": 40907,
+          "nanosecondsPerOperation": 2045.35,
+          "checksum": 385113105
+        },
+        {
+          "elapsedTicks": 40112,
+          "nanosecondsPerOperation": 2005.6,
+          "checksum": 385113105
+        },
+        {
+          "elapsedTicks": 55779,
+          "nanosecondsPerOperation": 2788.95,
+          "checksum": 385113105
+        },
+        {
+          "elapsedTicks": 41606,
+          "nanosecondsPerOperation": 2080.3,
+          "checksum": 385113105
+        },
+        {
+          "elapsedTicks": 43401,
+          "nanosecondsPerOperation": 2170.05,
+          "checksum": 385113105
+        }
+      ]
+    },
+    {
+      "fixture": "repeated-addition",
+      "codec": "Packed",
+      "stage": "Decode \u002B validate",
+      "medianNs": 3673.9,
+      "minNs": 3394.6,
+      "maxNs": 14771.25,
+      "samples": [
+        {
+          "elapsedTicks": 295425,
+          "nanosecondsPerOperation": 14771.25,
+          "checksum": -1808522479
+        },
+        {
+          "elapsedTicks": 73475,
+          "nanosecondsPerOperation": 3673.75,
+          "checksum": -1808522479
+        },
+        {
+          "elapsedTicks": 75932,
+          "nanosecondsPerOperation": 3796.6,
+          "checksum": -1808522479
+        },
+        {
+          "elapsedTicks": 67892,
+          "nanosecondsPerOperation": 3394.6,
+          "checksum": -1808522479
+        },
+        {
+          "elapsedTicks": 68073,
+          "nanosecondsPerOperation": 3403.65,
+          "checksum": -1808522479
+        },
+        {
+          "elapsedTicks": 73060,
+          "nanosecondsPerOperation": 3653,
+          "checksum": -1808522479
+        },
+        {
+          "elapsedTicks": 73478,
+          "nanosecondsPerOperation": 3673.9,
+          "checksum": -1808522479
+        },
+        {
+          "elapsedTicks": 85055,
+          "nanosecondsPerOperation": 4252.75,
+          "checksum": -1808522479
+        },
+        {
+          "elapsedTicks": 74260,
+          "nanosecondsPerOperation": 3713,
+          "checksum": -1808522479
+        }
+      ]
+    },
+    {
+      "fixture": "repeated-addition",
+      "codec": "Packed",
+      "stage": "Execute",
+      "medianNs": 574.25,
+      "minNs": 466.45,
+      "maxNs": 2217.75,
+      "samples": [
+        {
+          "elapsedTicks": 44355,
+          "nanosecondsPerOperation": 2217.75,
+          "checksum": -1261723498
+        },
+        {
+          "elapsedTicks": 20814,
+          "nanosecondsPerOperation": 1040.7,
+          "checksum": -1261723498
+        },
+        {
+          "elapsedTicks": 9329,
+          "nanosecondsPerOperation": 466.45,
+          "checksum": -1261723498
+        },
+        {
+          "elapsedTicks": 11281,
+          "nanosecondsPerOperation": 564.05,
+          "checksum": -1261723498
+        },
+        {
+          "elapsedTicks": 11817,
+          "nanosecondsPerOperation": 590.85,
+          "checksum": -1261723498
+        },
+        {
+          "elapsedTicks": 14007,
+          "nanosecondsPerOperation": 700.35,
+          "checksum": -1261723498
+        },
+        {
+          "elapsedTicks": 11485,
+          "nanosecondsPerOperation": 574.25,
+          "checksum": -1261723498
+        },
+        {
+          "elapsedTicks": 10041,
+          "nanosecondsPerOperation": 502.05,
+          "checksum": -1261723498
+        },
+        {
+          "elapsedTicks": 11442,
+          "nanosecondsPerOperation": 572.1,
+          "checksum": -1261723498
+        }
+      ]
+    },
+    {
+      "fixture": "repeated-addition",
+      "codec": "Packed",
+      "stage": "Decode \u002B execute",
+      "medianNs": 4665.15,
+      "minNs": 4173.15,
+      "maxNs": 19750.15,
+      "samples": [
+        {
+          "elapsedTicks": 395003,
+          "nanosecondsPerOperation": 19750.15,
+          "checksum": -1261723498
+        },
+        {
+          "elapsedTicks": 275712,
+          "nanosecondsPerOperation": 13785.6,
+          "checksum": -1261723498
+        },
+        {
+          "elapsedTicks": 89574,
+          "nanosecondsPerOperation": 4478.7,
+          "checksum": -1261723498
+        },
+        {
+          "elapsedTicks": 85883,
+          "nanosecondsPerOperation": 4294.15,
+          "checksum": -1261723498
+        },
+        {
+          "elapsedTicks": 83463,
+          "nanosecondsPerOperation": 4173.15,
+          "checksum": -1261723498
+        },
+        {
+          "elapsedTicks": 92190,
+          "nanosecondsPerOperation": 4609.5,
+          "checksum": -1261723498
+        },
+        {
+          "elapsedTicks": 97967,
+          "nanosecondsPerOperation": 4898.35,
+          "checksum": -1261723498
+        },
+        {
+          "elapsedTicks": 93303,
+          "nanosecondsPerOperation": 4665.15,
+          "checksum": -1261723498
+        },
+        {
+          "elapsedTicks": 107321,
+          "nanosecondsPerOperation": 5366.05,
+          "checksum": -1261723498
+        }
+      ]
+    }
+  ]
+}

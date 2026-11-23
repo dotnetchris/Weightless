@@ -1,0 +1,128 @@
+{
+  "experiment": "0005-GuardedAddition",
+  "parent": "0001-Addition/checked-transfer-v1",
+  "runtime": ".NET 10.0.12",
+  "values": [
+    -2147483648,
+    -2147483647,
+    -2147483646,
+    -2,
+    -1,
+    0,
+    1,
+    2,
+    2147483645,
+    2147483646,
+    2147483647
+  ],
+  "gridCases": 1331,
+  "guardAccepted": 773,
+  "guardRejected": 558,
+  "acceptedWithFinalOverflow": 110,
+  "selected": [
+    {
+      "name": "parent-left-intermediate",
+      "a": 2147483647,
+      "b": 0,
+      "k": 1,
+      "widenedLeft": 2147483648,
+      "widenedRight": -1,
+      "transferred": false,
+      "original": {
+        "value": 2147483647,
+        "exceptionType": null
+      },
+      "guarded": {
+        "value": 2147483647,
+        "exceptionType": null
+      }
+    },
+    {
+      "name": "parent-right-intermediate",
+      "a": 0,
+      "b": -2147483648,
+      "k": 1,
+      "widenedLeft": 1,
+      "widenedRight": -2147483649,
+      "transferred": false,
+      "original": {
+        "value": -2147483648,
+        "exceptionType": null
+      },
+      "guarded": {
+        "value": -2147483648,
+        "exceptionType": null
+      }
+    },
+    {
+      "name": "left-hits-maximum",
+      "a": 2147483646,
+      "b": 0,
+      "k": 1,
+      "widenedLeft": 2147483647,
+      "widenedRight": -1,
+      "transferred": true,
+      "original": {
+        "value": 2147483646,
+        "exceptionType": null
+      },
+      "guarded": {
+        "value": 2147483646,
+        "exceptionType": null
+      }
+    },
+    {
+      "name": "right-hits-minimum",
+      "a": 0,
+      "b": -2147483647,
+      "k": 1,
+      "widenedLeft": 1,
+      "widenedRight": -2147483648,
+      "transferred": true,
+      "original": {
+        "value": -2147483647,
+        "exceptionType": null
+      },
+      "guarded": {
+        "value": -2147483647,
+        "exceptionType": null
+      }
+    },
+    {
+      "name": "final-overflow-above-maximum",
+      "a": 2147483647,
+      "b": 1,
+      "k": -1,
+      "widenedLeft": 2147483646,
+      "widenedRight": 2,
+      "transferred": true,
+      "original": {
+        "value": null,
+        "exceptionType": "OverflowException"
+      },
+      "guarded": {
+        "value": null,
+        "exceptionType": "OverflowException"
+      }
+    },
+    {
+      "name": "final-overflow-below-minimum",
+      "a": -2147483648,
+      "b": -1,
+      "k": 1,
+      "widenedLeft": -2147483647,
+      "widenedRight": -2,
+      "transferred": true,
+      "original": {
+        "value": null,
+        "exceptionType": "OverflowException"
+      },
+      "guarded": {
+        "value": null,
+        "exceptionType": "OverflowException"
+      }
+    }
+  ],
+  "disagreements": [],
+  "passed": true
+}

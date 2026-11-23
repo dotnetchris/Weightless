@@ -1,0 +1,162 @@
+{
+  "experiment": "0001-Addition/baseline-v1",
+  "runtime": ".NET 10.0.12",
+  "oracle": "experiments/0001-Addition/checked-transfer-v1.json",
+  "passed": true,
+  "comparisons": [
+    {
+      "overflow": "Wrapping",
+      "bytes": 19,
+      "hex": "574C4201000101020101020201000001080003",
+      "equal": true,
+      "deterministic": true,
+      "cases": [
+        {
+          "name": "ordinary",
+          "a": 0,
+          "b": 1,
+          "expected": {
+            "value": 1,
+            "exceptionType": null
+          },
+          "actual": {
+            "value": 1,
+            "exceptionType": null,
+            "output": "",
+            "effects": [],
+            "buffers": []
+          },
+          "matches": true
+        },
+        {
+          "name": "left-intermediate-overflow",
+          "a": 2147483647,
+          "b": 0,
+          "expected": {
+            "value": 2147483647,
+            "exceptionType": null
+          },
+          "actual": {
+            "value": 2147483647,
+            "exceptionType": null,
+            "output": "",
+            "effects": [],
+            "buffers": []
+          },
+          "matches": true
+        },
+        {
+          "name": "right-intermediate-overflow",
+          "a": 0,
+          "b": -2147483648,
+          "expected": {
+            "value": -2147483648,
+            "exceptionType": null
+          },
+          "actual": {
+            "value": -2147483648,
+            "exceptionType": null,
+            "output": "",
+            "effects": [],
+            "buffers": []
+          },
+          "matches": true
+        },
+        {
+          "name": "sum-overflow",
+          "a": 2147483647,
+          "b": 1,
+          "expected": {
+            "value": -2147483648,
+            "exceptionType": null
+          },
+          "actual": {
+            "value": -2147483648,
+            "exceptionType": null,
+            "output": "",
+            "effects": [],
+            "buffers": []
+          },
+          "matches": true
+        }
+      ]
+    },
+    {
+      "overflow": "Checked",
+      "bytes": 19,
+      "hex": "574C4201000101020101020201010001080003",
+      "equal": true,
+      "deterministic": true,
+      "cases": [
+        {
+          "name": "ordinary",
+          "a": 0,
+          "b": 1,
+          "expected": {
+            "value": 1,
+            "exceptionType": null
+          },
+          "actual": {
+            "value": 1,
+            "exceptionType": null,
+            "output": "",
+            "effects": [],
+            "buffers": []
+          },
+          "matches": true
+        },
+        {
+          "name": "left-intermediate-overflow",
+          "a": 2147483647,
+          "b": 0,
+          "expected": {
+            "value": 2147483647,
+            "exceptionType": null
+          },
+          "actual": {
+            "value": 2147483647,
+            "exceptionType": null,
+            "output": "",
+            "effects": [],
+            "buffers": []
+          },
+          "matches": true
+        },
+        {
+          "name": "right-intermediate-overflow",
+          "a": 0,
+          "b": -2147483648,
+          "expected": {
+            "value": -2147483648,
+            "exceptionType": null
+          },
+          "actual": {
+            "value": -2147483648,
+            "exceptionType": null,
+            "output": "",
+            "effects": [],
+            "buffers": []
+          },
+          "matches": true
+        },
+        {
+          "name": "sum-overflow",
+          "a": 2147483647,
+          "b": 1,
+          "expected": {
+            "value": null,
+            "exceptionType": "OverflowException"
+          },
+          "actual": {
+            "value": null,
+            "exceptionType": "OverflowException",
+            "output": "",
+            "effects": [],
+            "buffers": []
+          },
+          "matches": true
+        }
+      ]
+    }
+  ]
+}

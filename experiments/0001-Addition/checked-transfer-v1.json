@@ -1,0 +1,92 @@
+{
+  "experiment": "0001-Addition/checked-transfer-v1",
+  "claim": "For all Int32 a, b, k, checked(a \u002B b) and checked((a \u002B k) \u002B (b - k)) return the same value or throw the same exception type.",
+  "runtime": ".NET 10.0.12",
+  "observations": [
+    {
+      "name": "ordinary",
+      "a": 0,
+      "b": 1,
+      "k": 1,
+      "checkedI32": {
+        "original": {
+          "value": 1,
+          "exceptionType": null
+        },
+        "candidate": {
+          "value": 1,
+          "exceptionType": null
+        }
+      },
+      "wrappingI32": {
+        "original": 1,
+        "candidate": 1
+      }
+    },
+    {
+      "name": "left-intermediate-overflow",
+      "a": 2147483647,
+      "b": 0,
+      "k": 1,
+      "checkedI32": {
+        "original": {
+          "value": 2147483647,
+          "exceptionType": null
+        },
+        "candidate": {
+          "value": null,
+          "exceptionType": "OverflowException"
+        }
+      },
+      "wrappingI32": {
+        "original": 2147483647,
+        "candidate": 2147483647
+      }
+    },
+    {
+      "name": "right-intermediate-overflow",
+      "a": 0,
+      "b": -2147483648,
+      "k": 1,
+      "checkedI32": {
+        "original": {
+          "value": -2147483648,
+          "exceptionType": null
+        },
+        "candidate": {
+          "value": null,
+          "exceptionType": "OverflowException"
+        }
+      },
+      "wrappingI32": {
+        "original": -2147483648,
+        "candidate": -2147483648
+      }
+    },
+    {
+      "name": "sum-overflow",
+      "a": 2147483647,
+      "b": 1,
+      "k": 0,
+      "checkedI32": {
+        "original": {
+          "value": null,
+          "exceptionType": "OverflowException"
+        },
+        "candidate": {
+          "value": null,
+          "exceptionType": "OverflowException"
+        }
+      },
+      "wrappingI32": {
+        "original": -2147483648,
+        "candidate": -2147483648
+      }
+    }
+  ],
+  "checkedCounterexamples": [
+    "left-intermediate-overflow",
+    "right-intermediate-overflow"
+  ],
+  "verdict": "refuted"
+}

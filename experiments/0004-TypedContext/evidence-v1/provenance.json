@@ -1,0 +1,97 @@
+{
+  "compiler": "5.9.0.0",
+  "sources": [
+    {
+      "path": "experiments/0001-Addition/AddSeed.cs",
+      "sha256": "46877DAB574540E790976D93D93236E2D72B84346A84D87B611A848C17BFE25B"
+    },
+    {
+      "path": "experiments/0002-HelloWorld/HelloWorld.cs",
+      "sha256": "1E68482460C6BFD85CD5753679D9C0FD55521DA690F3696AF01A3FC05D55B9D3"
+    },
+    {
+      "path": "experiments/0003-Buffer/BufferSeed.cs",
+      "sha256": "148791C7D6793A0662E436C51C545EDD479FB078C89B0678F342E751DAABAC04"
+    },
+    {
+      "path": "experiments/0004-TypedContext/RepeatedAddition.cs",
+      "sha256": "68B24F6264253042840C64D35FE5467C3E98FD8BA5DA30767500B08C95019F31"
+    },
+    {
+      "path": "experiments/0001-Addition/checked-transfer-v1.json",
+      "sha256": "E731462CC74058A544BC38C10A75E05992FAB72FA15B1E2064C157ED8DC44C67"
+    }
+  ],
+  "imported": [
+    {
+      "source": "experiments/0001-Addition/AddSeed.cs",
+      "line": 3,
+      "member": "AddSeed.Checked(int, int)",
+      "operation": "Binary",
+      "operator": "Add",
+      "resultType": "int",
+      "isChecked": true,
+      "operands": [
+        {
+          "name": "a",
+          "ordinal": 0,
+          "type": "int",
+          "conversion": "Identity"
+        },
+        {
+          "name": "b",
+          "ordinal": 1,
+          "type": "int",
+          "conversion": "Identity"
+        }
+      ]
+    },
+    {
+      "source": "experiments/0001-Addition/AddSeed.cs",
+      "line": 4,
+      "member": "AddSeed.Wrapping(int, int)",
+      "operation": "Binary",
+      "operator": "Add",
+      "resultType": "int",
+      "isChecked": false,
+      "operands": [
+        {
+          "name": "a",
+          "ordinal": 0,
+          "type": "int",
+          "conversion": "Identity"
+        },
+        {
+          "name": "b",
+          "ordinal": 1,
+          "type": "int",
+          "conversion": "Identity"
+        }
+      ]
+    },
+    {
+      "source": "experiments/0002-HelloWorld/HelloWorld.cs",
+      "line": 1,
+      "operation": "Invocation",
+      "callTarget": "System.Console.WriteLine(string?)",
+      "returnType": "void",
+      "argumentType": "string?",
+      "identityConversion": true
+    }
+  ],
+  "handBuilt": [
+    {
+      "fixture": "buffer-call",
+      "source": "experiments/0003-Buffer/BufferSeed.cs"
+    },
+    {
+      "fixture": "repeated-addition",
+      "source": "experiments/0004-TypedContext/RepeatedAddition.cs"
+    }
+  ],
+  "contract": {
+    "fixture": "add-constrained",
+    "reference": "AddSeed.Constrained",
+    "source": "experiments/0001-Addition/AddSeed.cs"
+  }
+}
