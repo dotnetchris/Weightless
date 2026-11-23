@@ -163,6 +163,28 @@ internal static class Benchmark
             "in that process using files written by the suite. See `verification.json` for the input vectors, output, " +
             "effects, postcondition discriminators, and malformed wire cases.").AppendLine();
 
+        var baselinePlain = verification.Rows.Single(row => row.Fixture == "add-checked" && row.Codec == "Baseline");
+        var packedRequired = verification.Rows.Single(row => row.Fixture == "add-constrained" && row.Codec == "Packed");
+        var fit = packedRequired.Bytes.CompareTo(baselinePlain.Bytes) switch
+        {
+            0 => $"Packed Add recovered exactly enough space to carry the postcondition. Both packed/constrained Add and baseline/plain Add occupy **{baselinePlain.Bytes} bytes**.",
+            < 0 => $"Packed/constrained Add (**{packedRequired.Bytes} bytes**) fits within baseline/plain Add (**{baselinePlain.Bytes} bytes**).",
+            _ => $"Packed/constrained Add (**{packedRequired.Bytes} bytes**) exceeds baseline/plain Add (**{baselinePlain.Bytes} bytes**)."
+        };
+        var repeated = verification.Rows.Where(row => row.Fixture == "repeated-addition").ToArray();
+        var baselineBytes = repeated.Single(row => row.Codec == "Baseline").Bytes;
+        var packedBytes = repeated.Single(row => row.Codec == "Packed").Bytes;
+        var combined = benchmark.Rows.Where(row => row.Fixture == "repeated-addition" && row.Stage == Stages[3]).ToArray();
+        var baselineTiming = combined.Single(row => row.Codec == "Baseline");
+        var packedTiming = combined.Single(row => row.Codec == "Packed");
+        var rangesOverlap = baselineTiming.MinNs <= packedTiming.MaxNs && packedTiming.MinNs <= baselineTiming.MaxNs;
+
+        report.AppendLine("## Findings").AppendLine();
+        report.AppendLine(fit).AppendLine();
+        report.AppendLine(FormattableString.Invariant(
+            $"Packing changed the 64-addition fixture from **{baselineBytes} to {packedBytes} bytes**. Median decode-and-execute time went from **{baselineTiming.MedianNs / 1000:F2} to {packedTiming.MedianNs / 1000:F2} µs** in this run. The batch ranges {(rangesOverlap ? "overlap" : "are disjoint")}.")).AppendLine();
+
+        report.AppendLine("## Size and verification").AppendLine();
         report.AppendLine("| Fixture | Nodes | Baseline bytes | Packed bytes | Baseline bytes/node | Packed bytes/node | Graph, bytes, C# |");
         report.AppendLine("| --- | ---: | ---: | ---: | ---: | ---: | --- |");
         foreach (var group in verification.Rows.GroupBy(row => row.Fixture))
@@ -173,14 +195,11 @@ internal static class Benchmark
                 $"| {group.Key} | {plain.Nodes} | {plain.Bytes} | {packed.Bytes} | {(double)plain.Bytes / plain.Nodes:F2} | {(double)packed.Bytes / packed.Nodes:F2} | {(plain.Passed && packed.Passed ? "Pass" : "Fail")} |"));
         }
 
-        var baselinePlain = verification.Rows.Single(row => row.Fixture == "add-checked" && row.Codec == "Baseline");
-        var packedRequired = verification.Rows.Single(row => row.Fixture == "add-constrained" && row.Codec == "Packed");
-        var fits = packedRequired.Bytes <= baselinePlain.Bytes ? "fits within" : "exceeds";
-        report.AppendLine().AppendLine($"Packed/constrained Add ({packedRequired.Bytes} bytes) {fits} baseline/plain Add " +
-            $"({baselinePlain.Bytes} bytes). Each codec uses `00` for plain and `01 01` for the required " +
+        report.AppendLine().AppendLine("Each codec uses `00` for plain and `01 01` for the required " +
             "nonnegative result. The same input `(-1, 0)` returns `-1` in the plain graph and produces " +
             "`PostconditionViolationException` in the constrained graph.").AppendLine();
 
+        report.AppendLine("## Release timings").AppendLine();
         report.AppendLine($"Times are median nanoseconds per operation with [min, max] across {host.Batches} batches " +
             $"of {host.IterationsPerBatch} operations after {host.WarmupPerRow} warm-up operations per row and stage. " +
             "Execution captures values or exceptions, output, ordered effects, and final memory in both codecs. " +

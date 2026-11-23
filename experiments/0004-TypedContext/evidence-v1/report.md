@@ -10,6 +10,14 @@ Measured in Release with SDK 10.0.401, .NET 10.0.12, and Intel(R) Core(TM) 5 210
 
 A fresh process verified 12 fixture/codec pairs and 62 C# comparisons. The decoder and its re-encoding ran in that process using files written by the suite. See `verification.json` for the input vectors, output, effects, postcondition discriminators, and malformed wire cases.
 
+## Findings
+
+Packed Add recovered exactly enough space to carry the postcondition. Both packed/constrained Add and baseline/plain Add occupy **19 bytes**.
+
+Packing changed the 64-addition fixture from **334 to 270 bytes**. Median decode-and-execute time went from **4.10 to 4.67 µs** in this run. The batch ranges overlap.
+
+## Size and verification
+
 | Fixture | Nodes | Baseline bytes | Packed bytes | Baseline bytes/node | Packed bytes/node | Graph, bytes, C# |
 | --- | ---: | ---: | ---: | ---: | ---: | --- |
 | add-checked | 2 | 19 | 18 | 9.50 | 9.00 | Pass |
@@ -19,7 +27,9 @@ A fresh process verified 12 fixture/codec pairs and 62 C# comparisons. The decod
 | buffer-call | 8 | 62 | 61 | 7.75 | 7.62 | Pass |
 | repeated-addition | 65 | 334 | 270 | 5.14 | 4.15 | Pass |
 
-Packed/constrained Add (19 bytes) fits within baseline/plain Add (19 bytes). Each codec uses `00` for plain and `01 01` for the required nonnegative result. The same input `(-1, 0)` returns `-1` in the plain graph and produces `PostconditionViolationException` in the constrained graph.
+Each codec uses `00` for plain and `01 01` for the required nonnegative result. The same input `(-1, 0)` returns `-1` in the plain graph and produces `PostconditionViolationException` in the constrained graph.
+
+## Release timings
 
 Times are median nanoseconds per operation with [min, max] across 9 batches of 2000 operations after 3000 warm-up operations per row and stage. Execution captures values or exceptions, output, ordered effects, and final memory in both codecs. The harness prepares inputs outside each timed batch.
 
