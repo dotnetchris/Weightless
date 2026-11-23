@@ -1,0 +1,194 @@
+{
+  "pipeline": "0006-v1",
+  "route": "effects/v3",
+  "parent": {
+    "id": "add.checked.plain",
+    "path": "experiments/0001-Addition/baseline-v1/add-checked.wlb",
+    "sha256": "F29EB79B426681794A0A7BDC22C47CF38B9792C93ADF96326CD3964563877B34"
+  },
+  "finding": {
+    "claim": "Observing fault site distinguishes 120 additional v2 schedule pairs. The refined guard admits 286 of 448 pairs with equal full observations.",
+    "verdict": "tested",
+    "checksPassed": true,
+    "evidence": {
+      "parentRoute": "effects/v2",
+      "startRevision": "d17fb0ff88f12e566f755df7b587831602c5bf81",
+      "observation": "Return value or exception type and faulting operation, stdout, ordered buffer writes and final buffer contents.",
+      "oracle": "Two instrumented compiled C# orders, each run on its own alias-preserving copy of the starting buffers.",
+      "siteProbe": "The shared interpreter runs the full decoded schedule and then finds the first faulting prefix on fresh arguments.",
+      "layouts": [
+        {
+          "name": "aliased",
+          "destination": [
+            5,
+            7
+          ],
+          "source": [
+            5,
+            7
+          ],
+          "aliased": true
+        },
+        {
+          "name": "equal-distinct",
+          "destination": [
+            5,
+            7
+          ],
+          "source": [
+            5,
+            7
+          ],
+          "aliased": false
+        },
+        {
+          "name": "different-distinct",
+          "destination": [
+            5,
+            7
+          ],
+          "source": [
+            7,
+            5
+          ],
+          "aliased": false
+        },
+        {
+          "name": "empty-source",
+          "destination": [
+            5,
+            7
+          ],
+          "source": [],
+          "aliased": false
+        },
+        {
+          "name": "empty-destination",
+          "destination": [],
+          "source": [
+            5,
+            7
+          ],
+          "aliased": false
+        },
+        {
+          "name": "aliased-empty",
+          "destination": [],
+          "source": [],
+          "aliased": true
+        },
+        {
+          "name": "distinct-empty",
+          "destination": [],
+          "source": [],
+          "aliased": false
+        }
+      ],
+      "additions": [
+        {
+          "name": "write-five",
+          "a": 2,
+          "b": 3
+        },
+        {
+          "name": "write-seven",
+          "a": 3,
+          "b": 4
+        },
+        {
+          "name": "overflow-above",
+          "a": 2147483647,
+          "b": 1
+        },
+        {
+          "name": "overflow-below",
+          "a": -2147483648,
+          "b": -1
+        }
+      ],
+      "indices": [
+        -1,
+        0,
+        1,
+        2
+      ],
+      "predictions": {
+        "newlyDistinguished": 120,
+        "admitted": 286
+      },
+      "cases": 448,
+      "newlyDistinguished": 120,
+      "newlyDistinguishedByLayout": {
+        "aliased": 8,
+        "equal-distinct": 8,
+        "different-distinct": 8,
+        "empty-source": 16,
+        "empty-destination": 16,
+        "aliased-empty": 32,
+        "distinct-empty": 32
+      },
+      "legacyAdmitted": 406,
+      "admitted": 286,
+      "declined": 162,
+      "admittedDisagreements": 0,
+      "equivalentButDeclined": 0,
+      "countsByReason": {
+        "changed-same-cell": 2,
+        "different-faulting-operations": 120,
+        "disjoint-cells": 20,
+        "failed-write-after-valid-read": 40,
+        "idempotent-same-cell": 2,
+        "overflow-before-memory": 224,
+        "write-before-failed-read": 40
+      },
+      "observationsCompared": 1792,
+      "selectedComparisons": 896,
+      "firstLegacyCounterexample": {
+        "key": {
+          "layout": "aliased",
+          "addition": "write-five",
+          "a": 2,
+          "b": 3,
+          "write": -1,
+          "read": -1
+        },
+        "decision": {
+          "legacyAdmit": true,
+          "admit": false,
+          "reason": "different-faulting-operations"
+        },
+        "storeFirst": {
+          "faultingOperation": "store",
+          "outcome": {
+            "value": null,
+            "exceptionType": "IndexOutOfRangeException",
+            "output": "",
+            "effects": [],
+            "buffers": [
+              [
+                5,
+                7
+              ]
+            ]
+          }
+        },
+        "loadFirst": {
+          "faultingOperation": "load",
+          "outcome": {
+            "value": null,
+            "exceptionType": "IndexOutOfRangeException",
+            "output": "",
+            "effects": [],
+            "buffers": [
+              [
+                5,
+                7
+              ]
+            ]
+          }
+        }
+      },
+      "firstFailure": null
+    }
+  }
+}

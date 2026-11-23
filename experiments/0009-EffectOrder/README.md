@@ -29,3 +29,17 @@ dotnet run -c Release --project experiments/0009-EffectOrder/v2 -- artifacts/lab
 The Release replay crosses seven buffer layouts, four checked additions, and four choices for each index. Each C# reference clones its own starting buffers and logs an assignment after it succeeds. Both wire formats matched the corresponding C# schedule in all 1,792 comparisons. The selected decoded schedule matched store-first C# in all 896 comparisons. These counts settle the measured grid under the recorded observation contract. The evidence includes the input matrix, ten named witnesses with their complete observations, and all four replayable graph files. [V2 evidence](evidence-v2/result.json)
 
 **V3 assignment.** Extend the observation with the stable operation name of the fault (`checked-add`, `store` or `load`). Keep the v2 grid and both schedules. Predict that the 120 normal-sum cases in which both indices are invalid will now disagree on fault site. Refine the invalid-write admission to require a valid read in those cases. Test for exactly those 120 newly distinguished pairs, 286 remaining admissions, and zero admitted differences in values, faults, writes or final buffers. Retain the first input that defeats any of those predictions.
+
+## V3 experiment
+
+Use the same decoded schedules and 448 input pairs. The stronger observation should distinguish the 120 normal sums where both accesses would fault. On those inputs the store-first graph faults at `store` and the load-first graph faults at `load`. The narrowed guard should admit 286 pairs. A newly distinguished pair outside that group, a different count, or a differing observation under the refined guard defeats the prediction.
+
+```powershell
+dotnet run -c Release --project experiments/0009-EffectOrder/v3 -- artifacts/labs
+```
+
+**Tested.** Adding the faulting operation distinguished **120** previously equal pairs. The refined guard admitted **286 of 448** pairs, down from **406** under the v2 contract. Every admission preserved the stronger observation. The 120 pairs came from 60 combinations of layout and two invalid indices, each with two non-overflowing sums. All 1,792 decoded-schedule comparisons and 896 selected-schedule comparisons matched the independent C# references. [Counts and retained counterexample](evidence-v3/result.json)
+
+The first counterexample to the v2 guard under the stronger contract uses a shared buffer `[5, 7]`, `checked(2 + 3)`, and two indices of `-1`. Both schedules raise `IndexOutOfRangeException`, record no write and keep the buffer intact. Store-first names `store` as the fault site and load-first names `load`. The v3 guard declines the reorder.
+
+The schedule wires reproduced v2 byte for byte. The route derives the fault site by running growing prefixes of the decoded schedule on fresh alias-preserving copies. The first faulting prefix must reproduce the full outcome, including any write that occurred before the fault. This probe applies to the deterministic, straight-line v2 schedules on local buffers. The separate C# references mark each operation immediately before executing it. [Fault-site probe](v3/FaultSiteProbe.cs) · [Saved schedule wires](evidence-v3/)

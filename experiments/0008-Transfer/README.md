@@ -25,3 +25,20 @@ dotnet run -c Release --project experiments/0008-Transfer/v2 -- artifacts/labs
 The original uses 19 baseline bytes and 18 packed bytes. The specialized transfer uses 41 and 38. All four images reconstructed their own graphs and re-encoded byte for byte. The selector runs in host C# and contributes no bytes to those wire sizes. This experiment measures outcome agreement for already evaluated operands. The existing Lean theorem covers the arithmetic model under value-or-overflow observation. Interpreter correspondence and the execution cost of dispatch are separate questions. [Saved wires](evidence-v2/) · [Model theorem](../0005-GuardedAddition/CheckedTransfer.lean)
 
 **Next experiment.** Build a v3 candidate that encodes the same selection using typed range tests and a branch. Run the same 121 pairs through both decoders, compare the executed branch and outcome against the independent v2 oracle, and charge the complete branched graph to each wire format. Either a wrong branch or a lost final overflow defeats that candidate.
+
+## V3 experiment
+
+For the same 121 pure `Int32` pairs at `k = 1`, a decoded selector should route to the original exactly when `a == int.MaxValue` or `b == int.MinValue`, and its outcome should match compiled `checked(a + b)`, including final overflow. An incorrect executed arm or outcome defeats the claim. Both wire sizes include the range tests, branch, and both arithmetic bodies.
+
+```powershell
+dotnet run -c Release --project experiments/0008-Transfer/v3 -- artifacts/labs
+```
+
+**Tested.** Both decoders recovered the complete selector and re-encoded it byte for byte. On all **121** grid pairs per codec, the executed branch and C# outcome matched. The transfer ran on **100** pairs and the original ran on **21**. All **20** final overflows in the transferred arm and **10** in the original arm were preserved per codec. On `(0, 1)`, swapping the branch targets changed the traced arm while both executions returned `1`. [Branch traces and named probes](evidence-v3/result.json)
+
+| Wire | Native arm table | Selector and framing | Complete |
+| --- | ---: | ---: | ---: |
+| Baseline selector | 54 bytes | 20 bytes | **74 bytes** |
+| Packed selector | 50 bytes | 20 bytes | **70 bytes** |
+
+The program starts with `WSB 01` for baseline or `WSP 01` for packed, where `01` is a single version byte. Each of two `01` opcodes reads a typed `Int32` argument, adds a stored little-endian `Int32` shift in widened arithmetic, and yields a Boolean fit test. The `02` branch stores the two target arm IDs and takes the first target when both tests pass. The following byte count frames a single native v1 graph containing both pure arms. Argument indices, arm IDs and the byte count use shortest unsigned base-128 integers. The route evaluator runs those decoded tests and the branch, and the shared interpreter executes the selected native body. [Codec and evaluator](v3/SelectorCodec.cs) · [Saved selector wires](evidence-v3/)

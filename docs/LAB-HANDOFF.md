@@ -29,3 +29,23 @@ Each route verifies the frozen seed digest and structure before execution. The r
 2. Record the prior route, observation contract, independent expectation, actual measurements and verdict. Write additional candidate wires or counterexamples to the staging directory supplied by the runner. Keep hypotheses that failed visible alongside the later result.
 3. Replay with `dotnet run -c Release --project experiments/<experiment>/v3 -- artifacts/labs`. The runner publishes every file together to `artifacts/labs/0006-v1/<lab>/v3/`. Identical reruns succeed. Different content under an existing version yields an error and preserves the earlier output.
 4. Copy the small, replayable evidence set to the lab's `evidence-v3/` and record the exact command and verdict in its README. Later versions follow the same convention. A cross-lab experiment can cite the contributing route versions and hashes explicitly.
+
+## V3 results and replay
+
+Each route started in its own source snapshot of `weightless-labs-v3-start` at `d17fb0f`. Each snapshot contained the common runner and checked Add seed, the frozen native sources, and one lab. Capacity also used the earlier Buffer C# oracle. Each lab reproduced its own v2 evidence byte for byte and then built and ran its v3 project with the sibling directories absent.
+
+The concurrent Release replay with SDK 10.0.401 reproduced all 19 saved v3 files byte for byte. A separate publication test seeded conflicting Capacity evidence in a scratch output root. Capacity preserved the earlier version while Transfer and Effect Order each published their full evidence to that same root.
+
+| Route | Result | Evidence |
+| --- | --- | --- |
+| Capacity v3 | The first saving was at **two Adds**, from **22 to 18 bytes** for the complete plain wire. The buffer control stayed at 61 bytes. All 338 C# comparisons matched. | [Capacity measurements](../experiments/0007-Capacity/README.md#v3-experiment) |
+| Transfer v3 | Both serialized selectors matched all **121** branch and outcome pairs, including final overflows. The complete baseline and packed programs use **74 and 70 bytes**. | [Transfer measurements](../experiments/0008-Transfer/README.md#v3-experiment) |
+| Effect order v3 | Adding the fault site distinguished **120** additional pairs. The refined guard admitted **286 of 448** and preserved every admitted observation. | [Effect-order measurements](../experiments/0009-EffectOrder/README.md#v3-experiment) |
+
+Run any of these commands from the repository root. Each publishes to its own `v3/` evidence directory beneath the output root.
+
+```powershell
+dotnet run -c Release --project experiments/0007-Capacity/v3 -- artifacts/labs
+dotnet run -c Release --project experiments/0008-Transfer/v3 -- artifacts/labs
+dotnet run -c Release --project experiments/0009-EffectOrder/v3 -- artifacts/labs
+```

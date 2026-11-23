@@ -1,0 +1,601 @@
+{
+  "pipeline": "0006-v1",
+  "route": "capacity/v3",
+  "parent": {
+    "id": "add.checked.plain",
+    "path": "experiments/0001-Addition/baseline-v1/add-checked.wlb",
+    "sha256": "F29EB79B426681794A0A7BDC22C47CF38B9792C93ADF96326CD3964563877B34"
+  },
+  "finding": {
+    "claim": "A run of checked Adds recovers the original graph and C# observations and first beats packed v1 at two Adds.",
+    "verdict": "tested",
+    "checksPassed": true,
+    "evidence": {
+      "parentRoute": "capacity/v2",
+      "startRevision": "d17fb0ff88f12e566f755df7b587831602c5bf81",
+      "observation": "Return value or exception type, stdout, ordered writes and final buffer state.",
+      "wire": "Standalone WLP v2. Tag 09, run count, initial left slot and shared right slot.",
+      "firstSavingAdds": 2,
+      "probes": [
+        {
+          "name": "positive",
+          "a": 3,
+          "b": 2
+        },
+        {
+          "name": "negative",
+          "a": -1,
+          "b": 0
+        },
+        {
+          "name": "zero",
+          "a": 0,
+          "b": 0
+        },
+        {
+          "name": "upper-overflow",
+          "a": 2147483647,
+          "b": 1
+        },
+        {
+          "name": "lower-overflow",
+          "a": -2147483648,
+          "b": -1
+        },
+        {
+          "name": "second-add-overflow",
+          "a": 2147483646,
+          "b": 1
+        }
+      ],
+      "chains": [
+        {
+          "adds": 0,
+          "contract": "None",
+          "v1Bytes": 14,
+          "runBytes": 14,
+          "expectedSaving": 0,
+          "saved": 0
+        },
+        {
+          "adds": 0,
+          "contract": "NonNegativeInt32",
+          "v1Bytes": 15,
+          "runBytes": 15,
+          "expectedSaving": 0,
+          "saved": 0
+        },
+        {
+          "adds": 1,
+          "contract": "None",
+          "v1Bytes": 18,
+          "runBytes": 18,
+          "expectedSaving": 0,
+          "saved": 0
+        },
+        {
+          "adds": 1,
+          "contract": "NonNegativeInt32",
+          "v1Bytes": 19,
+          "runBytes": 19,
+          "expectedSaving": 0,
+          "saved": 0
+        },
+        {
+          "adds": 2,
+          "contract": "None",
+          "v1Bytes": 22,
+          "runBytes": 18,
+          "expectedSaving": 4,
+          "saved": 4
+        },
+        {
+          "adds": 2,
+          "contract": "NonNegativeInt32",
+          "v1Bytes": 23,
+          "runBytes": 19,
+          "expectedSaving": 4,
+          "saved": 4
+        },
+        {
+          "adds": 3,
+          "contract": "None",
+          "v1Bytes": 26,
+          "runBytes": 18,
+          "expectedSaving": 8,
+          "saved": 8
+        },
+        {
+          "adds": 3,
+          "contract": "NonNegativeInt32",
+          "v1Bytes": 27,
+          "runBytes": 19,
+          "expectedSaving": 8,
+          "saved": 8
+        },
+        {
+          "adds": 64,
+          "contract": "None",
+          "v1Bytes": 270,
+          "runBytes": 18,
+          "expectedSaving": 252,
+          "saved": 252
+        },
+        {
+          "adds": 64,
+          "contract": "NonNegativeInt32",
+          "v1Bytes": 271,
+          "runBytes": 19,
+          "expectedSaving": 252,
+          "saved": 252
+        },
+        {
+          "adds": 124,
+          "contract": "None",
+          "v1Bytes": 510,
+          "runBytes": 18,
+          "expectedSaving": 492,
+          "saved": 492
+        },
+        {
+          "adds": 124,
+          "contract": "NonNegativeInt32",
+          "v1Bytes": 511,
+          "runBytes": 19,
+          "expectedSaving": 492,
+          "saved": 492
+        },
+        {
+          "adds": 125,
+          "contract": "None",
+          "v1Bytes": 514,
+          "runBytes": 18,
+          "expectedSaving": 496,
+          "saved": 496
+        },
+        {
+          "adds": 125,
+          "contract": "NonNegativeInt32",
+          "v1Bytes": 515,
+          "runBytes": 19,
+          "expectedSaving": 496,
+          "saved": 496
+        },
+        {
+          "adds": 126,
+          "contract": "None",
+          "v1Bytes": 519,
+          "runBytes": 19,
+          "expectedSaving": 500,
+          "saved": 500
+        },
+        {
+          "adds": 126,
+          "contract": "NonNegativeInt32",
+          "v1Bytes": 520,
+          "runBytes": 20,
+          "expectedSaving": 500,
+          "saved": 500
+        },
+        {
+          "adds": 127,
+          "contract": "None",
+          "v1Bytes": 524,
+          "runBytes": 20,
+          "expectedSaving": 504,
+          "saved": 504
+        },
+        {
+          "adds": 127,
+          "contract": "NonNegativeInt32",
+          "v1Bytes": 525,
+          "runBytes": 21,
+          "expectedSaving": 504,
+          "saved": 504
+        },
+        {
+          "adds": 128,
+          "contract": "None",
+          "v1Bytes": 529,
+          "runBytes": 21,
+          "expectedSaving": 508,
+          "saved": 508
+        },
+        {
+          "adds": 128,
+          "contract": "NonNegativeInt32",
+          "v1Bytes": 530,
+          "runBytes": 22,
+          "expectedSaving": 508,
+          "saved": 508
+        },
+        {
+          "adds": 129,
+          "contract": "None",
+          "v1Bytes": 534,
+          "runBytes": 21,
+          "expectedSaving": 513,
+          "saved": 513
+        },
+        {
+          "adds": 129,
+          "contract": "NonNegativeInt32",
+          "v1Bytes": 535,
+          "runBytes": 22,
+          "expectedSaving": 513,
+          "saved": 513
+        },
+        {
+          "adds": 130,
+          "contract": "None",
+          "v1Bytes": 539,
+          "runBytes": 21,
+          "expectedSaving": 518,
+          "saved": 518
+        },
+        {
+          "adds": 130,
+          "contract": "NonNegativeInt32",
+          "v1Bytes": 540,
+          "runBytes": 22,
+          "expectedSaving": 518,
+          "saved": 518
+        },
+        {
+          "adds": 4095,
+          "contract": "None",
+          "v1Bytes": 20364,
+          "runBytes": 21,
+          "expectedSaving": 20343,
+          "saved": 20343
+        },
+        {
+          "adds": 4095,
+          "contract": "NonNegativeInt32",
+          "v1Bytes": 20365,
+          "runBytes": 22,
+          "expectedSaving": 20343,
+          "saved": 20343
+        }
+      ],
+      "mixed": [
+        {
+          "name": "buffer-call",
+          "v1Bytes": 61,
+          "runBytes": 61,
+          "expectedSaving": 0,
+          "cases": [
+            {
+              "name": "store-and-load",
+              "arguments": [
+                [
+                  10,
+                  20,
+                  30
+                ],
+                1,
+                1,
+                true,
+                98
+              ],
+              "observed": {
+                "value": 99,
+                "exceptionType": null,
+                "output": "",
+                "effects": [
+                  {
+                    "kind": "buffer-write",
+                    "text": null,
+                    "buffer": 0,
+                    "index": 1,
+                    "value": 99
+                  }
+                ],
+                "buffers": [
+                  [
+                    10,
+                    99,
+                    30
+                  ]
+                ]
+              }
+            },
+            {
+              "name": "skip-invalid-store",
+              "arguments": [
+                [
+                  10,
+                  20,
+                  30
+                ],
+                99,
+                1,
+                false,
+                98
+              ],
+              "observed": {
+                "value": 20,
+                "exceptionType": null,
+                "output": "",
+                "effects": [],
+                "buffers": [
+                  [
+                    10,
+                    20,
+                    30
+                  ]
+                ]
+              }
+            },
+            {
+              "name": "load-fails-after-store",
+              "arguments": [
+                [
+                  10,
+                  20,
+                  30
+                ],
+                1,
+                3,
+                true,
+                98
+              ],
+              "observed": {
+                "value": null,
+                "exceptionType": "IndexOutOfRangeException",
+                "output": "",
+                "effects": [
+                  {
+                    "kind": "buffer-write",
+                    "text": null,
+                    "buffer": 0,
+                    "index": 1,
+                    "value": 99
+                  }
+                ],
+                "buffers": [
+                  [
+                    10,
+                    99,
+                    30
+                  ]
+                ]
+              }
+            },
+            {
+              "name": "store-fails",
+              "arguments": [
+                [
+                  10,
+                  20,
+                  30
+                ],
+                -1,
+                1,
+                true,
+                98
+              ],
+              "observed": {
+                "value": null,
+                "exceptionType": "IndexOutOfRangeException",
+                "output": "",
+                "effects": [],
+                "buffers": [
+                  [
+                    10,
+                    20,
+                    30
+                  ]
+                ]
+              }
+            },
+            {
+              "name": "overflow-before-store",
+              "arguments": [
+                [
+                  10,
+                  20,
+                  30
+                ],
+                1,
+                1,
+                true,
+                2147483647
+              ],
+              "observed": {
+                "value": null,
+                "exceptionType": "OverflowException",
+                "output": "",
+                "effects": [],
+                "buffers": [
+                  [
+                    10,
+                    20,
+                    30
+                  ]
+                ]
+              }
+            },
+            {
+              "name": "load-fails-without-store",
+              "arguments": [
+                [
+                  10,
+                  20,
+                  30
+                ],
+                1,
+                -1,
+                false,
+                98
+              ],
+              "observed": {
+                "value": null,
+                "exceptionType": "IndexOutOfRangeException",
+                "output": "",
+                "effects": [],
+                "buffers": [
+                  [
+                    10,
+                    20,
+                    30
+                  ]
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "two-runs-and-literal",
+          "v1Bytes": 36,
+          "runBytes": 28,
+          "expectedSaving": 8,
+          "cases": [
+            {
+              "name": "positive",
+              "arguments": [
+                3,
+                2
+              ],
+              "observed": {
+                "value": 9,
+                "exceptionType": null,
+                "output": "",
+                "effects": [],
+                "buffers": []
+              }
+            },
+            {
+              "name": "negative",
+              "arguments": [
+                -1,
+                0
+              ],
+              "observed": {
+                "value": 1,
+                "exceptionType": null,
+                "output": "",
+                "effects": [],
+                "buffers": []
+              }
+            },
+            {
+              "name": "zero",
+              "arguments": [
+                0,
+                0
+              ],
+              "observed": {
+                "value": 2,
+                "exceptionType": null,
+                "output": "",
+                "effects": [],
+                "buffers": []
+              }
+            },
+            {
+              "name": "upper-overflow",
+              "arguments": [
+                2147483647,
+                1
+              ],
+              "observed": {
+                "value": null,
+                "exceptionType": "OverflowException",
+                "output": "",
+                "effects": [],
+                "buffers": []
+              }
+            },
+            {
+              "name": "lower-overflow",
+              "arguments": [
+                -2147483648,
+                -1
+              ],
+              "observed": {
+                "value": null,
+                "exceptionType": "OverflowException",
+                "output": "",
+                "effects": [],
+                "buffers": []
+              }
+            },
+            {
+              "name": "second-add-overflow",
+              "arguments": [
+                2147483646,
+                1
+              ],
+              "observed": {
+                "value": null,
+                "exceptionType": "OverflowException",
+                "output": "",
+                "effects": [],
+                "buffers": []
+              }
+            },
+            {
+              "name": "overflow-in-second-run",
+              "arguments": [
+                2147483647,
+                0
+              ],
+              "observed": {
+                "value": null,
+                "exceptionType": "OverflowException",
+                "output": "",
+                "effects": [],
+                "buffers": []
+              }
+            }
+          ]
+        }
+      ],
+      "comparisons": 338,
+      "rejectionProbes": [
+        {
+          "name": "old-version",
+          "hex": "574C5001000101020101030201000102010201080004",
+          "rejected": true
+        },
+        {
+          "name": "uncompressed-eligible-run",
+          "hex": "574C5002000101020101030201000102010201080004",
+          "rejected": true
+        },
+        {
+          "name": "run-of-one",
+          "hex": "574C50020001010201010309010001080004",
+          "rejected": true
+        },
+        {
+          "name": "run-past-body",
+          "hex": "574C50020001010201010309040001080004",
+          "rejected": true
+        },
+        {
+          "name": "forward-common-operand",
+          "hex": "574C50020001010201010309020002080004",
+          "rejected": true
+        },
+        {
+          "name": "overlong-count",
+          "hex": "574C5002000101020101030982000001080004",
+          "rejected": true
+        },
+        {
+          "name": "truncated-run",
+          "hex": "574C500200010102010103090200",
+          "rejected": true
+        },
+        {
+          "name": "trailing-byte",
+          "hex": "574C5002000101020101030902000108000400",
+          "rejected": true
+        }
+      ],
+      "firstFailure": null
+    }
+  }
+}
