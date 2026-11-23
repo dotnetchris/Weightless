@@ -12,3 +12,20 @@ One admitted disagreement refutes soundness on the corpus. Record replayable wit
 dotnet run -c Release --project experiments/0009-EffectOrder/v1 -- artifacts/labs
 dotnet run -c Release --project experiments/0009-EffectOrder/v2 -- artifacts/labs
 ```
+
+## V2 result
+
+**The guard admitted 406 of 448 inputs.** Every admission preserved the complete observation, and each of the 42 declined inputs distinguished the two schedules. The guard runs in the host against the initial, single-threaded buffer state. It admits a reorder if checked Add overflows before memory access, or if the write index is invalid. After a valid sum and write index, it requires a valid read and either different cells or a same-cell write of the existing value. [Guard and C# references](v2/Program.cs)
+
+| First applicable condition | Inputs | Decision | Observable reason |
+| --- | ---: | --- | --- |
+| Sum overflows | 224 | Admit | Both executions stop before either memory operation. |
+| Write index is invalid | 160 | Admit | Both executions raise the bounds exception without a successful write. The contract observes the exception type. |
+| Write is valid and read index is invalid | 40 | Decline | Only store-first records a write, including when the value already equals the destination. |
+| Both accesses are valid and name different cells | 20 | Admit | Both return the original source value and record the same write. |
+| Same cell, unchanged value | 2 | Admit | Both return the stored value and record one write. |
+| Same cell, changed value | 2 | Decline | The two reads observe different values. |
+
+The Release replay crosses seven buffer layouts, four checked additions, and four choices for each index. Each C# reference clones its own starting buffers and logs an assignment after it succeeds. Both wire formats matched the corresponding C# schedule in all 1,792 comparisons. The selected decoded schedule matched store-first C# in all 896 comparisons. These counts settle the measured grid under the recorded observation contract. The evidence includes the input matrix, ten named witnesses with their complete observations, and all four replayable graph files. [V2 evidence](evidence-v2/result.json)
+
+**V3 assignment.** Extend the observation with the stable operation name of the fault (`checked-add`, `store` or `load`). Keep the v2 grid and both schedules. Predict that the 120 normal-sum cases in which both indices are invalid will now disagree on fault site. Refine the invalid-write admission to require a valid read in those cases. Test for exactly those 120 newly distinguished pairs, 286 remaining admissions, and zero admitted differences in values, faults, writes or final buffers. Retain the first input that defeats any of those predictions.
