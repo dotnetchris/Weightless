@@ -1,0 +1,258 @@
+{
+  "pipeline": "0006-v1",
+  "route": "capacity/v2",
+  "parent": {
+    "id": "add.checked.plain",
+    "path": "experiments/0001-Addition/baseline-v1/add-checked.wlb",
+    "sha256": "F29EB79B426681794A0A7BDC22C47CF38B9792C93ADF96326CD3964563877B34"
+  },
+  "finding": {
+    "claim": "Across the sampled checked Add chains, including the first two-byte counts and references, packed/constrained costs 1 - AddCount bytes relative to baseline/plain and preserves the specified observations.",
+    "verdict": "tested",
+    "checksPassed": true,
+    "evidence": {
+      "parentRoute": "capacity/v1",
+      "oracle": "Checked C# loop followed by the entry postcondition.",
+      "probes": [
+        {
+          "name": "positive",
+          "a": 3,
+          "b": 2
+        },
+        {
+          "name": "negative",
+          "a": -1,
+          "b": 0
+        },
+        {
+          "name": "zero",
+          "a": 0,
+          "b": 0
+        },
+        {
+          "name": "upper-overflow",
+          "a": 2147483647,
+          "b": 1
+        },
+        {
+          "name": "lower-overflow",
+          "a": -2147483648,
+          "b": -1
+        },
+        {
+          "name": "second-add-overflow",
+          "a": 2147483646,
+          "b": 1
+        }
+      ],
+      "rows": [
+        {
+          "adds": 0,
+          "sizes": {
+            "baselinePlain": 14,
+            "packedPlain": 14,
+            "baselineConstrained": 15,
+            "packedConstrained": 15
+          },
+          "delta": 1,
+          "fields": {
+            "bodyCountHex": "01",
+            "lastAddLeftHex": null,
+            "returnReferencePlusOneHex": "01"
+          },
+          "sizeMatches": true,
+          "matchedObservations": 24
+        },
+        {
+          "adds": 1,
+          "sizes": {
+            "baselinePlain": 19,
+            "packedPlain": 18,
+            "baselineConstrained": 20,
+            "packedConstrained": 19
+          },
+          "delta": 0,
+          "fields": {
+            "bodyCountHex": "02",
+            "lastAddLeftHex": "00",
+            "returnReferencePlusOneHex": "03"
+          },
+          "sizeMatches": true,
+          "matchedObservations": 24
+        },
+        {
+          "adds": 2,
+          "sizes": {
+            "baselinePlain": 24,
+            "packedPlain": 22,
+            "baselineConstrained": 25,
+            "packedConstrained": 23
+          },
+          "delta": -1,
+          "fields": {
+            "bodyCountHex": "03",
+            "lastAddLeftHex": "02",
+            "returnReferencePlusOneHex": "04"
+          },
+          "sizeMatches": true,
+          "matchedObservations": 24
+        },
+        {
+          "adds": 64,
+          "sizes": {
+            "baselinePlain": 334,
+            "packedPlain": 270,
+            "baselineConstrained": 335,
+            "packedConstrained": 271
+          },
+          "delta": -63,
+          "fields": {
+            "bodyCountHex": "41",
+            "lastAddLeftHex": "40",
+            "returnReferencePlusOneHex": "42"
+          },
+          "sizeMatches": true,
+          "matchedObservations": 24
+        },
+        {
+          "adds": 124,
+          "sizes": {
+            "baselinePlain": 634,
+            "packedPlain": 510,
+            "baselineConstrained": 635,
+            "packedConstrained": 511
+          },
+          "delta": -123,
+          "fields": {
+            "bodyCountHex": "7D",
+            "lastAddLeftHex": "7C",
+            "returnReferencePlusOneHex": "7E"
+          },
+          "sizeMatches": true,
+          "matchedObservations": 24
+        },
+        {
+          "adds": 125,
+          "sizes": {
+            "baselinePlain": 639,
+            "packedPlain": 514,
+            "baselineConstrained": 640,
+            "packedConstrained": 515
+          },
+          "delta": -124,
+          "fields": {
+            "bodyCountHex": "7E",
+            "lastAddLeftHex": "7D",
+            "returnReferencePlusOneHex": "7F"
+          },
+          "sizeMatches": true,
+          "matchedObservations": 24
+        },
+        {
+          "adds": 126,
+          "sizes": {
+            "baselinePlain": 645,
+            "packedPlain": 519,
+            "baselineConstrained": 646,
+            "packedConstrained": 520
+          },
+          "delta": -125,
+          "fields": {
+            "bodyCountHex": "7F",
+            "lastAddLeftHex": "7E",
+            "returnReferencePlusOneHex": "8001"
+          },
+          "sizeMatches": true,
+          "matchedObservations": 24
+        },
+        {
+          "adds": 127,
+          "sizes": {
+            "baselinePlain": 651,
+            "packedPlain": 524,
+            "baselineConstrained": 652,
+            "packedConstrained": 525
+          },
+          "delta": -126,
+          "fields": {
+            "bodyCountHex": "8001",
+            "lastAddLeftHex": "7F",
+            "returnReferencePlusOneHex": "8101"
+          },
+          "sizeMatches": true,
+          "matchedObservations": 24
+        },
+        {
+          "adds": 128,
+          "sizes": {
+            "baselinePlain": 657,
+            "packedPlain": 529,
+            "baselineConstrained": 658,
+            "packedConstrained": 530
+          },
+          "delta": -127,
+          "fields": {
+            "bodyCountHex": "8101",
+            "lastAddLeftHex": "8001",
+            "returnReferencePlusOneHex": "8201"
+          },
+          "sizeMatches": true,
+          "matchedObservations": 24
+        },
+        {
+          "adds": 129,
+          "sizes": {
+            "baselinePlain": 663,
+            "packedPlain": 534,
+            "baselineConstrained": 664,
+            "packedConstrained": 535
+          },
+          "delta": -128,
+          "fields": {
+            "bodyCountHex": "8201",
+            "lastAddLeftHex": "8101",
+            "returnReferencePlusOneHex": "8301"
+          },
+          "sizeMatches": true,
+          "matchedObservations": 24
+        },
+        {
+          "adds": 130,
+          "sizes": {
+            "baselinePlain": 669,
+            "packedPlain": 539,
+            "baselineConstrained": 670,
+            "packedConstrained": 540
+          },
+          "delta": -129,
+          "fields": {
+            "bodyCountHex": "8301",
+            "lastAddLeftHex": "8201",
+            "returnReferencePlusOneHex": "8401"
+          },
+          "sizeMatches": true,
+          "matchedObservations": 24
+        },
+        {
+          "adds": 4095,
+          "sizes": {
+            "baselinePlain": 24459,
+            "packedPlain": 20364,
+            "baselineConstrained": 24460,
+            "packedConstrained": 20365
+          },
+          "delta": -4094,
+          "fields": {
+            "bodyCountHex": "8020",
+            "lastAddLeftHex": "FF1F",
+            "returnReferencePlusOneHex": "8120"
+          },
+          "sizeMatches": true,
+          "matchedObservations": 24
+        }
+      ],
+      "comparisons": 288,
+      "firstFailure": null
+    }
+  }
+}
