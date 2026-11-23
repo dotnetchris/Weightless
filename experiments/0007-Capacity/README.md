@@ -12,3 +12,18 @@ A wrong delta, a lost negative-result distinction, a mismatched overflow, or a g
 dotnet run -c Release --project experiments/0007-Capacity/v1 -- artifacts/labs
 dotnet run -c Release --project experiments/0007-Capacity/v2 -- artifacts/labs
 ```
+
+## V2 results
+
+The byte budget held at all 12 sampled chain lengths, through the largest v1 function of 4,095 Adds and one Return. Each of the 48 wire images reconstructed the source graph and re-encoded identically. Six inputs per image gave 288 full observation matches with the checked C# loop. On the zero-Add control, an input such as `(int.MaxValue, 1)` returned its first argument. The same input overflowed once the chain executed an Add. [Experiment source](v2/Program.cs) · [Measurements and inputs](evidence-v2/result.json)
+
+| Adds | Baseline plain | Packed plain | Baseline constrained | Packed constrained | First field to reach 128 at this length |
+| ---: | ---: | ---: | ---: | ---: | --- |
+| 125 | 639 | 514 | 640 | 515 | All fields still fit in one byte |
+| 126 | 645 | 519 | 646 | 520 | Return stores the result reference plus one |
+| 127 | 651 | 524 | 652 | 525 | The instruction count includes the final Return |
+| 128 | 657 | 529 | 658 | 530 | The last Add reads accumulator slot 128 |
+
+Each of those three fields grew from `7F` to `80 01` on its own step. Both codecs pay these width increases. At 128 Adds the packed graph carried the enforced contract in 530 bytes against 657 bytes for unrestricted baseline, recovering 127 bytes after paying for the predicate. The evidence includes the measured field bytes for each length. [Full size table](evidence-v2/result.json)
+
+**Next experiment.** A v3 route could encode an entire run of identical checked Adds in a single record. Measure the first run length at which the new form beats packed v1 after charging the wire header, run count, operand references and escape for literal instructions. Require reconstruction of the same graph, including its contract and checked overflow behavior. A mixed-operation control should reveal the cost when a run cannot form.
