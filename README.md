@@ -3,6 +3,8 @@ A programming system where the human is no longer burdened with syntax, boilerpl
 
 ## Settlement and independent labs
 
+The next three labs move from checked Add to caller-visible application behavior. Each starts with a runnable C# reference for ordered input guards, property updates, or appending running balances to an existing list. [Practical lab handoff](docs/PRACTICAL-LAB-HANDOFF.md)
+
 Packed checked Add enforces a nonnegative result in the same 19 bytes as unrestricted baseline Add. A native experiment replays that distinction across two operand orders. Three independently versioned labs build on the same saved graph to measure capacity, select arithmetic rewrites and test effect ordering. [Settlement report](docs/SETTLEMENT-2026-11-23.md) · [Agent handoff and replay commands](docs/LAB-HANDOFF.md)
 
 ## Thanksgiving sprint replay
