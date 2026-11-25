@@ -22,3 +22,11 @@ The supplied C# methods express the same intended contract using explicit `if` a
 dotnet run -c Release --project experiments/0010-AddInputGuards/reference
 dotnet run -c Release --project experiments/0010-AddInputGuards/v1 -- artifacts/labs
 ```
+
+## V1 results
+
+**Tested.** Roslyn bound the explicit exception constructor and the closed `ThrowIfLessThan<int>` helper. It resolved the helper's implicit diagnostic arguments to `a` and `b`. Both forms produced the same plan and identical **39-byte** images. Reopening and executing both images matched all **72 comparisons** across the 36 input pairs. The comparison includes the first rejected parameter, its actual value and overflow after admission. [Source bindings, comparisons and saved images](evidence-v1/)
+
+Editing the first bound from `-1` to `0` in each C# form separately changed that form's imported first guard. The raised-bound image rejected `a = -1` on `(-1, 0)`, where the original returned `-1`. Reopening the reversed guard image on `(-2, -3)` changed the exception from `a = -2` to `b = -3`. [Control observations](evidence-v1/result.json)
+
+The `WIG` header ends in version byte `01` and is followed by the one-byte guard count. Each guard stores opcode `01`, an argument slot, a little-endian signed `Int32` lower bound, a one-byte name length and a nonempty UTF-8 diagnostic name. The remaining bytes hold the checked Add in packed v1. The observed **21 bytes** of guard records and framing plus **18 bytes** for Add account for the complete image. The evaluator compares signed operands in record order, calls the CLR argument exception constructor if a guard fails, and delegates the admitted sum to the shared interpreter. [Binder](v1/GuardBinding.cs) · [Wire and evaluator](v1/GuardCodec.cs)

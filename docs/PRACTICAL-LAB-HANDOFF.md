@@ -31,3 +31,23 @@ Changing one C# implementation at a time confirmed that the references detect th
 5. Retain the replayable outputs in your `evidence-v1/` and append the command and interpretation to your README. Use **tested** for agreement on the stated corpus, **refuted** for a concrete valid-input counterexample to the stated claim, and **failed** for a build, decode, oracle or control failure that prevents a verdict. A deliberately different candidate gets its own claim and witness. Successive experiments use sibling `v2/` and `evidence-v2/` directories.
 
 Completion means a clean checkout can run each lab independently and regenerate its retained files. The combined replay may launch all three against the same output root. A later integration decision can use the three records to see which operations deserve shared graph support.
+
+## V1 results and replay
+
+Each v1 route built and ran in its own source snapshot of `weightless-practical-v1-start` at `1ac9d19`, with the other two practical experiment directories absent. Each route verified its own C# reference before the native run. The concurrent Release replay with SDK 10.0.401 reproduced all 13 saved evidence files byte for byte.
+
+An intentional Add Input Guards output conflict preserved that route's earlier files while Property Mapping and Balance History published into the same output root. Source digests in the evidence use UTF-8 with LF line endings so they can be compared across checkout settings.
+
+| Experiment | Result | Complete image |
+| --- | --- | ---: |
+| [0010 Add input guards](../experiments/0010-AddInputGuards/README.md#v1-results) | Both C# forms lowered to identical bytes and passed all 72 reference comparisons. Changing a stored bound or guard order changed the actual thrown diagnostic. | 39 bytes |
+| [0011 Property mapping](../experiments/0011-PropertyMapping/README.md#v1-results) | Both getter binding and setter order changed observed row state in the controls. The original plan kept the first write visible after the second setter failed. | 154 bytes, including 140 for schema |
+| [0012 Balance history](../experiments/0012-BalanceHistory/README.md#v1-results) | One image matched all seven cases, including 257 deltas. The staged-commit counterexample lost a successful append on late overflow. | 31 bytes |
+
+Run any route from the repository root. Each publishes evidence under its own route and version beneath the output root.
+
+```powershell
+dotnet run -c Release --project experiments/0010-AddInputGuards/v1 -- artifacts/labs
+dotnet run -c Release --project experiments/0011-PropertyMapping/v1 -- artifacts/labs
+dotnet run -c Release --project experiments/0012-BalanceHistory/v1 -- artifacts/labs
+```

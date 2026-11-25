@@ -20,3 +20,11 @@ Implement `balance-history/v1`. Test whether one decoded program can traverse a 
 dotnet run -c Release --project experiments/0012-BalanceHistory/reference
 dotnet run -c Release --project experiments/0012-BalanceHistory/v1 -- artifacts/labs
 ```
+
+## V1 results
+
+**Tested.** One **31-byte** decoded plan matched all seven C# cases, including a 257-element array, an empty array, and overflow after a successful append. On `10, [3, 0, -2], [90]`, it returned `11` and kept both instances of `13` in `[90, 13, 13, 11]`. Changing the stored append operand to the delta still returned `11` and changed the caller's list to `[90, 3, 0, -2]`. The evidence includes final array contents and list count on each outcome. [Comparisons and saved images](evidence-v1/)
+
+**Refuted.** Staging every append until the traversal succeeds changes what the caller sees on late overflow. With opening balance `int.MaxValue - 1`, deltas `[1, 1]` and initial history `[90]`, both variants raised `OverflowException`. Incremental append left `[90, int.MaxValue]`, while staged commit left `[90]`. [First counterexample](evidence-v1/result.json)
+
+The hand-built `WBH` version 1 envelope uses three slots typed `Int32`, `Int32[]` and `List<Int32>`. After its four-byte header, opcode `01` takes the opening and array slots and traverses the runtime array. Opcode `02` calls the checked step with the balance and delta. Opcode `03` holds the list slot, append operand (`00` balance or `01` delta) and timing (`00` immediate or `01` after traversal). Opcode `04` returns the accumulator. These bytes occupy **13 bytes** including the header. The last **18 bytes** hold the pinned checked Add in packed v1, executed by the shared interpreter at each step. The route uses host array traversal and CLR list operations. [Wire and evaluator](v1/HistoryCodec.cs)

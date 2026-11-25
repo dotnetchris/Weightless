@@ -1,0 +1,614 @@
+{
+  "pipeline": "0006-v1",
+  "route": "property-mapping/v1",
+  "parent": {
+    "id": "add.checked.plain",
+    "path": "experiments/0001-Addition/baseline-v1/add-checked.wlb",
+    "sha256": "F29EB79B426681794A0A7BDC22C47CF38B9792C93ADF96326CD3964563877B34"
+  },
+  "finding": {
+    "claim": "The decoded property assignments preserve binding, returned identity, write order and partial updates.",
+    "verdict": "tested",
+    "checksPassed": true,
+    "evidence": {
+      "startRevision": "1ac9d1946048379a1d685e4cbf79c2cb03f3198e",
+      "predecessor": "effects/v3",
+      "source": {
+        "path": "experiments/0011-PropertyMapping/reference/StockMapping.cs",
+        "method": "Weightless.Research.PropertyMapping.StockMapping.Apply(Weightless.Research.PropertyMapping.StockUpdate, Weightless.Research.PropertyMapping.StockRow)",
+        "compiler": "5.9.0.0",
+        "sha256LfUtf8": "803E40E8AD6D76D5F50C3C424C4AF169897C649B83DA6EA5AA1607883C86E6FF",
+        "assignments": [
+          {
+            "sourceLine": 25,
+            "getter": {
+              "receiver": 0,
+              "member": 0,
+              "symbol": "Weightless.Research.PropertyMapping.StockUpdate.Units.get"
+            },
+            "setter": {
+              "receiver": 1,
+              "member": 2,
+              "symbol": "Weightless.Research.PropertyMapping.StockRow.OnHand.set"
+            }
+          },
+          {
+            "sourceLine": 26,
+            "getter": {
+              "receiver": 0,
+              "member": 1,
+              "symbol": "Weightless.Research.PropertyMapping.StockUpdate.AlertBelow.get"
+            },
+            "setter": {
+              "receiver": 1,
+              "member": 3,
+              "symbol": "Weightless.Research.PropertyMapping.StockRow.ReorderPoint.set"
+            }
+          }
+        ]
+      },
+      "origin": "Assignments, order and return receiver come from Roslyn. A route-local table invokes the real declared CLR accessors.",
+      "seed": "The checked Add seed authenticates the runner\u0027s starting point.",
+      "observation": "Returned identity on success and caller alias state on every outcome, including SKU, both integer fields and argument fault details.",
+      "schema": {
+        "receivers": [
+          "Weightless.Research.PropertyMapping.StockUpdate",
+          "Weightless.Research.PropertyMapping.StockRow"
+        ],
+        "members": [
+          {
+            "id": 0,
+            "receiver": 0,
+            "name": "Units",
+            "access": 1
+          },
+          {
+            "id": 1,
+            "receiver": 0,
+            "name": "AlertBelow",
+            "access": 1
+          },
+          {
+            "id": 2,
+            "receiver": 1,
+            "name": "OnHand",
+            "access": 2
+          },
+          {
+            "id": 3,
+            "receiver": 1,
+            "name": "ReorderPoint",
+            "access": 2
+          }
+        ]
+      },
+      "images": [
+        {
+          "file": "mapping.wlp",
+          "totalBytes": 154,
+          "schemaBytes": 140,
+          "headerAndProgramBytes": 14,
+          "sha256": "60EF4A2034924FC51D06C48889FFCE354D74D1BA9FE48D05F0A8FFF347B53FC0"
+        },
+        {
+          "file": "swapped-source-members.wlp",
+          "totalBytes": 154,
+          "schemaBytes": 140,
+          "headerAndProgramBytes": 14,
+          "sha256": "31B282435551D9B5D470A2C06B2ED50D9621791EC6A15D4CC6C53658080A0CD4"
+        },
+        {
+          "file": "reversed-assignments.wlp",
+          "totalBytes": 154,
+          "schemaBytes": 140,
+          "headerAndProgramBytes": 14,
+          "sha256": "02BA5949C4723C0EF57CF04C657D89A8DB5AE0B2D2CB3D990F37ADEA2F92996E"
+        }
+      ],
+      "comparisons": [
+        {
+          "input": {
+            "name": "ordinary",
+            "units": 17,
+            "alertBelow": 3
+          },
+          "initial": {
+            "sku": "SKU-42",
+            "onHand": 8,
+            "reorderPoint": 4
+          },
+          "expected": {
+            "returnedOriginal": true,
+            "exceptionType": null,
+            "parameter": null,
+            "actualValue": null,
+            "destination": {
+              "sku": "SKU-42",
+              "onHand": 17,
+              "reorderPoint": 3
+            }
+          },
+          "actual": {
+            "returnedOriginal": true,
+            "exceptionType": null,
+            "parameter": null,
+            "actualValue": null,
+            "destination": {
+              "sku": "SKU-42",
+              "onHand": 17,
+              "reorderPoint": 3
+            }
+          },
+          "match": true
+        },
+        {
+          "input": {
+            "name": "zero",
+            "units": 0,
+            "alertBelow": 0
+          },
+          "initial": {
+            "sku": "SKU-42",
+            "onHand": 8,
+            "reorderPoint": 4
+          },
+          "expected": {
+            "returnedOriginal": true,
+            "exceptionType": null,
+            "parameter": null,
+            "actualValue": null,
+            "destination": {
+              "sku": "SKU-42",
+              "onHand": 0,
+              "reorderPoint": 0
+            }
+          },
+          "actual": {
+            "returnedOriginal": true,
+            "exceptionType": null,
+            "parameter": null,
+            "actualValue": null,
+            "destination": {
+              "sku": "SKU-42",
+              "onHand": 0,
+              "reorderPoint": 0
+            }
+          },
+          "match": true
+        },
+        {
+          "input": {
+            "name": "idempotent",
+            "units": 8,
+            "alertBelow": 4
+          },
+          "initial": {
+            "sku": "SKU-42",
+            "onHand": 8,
+            "reorderPoint": 4
+          },
+          "expected": {
+            "returnedOriginal": true,
+            "exceptionType": null,
+            "parameter": null,
+            "actualValue": null,
+            "destination": {
+              "sku": "SKU-42",
+              "onHand": 8,
+              "reorderPoint": 4
+            }
+          },
+          "actual": {
+            "returnedOriginal": true,
+            "exceptionType": null,
+            "parameter": null,
+            "actualValue": null,
+            "destination": {
+              "sku": "SKU-42",
+              "onHand": 8,
+              "reorderPoint": 4
+            }
+          },
+          "match": true
+        },
+        {
+          "input": {
+            "name": "rejected-second-write",
+            "units": 17,
+            "alertBelow": -2
+          },
+          "initial": {
+            "sku": "SKU-42",
+            "onHand": 8,
+            "reorderPoint": 4
+          },
+          "expected": {
+            "returnedOriginal": null,
+            "exceptionType": "ArgumentOutOfRangeException",
+            "parameter": "value",
+            "actualValue": -2,
+            "destination": {
+              "sku": "SKU-42",
+              "onHand": 17,
+              "reorderPoint": 4
+            }
+          },
+          "actual": {
+            "returnedOriginal": null,
+            "exceptionType": "ArgumentOutOfRangeException",
+            "parameter": "value",
+            "actualValue": -2,
+            "destination": {
+              "sku": "SKU-42",
+              "onHand": 17,
+              "reorderPoint": 4
+            }
+          },
+          "match": true
+        }
+      ],
+      "successiveUpdates": {
+        "initialRows": [
+          {
+            "sku": "SKU-42",
+            "onHand": 8,
+            "reorderPoint": 4
+          },
+          {
+            "sku": "SKU-7",
+            "onHand": 6,
+            "reorderPoint": 2
+          }
+        ],
+        "steps": [
+          {
+            "expected": {
+              "update": {
+                "receiver": 1,
+                "input": {
+                  "name": "other-row",
+                  "units": 22,
+                  "alertBelow": 5
+                }
+              },
+              "observation": {
+                "returnedOriginal": true,
+                "exceptionType": null,
+                "parameter": null,
+                "actualValue": null,
+                "destination": {
+                  "sku": "SKU-7",
+                  "onHand": 22,
+                  "reorderPoint": 5
+                }
+              },
+              "firstRow": {
+                "sku": "SKU-42",
+                "onHand": 8,
+                "reorderPoint": 4
+              },
+              "secondRow": {
+                "sku": "SKU-7",
+                "onHand": 22,
+                "reorderPoint": 5
+              }
+            },
+            "actual": {
+              "update": {
+                "receiver": 1,
+                "input": {
+                  "name": "other-row",
+                  "units": 22,
+                  "alertBelow": 5
+                }
+              },
+              "observation": {
+                "returnedOriginal": true,
+                "exceptionType": null,
+                "parameter": null,
+                "actualValue": null,
+                "destination": {
+                  "sku": "SKU-7",
+                  "onHand": 22,
+                  "reorderPoint": 5
+                }
+              },
+              "firstRow": {
+                "sku": "SKU-42",
+                "onHand": 8,
+                "reorderPoint": 4
+              },
+              "secondRow": {
+                "sku": "SKU-7",
+                "onHand": 22,
+                "reorderPoint": 5
+              }
+            },
+            "match": true
+          },
+          {
+            "expected": {
+              "update": {
+                "receiver": 0,
+                "input": {
+                  "name": "first-update",
+                  "units": 17,
+                  "alertBelow": 3
+                }
+              },
+              "observation": {
+                "returnedOriginal": true,
+                "exceptionType": null,
+                "parameter": null,
+                "actualValue": null,
+                "destination": {
+                  "sku": "SKU-42",
+                  "onHand": 17,
+                  "reorderPoint": 3
+                }
+              },
+              "firstRow": {
+                "sku": "SKU-42",
+                "onHand": 17,
+                "reorderPoint": 3
+              },
+              "secondRow": {
+                "sku": "SKU-7",
+                "onHand": 22,
+                "reorderPoint": 5
+              }
+            },
+            "actual": {
+              "update": {
+                "receiver": 0,
+                "input": {
+                  "name": "first-update",
+                  "units": 17,
+                  "alertBelow": 3
+                }
+              },
+              "observation": {
+                "returnedOriginal": true,
+                "exceptionType": null,
+                "parameter": null,
+                "actualValue": null,
+                "destination": {
+                  "sku": "SKU-42",
+                  "onHand": 17,
+                  "reorderPoint": 3
+                }
+              },
+              "firstRow": {
+                "sku": "SKU-42",
+                "onHand": 17,
+                "reorderPoint": 3
+              },
+              "secondRow": {
+                "sku": "SKU-7",
+                "onHand": 22,
+                "reorderPoint": 5
+              }
+            },
+            "match": true
+          },
+          {
+            "expected": {
+              "update": {
+                "receiver": 0,
+                "input": {
+                  "name": "late-rejection",
+                  "units": 20,
+                  "alertBelow": -2
+                }
+              },
+              "observation": {
+                "returnedOriginal": null,
+                "exceptionType": "ArgumentOutOfRangeException",
+                "parameter": "value",
+                "actualValue": -2,
+                "destination": {
+                  "sku": "SKU-42",
+                  "onHand": 20,
+                  "reorderPoint": 3
+                }
+              },
+              "firstRow": {
+                "sku": "SKU-42",
+                "onHand": 20,
+                "reorderPoint": 3
+              },
+              "secondRow": {
+                "sku": "SKU-7",
+                "onHand": 22,
+                "reorderPoint": 5
+              }
+            },
+            "actual": {
+              "update": {
+                "receiver": 0,
+                "input": {
+                  "name": "late-rejection",
+                  "units": 20,
+                  "alertBelow": -2
+                }
+              },
+              "observation": {
+                "returnedOriginal": null,
+                "exceptionType": "ArgumentOutOfRangeException",
+                "parameter": "value",
+                "actualValue": -2,
+                "destination": {
+                  "sku": "SKU-42",
+                  "onHand": 20,
+                  "reorderPoint": 3
+                }
+              },
+              "firstRow": {
+                "sku": "SKU-42",
+                "onHand": 20,
+                "reorderPoint": 3
+              },
+              "secondRow": {
+                "sku": "SKU-7",
+                "onHand": 22,
+                "reorderPoint": 5
+              }
+            },
+            "match": true
+          },
+          {
+            "expected": {
+              "update": {
+                "receiver": 0,
+                "input": {
+                  "name": "after-rejection",
+                  "units": 21,
+                  "alertBelow": 1
+                }
+              },
+              "observation": {
+                "returnedOriginal": true,
+                "exceptionType": null,
+                "parameter": null,
+                "actualValue": null,
+                "destination": {
+                  "sku": "SKU-42",
+                  "onHand": 21,
+                  "reorderPoint": 1
+                }
+              },
+              "firstRow": {
+                "sku": "SKU-42",
+                "onHand": 21,
+                "reorderPoint": 1
+              },
+              "secondRow": {
+                "sku": "SKU-7",
+                "onHand": 22,
+                "reorderPoint": 5
+              }
+            },
+            "actual": {
+              "update": {
+                "receiver": 0,
+                "input": {
+                  "name": "after-rejection",
+                  "units": 21,
+                  "alertBelow": 1
+                }
+              },
+              "observation": {
+                "returnedOriginal": true,
+                "exceptionType": null,
+                "parameter": null,
+                "actualValue": null,
+                "destination": {
+                  "sku": "SKU-42",
+                  "onHand": 21,
+                  "reorderPoint": 1
+                }
+              },
+              "firstRow": {
+                "sku": "SKU-42",
+                "onHand": 21,
+                "reorderPoint": 1
+              },
+              "secondRow": {
+                "sku": "SKU-7",
+                "onHand": 22,
+                "reorderPoint": 5
+              }
+            },
+            "match": true
+          }
+        ],
+        "finalRows": [
+          {
+            "sku": "SKU-42",
+            "onHand": 21,
+            "reorderPoint": 1
+          },
+          {
+            "sku": "SKU-7",
+            "onHand": 22,
+            "reorderPoint": 5
+          }
+        ]
+      },
+      "controls": {
+        "swapSources": {
+          "input": {
+            "name": "ordinary",
+            "units": 17,
+            "alertBelow": 3
+          },
+          "expected": {
+            "returnedOriginal": true,
+            "exceptionType": null,
+            "parameter": null,
+            "actualValue": null,
+            "destination": {
+              "sku": "SKU-42",
+              "onHand": 3,
+              "reorderPoint": 17
+            }
+          },
+          "actual": {
+            "returnedOriginal": true,
+            "exceptionType": null,
+            "parameter": null,
+            "actualValue": null,
+            "destination": {
+              "sku": "SKU-42",
+              "onHand": 3,
+              "reorderPoint": 17
+            }
+          },
+          "passed": true
+        },
+        "reverseAssignments": {
+          "input": {
+            "name": "rejected-second-write",
+            "units": 17,
+            "alertBelow": -2
+          },
+          "reference": {
+            "returnedOriginal": null,
+            "exceptionType": "ArgumentOutOfRangeException",
+            "parameter": "value",
+            "actualValue": -2,
+            "destination": {
+              "sku": "SKU-42",
+              "onHand": 17,
+              "reorderPoint": 4
+            }
+          },
+          "expected": {
+            "returnedOriginal": null,
+            "exceptionType": "ArgumentOutOfRangeException",
+            "parameter": "value",
+            "actualValue": -2,
+            "destination": {
+              "sku": "SKU-42",
+              "onHand": 8,
+              "reorderPoint": 4
+            }
+          },
+          "actual": {
+            "returnedOriginal": null,
+            "exceptionType": "ArgumentOutOfRangeException",
+            "parameter": "value",
+            "actualValue": -2,
+            "destination": {
+              "sku": "SKU-42",
+              "onHand": 8,
+              "reorderPoint": 4
+            }
+          },
+          "passed": true
+        }
+      },
+      "firstDisagreement": null
+    }
+  }
+}
