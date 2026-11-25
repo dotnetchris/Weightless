@@ -4,6 +4,19 @@ Weightless is a .NET research prototype for expressing a program's intent as a t
 
 The long-term aim is to let a person specify behavior while leaving more implementation and execution choices to the system. Today Roslyn binds selected C# forms, Weightless stores and executes versioned programs, and independent C# references check their observations. The experiments also retain inputs that defeat a proposed equivalence. [Product review and evidence by experiment](docs/PRODUCT-SETTLEMENT-2026-11-24.md)
 
+## Measured reductions in encoded size
+
+| Fixture | Encoding change | Complete image size | Reduction |
+| --- | --- | ---: | ---: |
+| 4,095 repeated checked Adds | Packed v1 → run encoding | 20,364 → 21 bytes | **99.9%** |
+| 64 repeated checked Adds | Packed v1 → run encoding | 270 → 18 bytes | **93.3%** |
+| Mixed graph with two eligible runs | Packed v1 → run encoding | 36 → 28 bytes | **22.2%** |
+| 64 wrapping Adds | Baseline → packed v1 | 334 → 270 bytes | **19.2%** |
+| 2 repeated checked Adds | Packed v1 → run encoding | 22 → 18 bytes | **18.2%** |
+| Guarded arithmetic selector | Baseline → packed selector | 74 → 70 bytes | **5.4%** |
+
+The largest reductions came from runs of repeated operations. Both packed formats used **61 bytes** for the mixed buffer graph, which had only one Add. All sizes include framing and decoding metadata. [Core measurements](experiments/0004-TypedContext/evidence-v1/report.md) · [Run encoding](experiments/0007-Capacity/README.md#v3-experiment) · [Selector measurements](experiments/0008-Transfer/README.md#v3-experiment)
+
 ## What works today
 
 The inventory experiment loads three previously saved programs. The first validates and adds two quantities. The second writes the total and an alert threshold into an existing stock row. C# passes the row's resulting quantity to the third program, which appends projected balances to the caller's history. With quantities `8 + 2`, threshold `3` and deltas `[3, 0, -2]`, the caller sees row `(10, 3)`, history `[90, 13, 13, 11]` and return value `11`. If the threshold is invalid, the caller still sees the first property write. A later projection overflow likewise preserves every earlier successful append. [Executable workflow and observations](experiments/0013-ProductSettlement/evidence-v1/result.json)
