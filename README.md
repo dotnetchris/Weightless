@@ -4,6 +4,8 @@ Weightless is a .NET research prototype for expressing a program's intent as a t
 
 The long-term aim is to let a person specify behavior while leaving more implementation and execution choices to the system. Today Roslyn binds selected C# forms, Weightless stores and executes versioned programs, and independent C# references check their observations. The experiments also retain inputs that defeat a proposed equivalence. [Research goals and the tenfold compaction milestone](GOALS.md) · [Product review and evidence by experiment](docs/PRODUCT-SETTLEMENT-2026-11-24.md)
 
+New to the repository? Replay the inventory experiment from the [agent quickstart](AGENTS.md). External contributors can propose improvements as new experiments through the [pull-request workflow](CONTRIBUTING.md).
+
 ## Measured reductions in encoded size
 
 | Fixture | Encoding change | Complete image size | Reduction |
