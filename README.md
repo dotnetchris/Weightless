@@ -6,18 +6,21 @@ The long-term aim is to let a person specify behavior while leaving more impleme
 
 New to the repository? Replay the inventory experiment from the [agent quickstart](AGENTS.md). External contributors can propose improvements as new experiments through the [pull-request workflow](CONTRIBUTING.md).
 
-## Measured reductions in encoded size
+## Measured changes in encoded size
 
 | Fixture | Encoding change | Complete image size | Reduction |
 | --- | --- | ---: | ---: |
 | 4,095 repeated checked Adds | Packed v1 → run encoding | 20,364 → 21 bytes | **99.9%** |
 | 64 repeated checked Adds | Packed v1 → run encoding | 270 → 18 bytes | **93.3%** |
+| Two-property map | Mapping v1 → zlib | 154 → 117 bytes | **24.0%** |
 | Mixed graph with two eligible runs | Packed v1 → run encoding | 36 → 28 bytes | **22.2%** |
 | 64 wrapping Adds | Baseline → packed v1 | 334 → 270 bytes | **19.2%** |
 | 2 repeated checked Adds | Packed v1 → run encoding | 22 → 18 bytes | **18.2%** |
 | Guarded arithmetic selector | Baseline → packed selector | 74 → 70 bytes | **5.4%** |
 | Array store and load (either tested order) | Baseline → packed v1 | 46 → 45 bytes | **2.2%** |
 | Fixed-buffer branch and helper call | Baseline → packed v1 | 62 → 61 bytes | **1.6%** |
+| Ordered Add preconditions | Input guards v1 → zlib | 39 → 40 bytes | **−2.6%** (grew) |
+| Running balances from array to list | Balance history v1 → zlib | 31 → 35 bytes | **−12.9%** (grew) |
 
 The largest reductions came from runs of repeated operations. The run encoding expands those Adds again for execution. Applying it to the 61-byte buffer graph saved **zero further bytes** because the graph contains only one Add. The table measures complete program files, including their framing. [Core measurements](experiments/0004-TypedContext/evidence-v1/report.md) · [Run encoding](experiments/0007-Capacity/README.md#v3-experiment) · [Selector measurements](experiments/0008-Transfer/README.md#v3-experiment) · [Array schedule images](experiments/0009-EffectOrder/evidence-v3/)
 
@@ -29,7 +32,7 @@ The largest reductions came from runs of repeated operations. The run encoding e
 
 Changing one byte selected the input delta for append. With opening balance `10` and deltas `[3, 0, -2]`, both programs returned `11`, but the caller's history changed from `[90, 13, 13, 11]` to `[90, 3, 0, -2]`. A separate one-byte change delayed writes until the end. Starting at `int.MaxValue - 1` with deltas `[1, 1]`, both versions overflowed on the second addition. The original left `[90, int.MaxValue]` and the delayed version left `[90]`. [Saved histories and overflow counterexample](experiments/0012-BalanceHistory/evidence-v1/result.json)
 
-Each practical lab measured one encoding of its operation. A compression percentage for either would require a second encoding of the same behavior. The sizes above cover the stored program. Objects, array elements and list entries are runtime data.
+Encoding each complete v1 file as a separate zlib stream **saved 37 bytes on the map and added 4 bytes to the traversal**. The input guards added 1 byte, bringing the three-program total from **224 to 192 bytes (14.29% smaller)**. Every stream recovered the exact v1 file, and both representations passed the seven C# workflow cases and seven controls. Both assume the existing .NET host. Objects, array elements and list entries are runtime data. [Comparison, accounting and replay](experiments/0014-PracticalImageSize/README.md)
 
 ## What works today
 

@@ -54,6 +54,8 @@ dotnet run -c Release --project experiments/0012-BalanceHistory/v1 -- artifacts/
 
 ## Independent v2 handoff
 
+Each new encoding brief below also needs a same-behavior size comparison as a primary result. For the two-sided guard and the optional map, encode the extended behavior on both sides before computing a saving. The earlier one-sided guard and unconditional map measure the cost of changing the contract. For the loop import, exact reproduction of the v1 file is a measured tie. Report baseline and candidate bytes, signed savings and percentage alongside the caller observations. [Measurement guidance](../CONTRIBUTING.md#what-a-reviewer-needs) · [Worked comparison](../experiments/0014-PracticalImageSize/README.md)
+
 All three labs can start from the revision containing `0013-ProductSettlement/evidence-v1/result.json` with SHA-256 `E342C57C9CD24CE057E0665EB75CBFBF595309406B6AFFB2190897F396558B70`. Replay `product-settlement/v1` once to see how each v1 image affects an inventory workflow. Each lab owns the `v2/` and `evidence-v2/` siblings of its own experiment, uses its own compiled C# reference, and can publish to its existing route name at version 2 without a sibling lab's output. Retain the regenerated images, the component byte counts, the reference and decoded observations, and a valid changed image with a predicted observable difference. [Product report and replay](PRODUCT-SETTLEMENT-2026-11-24.md#replay-the-settlement)
 
 | Lab | Question and implementation | Decisive observations |

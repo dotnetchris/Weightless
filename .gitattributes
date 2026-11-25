@@ -2,3 +2,4 @@
 experiments/*/evidence-v*/result.json text eol=lf
 *.wlb binary
 *.wlp binary
+*.zlib binary

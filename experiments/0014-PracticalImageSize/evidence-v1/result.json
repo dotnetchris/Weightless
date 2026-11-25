@@ -1,0 +1,1390 @@
+{
+  "pipeline": "0006-v1",
+  "route": "practical-image-size/v1",
+  "parent": {
+    "id": "add.checked.plain",
+    "path": "experiments/0001-Addition/baseline-v1/add-checked.wlb",
+    "sha256": "F29EB79B426681794A0A7BDC22C47CF38B9792C93ADF96326CD3964563877B34"
+  },
+  "finding": {
+    "claim": "Independently zlib-encoded practical images recover the v1 programs and preserve the tested inventory observations.",
+    "verdict": "tested",
+    "checksPassed": true,
+    "evidence": {
+      "encoding": "One .NET ZLibStream at SmallestSize per complete v1 file",
+      "sharedMaterialBytes": 0,
+      "host": ".NET 10 with System.IO.Compression, existing v1 interpreters and CLR bindings",
+      "canonicalTotal": {
+        "baselineBytes": 224,
+        "candidateBytes": 192,
+        "bytesSaved": 32,
+        "percentSaved": 14.29,
+        "outcome": "shrank"
+      },
+      "images": [
+        {
+          "baseline": "experiments/0010-AddInputGuards/evidence-v1/from-helper.wlp",
+          "candidate": "0010-AddInputGuards/from-helper.wlp.zlib",
+          "canonical": false,
+          "size": {
+            "baselineBytes": 39,
+            "candidateBytes": 40,
+            "bytesSaved": -1,
+            "percentSaved": -2.56,
+            "outcome": "grew"
+          },
+          "baselineSha256": "CF4A1F38AC1D547CCAC3C807F0E7BAE098A1760AB3B650B96333CE3DA0A35677",
+          "candidateSha256": "A7445F744AF3167492F80391843F61A847620A9EC940F418DD5E96700655A707",
+          "recoveredOriginalBytes": true
+        },
+        {
+          "baseline": "experiments/0010-AddInputGuards/evidence-v1/from-if.wlp",
+          "candidate": "0010-AddInputGuards/from-if.wlp.zlib",
+          "canonical": true,
+          "size": {
+            "baselineBytes": 39,
+            "candidateBytes": 40,
+            "bytesSaved": -1,
+            "percentSaved": -2.56,
+            "outcome": "grew"
+          },
+          "baselineSha256": "CF4A1F38AC1D547CCAC3C807F0E7BAE098A1760AB3B650B96333CE3DA0A35677",
+          "candidateSha256": "A7445F744AF3167492F80391843F61A847620A9EC940F418DD5E96700655A707",
+          "recoveredOriginalBytes": true
+        },
+        {
+          "baseline": "experiments/0010-AddInputGuards/evidence-v1/raised-first-bound.wlp",
+          "candidate": "0010-AddInputGuards/raised-first-bound.wlp.zlib",
+          "canonical": false,
+          "size": {
+            "baselineBytes": 39,
+            "candidateBytes": 41,
+            "bytesSaved": -2,
+            "percentSaved": -5.13,
+            "outcome": "grew"
+          },
+          "baselineSha256": "050A9D904AA77FBCDB0BBD2010FB61C0EF75A9DA046888CA3B541228BAA00734",
+          "candidateSha256": "DCEC49427065284C8BEF310F7F7CE5577849AFF53469FBBAB4931211A984E35E",
+          "recoveredOriginalBytes": true
+        },
+        {
+          "baseline": "experiments/0010-AddInputGuards/evidence-v1/reversed-guards.wlp",
+          "candidate": "0010-AddInputGuards/reversed-guards.wlp.zlib",
+          "canonical": false,
+          "size": {
+            "baselineBytes": 39,
+            "candidateBytes": 39,
+            "bytesSaved": 0,
+            "percentSaved": 0,
+            "outcome": "tied"
+          },
+          "baselineSha256": "CB4CE95209ED06B9ECB8FB0642532A00C1863AAA70A7CDB3B25DE16C02B6C2A0",
+          "candidateSha256": "F240104D65490306CDB3D59E0E34951E15B5A53ED07AE58384D7DD33464E177D",
+          "recoveredOriginalBytes": true
+        },
+        {
+          "baseline": "experiments/0011-PropertyMapping/evidence-v1/mapping.wlp",
+          "candidate": "0011-PropertyMapping/mapping.wlp.zlib",
+          "canonical": true,
+          "size": {
+            "baselineBytes": 154,
+            "candidateBytes": 117,
+            "bytesSaved": 37,
+            "percentSaved": 24.03,
+            "outcome": "shrank"
+          },
+          "baselineSha256": "60EF4A2034924FC51D06C48889FFCE354D74D1BA9FE48D05F0A8FFF347B53FC0",
+          "candidateSha256": "7379B3C83E7BD984C632A47080BF3C84C7691C1EFEA1460396DB2A2765A7B182",
+          "recoveredOriginalBytes": true
+        },
+        {
+          "baseline": "experiments/0011-PropertyMapping/evidence-v1/reversed-assignments.wlp",
+          "candidate": "0011-PropertyMapping/reversed-assignments.wlp.zlib",
+          "canonical": false,
+          "size": {
+            "baselineBytes": 154,
+            "candidateBytes": 117,
+            "bytesSaved": 37,
+            "percentSaved": 24.03,
+            "outcome": "shrank"
+          },
+          "baselineSha256": "02BA5949C4723C0EF57CF04C657D89A8DB5AE0B2D2CB3D990F37ADEA2F92996E",
+          "candidateSha256": "250BEF356AA86EFDC33C77B3225761289072335BF7BF6325CF5269046B24CE6B",
+          "recoveredOriginalBytes": true
+        },
+        {
+          "baseline": "experiments/0011-PropertyMapping/evidence-v1/swapped-source-members.wlp",
+          "candidate": "0011-PropertyMapping/swapped-source-members.wlp.zlib",
+          "canonical": false,
+          "size": {
+            "baselineBytes": 154,
+            "candidateBytes": 117,
+            "bytesSaved": 37,
+            "percentSaved": 24.03,
+            "outcome": "shrank"
+          },
+          "baselineSha256": "31B282435551D9B5D470A2C06B2ED50D9621791EC6A15D4CC6C53658080A0CD4",
+          "candidateSha256": "6387F2D74C4C1A0B5B3D4D6DE8CABDD56619C899F3D05461B8BE3826542430EB",
+          "recoveredOriginalBytes": true
+        },
+        {
+          "baseline": "experiments/0012-BalanceHistory/evidence-v1/append-input-delta.wlp",
+          "candidate": "0012-BalanceHistory/append-input-delta.wlp.zlib",
+          "canonical": false,
+          "size": {
+            "baselineBytes": 31,
+            "candidateBytes": 35,
+            "bytesSaved": -4,
+            "percentSaved": -12.90,
+            "outcome": "grew"
+          },
+          "baselineSha256": "808697254AC17836BF9082BAB7F248E5244AC5316CEAD822341E31C51E5C6052",
+          "candidateSha256": "69F950EDE86E871B0FF4A30A842B2BA7EE24C7D73D9449EB24919F0B3AA2CABF",
+          "recoveredOriginalBytes": true
+        },
+        {
+          "baseline": "experiments/0012-BalanceHistory/evidence-v1/balance-history.wlp",
+          "candidate": "0012-BalanceHistory/balance-history.wlp.zlib",
+          "canonical": true,
+          "size": {
+            "baselineBytes": 31,
+            "candidateBytes": 35,
+            "bytesSaved": -4,
+            "percentSaved": -12.90,
+            "outcome": "grew"
+          },
+          "baselineSha256": "C1DBD1B3F1A1D9F02FC1B34A806414D8890E4CB062665E7BDB26FB8EA2BFF5E9",
+          "candidateSha256": "345EDF5C22CA244EAA2CAB9691BF5155939E78DC7B47DEC39BE9A2601658299E",
+          "recoveredOriginalBytes": true
+        },
+        {
+          "baseline": "experiments/0012-BalanceHistory/evidence-v1/commit-after-traversal.wlp",
+          "candidate": "0012-BalanceHistory/commit-after-traversal.wlp.zlib",
+          "canonical": false,
+          "size": {
+            "baselineBytes": 31,
+            "candidateBytes": 35,
+            "bytesSaved": -4,
+            "percentSaved": -12.90,
+            "outcome": "grew"
+          },
+          "baselineSha256": "ACDB7D30CD353D198F962DA09FAFAFB049EC5A182944EFEDE79E8B10DC8ED987",
+          "candidateSha256": "A66F8607D2B13C0155298824194F6B9B906E5811671E63BC69A2A7456814BECB",
+          "recoveredOriginalBytes": true
+        }
+      ],
+      "baselineReplay": {
+        "cases": [
+          {
+            "input": {
+              "name": "receive-and-project",
+              "units": 8,
+              "adjustment": 2,
+              "alertBelow": 3,
+              "deltas": [
+                3,
+                0,
+                -2
+              ]
+            },
+            "reference": {
+              "value": 11,
+              "fault": null,
+              "parameter": null,
+              "actualValue": null,
+              "returnedOriginalRow": true,
+              "sku": "SKU-42",
+              "onHand": 10,
+              "reorderPoint": 3,
+              "history": [
+                90,
+                13,
+                13,
+                11
+              ],
+              "deltas": [
+                3,
+                0,
+                -2
+              ]
+            },
+            "decoded": {
+              "value": 11,
+              "fault": null,
+              "parameter": null,
+              "actualValue": null,
+              "returnedOriginalRow": true,
+              "sku": "SKU-42",
+              "onHand": 10,
+              "reorderPoint": 3,
+              "history": [
+                90,
+                13,
+                13,
+                11
+              ],
+              "deltas": [
+                3,
+                0,
+                -2
+              ]
+            },
+            "match": true
+          },
+          {
+            "input": {
+              "name": "inclusive-floor",
+              "units": -1,
+              "adjustment": 0,
+              "alertBelow": 3,
+              "deltas": []
+            },
+            "reference": {
+              "value": -1,
+              "fault": null,
+              "parameter": null,
+              "actualValue": null,
+              "returnedOriginalRow": true,
+              "sku": "SKU-42",
+              "onHand": -1,
+              "reorderPoint": 3,
+              "history": [
+                90
+              ],
+              "deltas": []
+            },
+            "decoded": {
+              "value": -1,
+              "fault": null,
+              "parameter": null,
+              "actualValue": null,
+              "returnedOriginalRow": true,
+              "sku": "SKU-42",
+              "onHand": -1,
+              "reorderPoint": 3,
+              "history": [
+                90
+              ],
+              "deltas": []
+            },
+            "match": true
+          },
+          {
+            "input": {
+              "name": "two-invalid-operands",
+              "units": -2,
+              "adjustment": -3,
+              "alertBelow": 3,
+              "deltas": [
+                1
+              ]
+            },
+            "reference": {
+              "value": null,
+              "fault": "ArgumentOutOfRangeException",
+              "parameter": "a",
+              "actualValue": -2,
+              "returnedOriginalRow": null,
+              "sku": "SKU-42",
+              "onHand": 8,
+              "reorderPoint": 4,
+              "history": [
+                90
+              ],
+              "deltas": [
+                1
+              ]
+            },
+            "decoded": {
+              "value": null,
+              "fault": "ArgumentOutOfRangeException",
+              "parameter": "a",
+              "actualValue": -2,
+              "returnedOriginalRow": null,
+              "sku": "SKU-42",
+              "onHand": 8,
+              "reorderPoint": 4,
+              "history": [
+                90
+              ],
+              "deltas": [
+                1
+              ]
+            },
+            "match": true
+          },
+          {
+            "input": {
+              "name": "second-setter-fails",
+              "units": 15,
+              "adjustment": 2,
+              "alertBelow": -2,
+              "deltas": [
+                1
+              ]
+            },
+            "reference": {
+              "value": null,
+              "fault": "ArgumentOutOfRangeException",
+              "parameter": "value",
+              "actualValue": -2,
+              "returnedOriginalRow": null,
+              "sku": "SKU-42",
+              "onHand": 17,
+              "reorderPoint": 4,
+              "history": [
+                90
+              ],
+              "deltas": [
+                1
+              ]
+            },
+            "decoded": {
+              "value": null,
+              "fault": "ArgumentOutOfRangeException",
+              "parameter": "value",
+              "actualValue": -2,
+              "returnedOriginalRow": null,
+              "sku": "SKU-42",
+              "onHand": 17,
+              "reorderPoint": 4,
+              "history": [
+                90
+              ],
+              "deltas": [
+                1
+              ]
+            },
+            "match": true
+          },
+          {
+            "input": {
+              "name": "second-append-overflows",
+              "units": 2147483646,
+              "adjustment": 0,
+              "alertBelow": 3,
+              "deltas": [
+                1,
+                1
+              ]
+            },
+            "reference": {
+              "value": null,
+              "fault": "OverflowException",
+              "parameter": null,
+              "actualValue": null,
+              "returnedOriginalRow": true,
+              "sku": "SKU-42",
+              "onHand": 2147483646,
+              "reorderPoint": 3,
+              "history": [
+                90,
+                2147483647
+              ],
+              "deltas": [
+                1,
+                1
+              ]
+            },
+            "decoded": {
+              "value": null,
+              "fault": "OverflowException",
+              "parameter": null,
+              "actualValue": null,
+              "returnedOriginalRow": true,
+              "sku": "SKU-42",
+              "onHand": 2147483646,
+              "reorderPoint": 3,
+              "history": [
+                90,
+                2147483647
+              ],
+              "deltas": [
+                1,
+                1
+              ]
+            },
+            "match": true
+          },
+          {
+            "input": {
+              "name": "opening-overflow",
+              "units": 2147483647,
+              "adjustment": 1,
+              "alertBelow": 3,
+              "deltas": [
+                1
+              ]
+            },
+            "reference": {
+              "value": null,
+              "fault": "OverflowException",
+              "parameter": null,
+              "actualValue": null,
+              "returnedOriginalRow": null,
+              "sku": "SKU-42",
+              "onHand": 8,
+              "reorderPoint": 4,
+              "history": [
+                90
+              ],
+              "deltas": [
+                1
+              ]
+            },
+            "decoded": {
+              "value": null,
+              "fault": "OverflowException",
+              "parameter": null,
+              "actualValue": null,
+              "returnedOriginalRow": null,
+              "sku": "SKU-42",
+              "onHand": 8,
+              "reorderPoint": 4,
+              "history": [
+                90
+              ],
+              "deltas": [
+                1
+              ]
+            },
+            "match": true
+          },
+          {
+            "input": {
+              "name": "negative-total",
+              "units": -1,
+              "adjustment": -1,
+              "alertBelow": 3,
+              "deltas": []
+            },
+            "reference": {
+              "value": -2,
+              "fault": null,
+              "parameter": null,
+              "actualValue": null,
+              "returnedOriginalRow": true,
+              "sku": "SKU-42",
+              "onHand": -2,
+              "reorderPoint": 3,
+              "history": [
+                90
+              ],
+              "deltas": []
+            },
+            "decoded": {
+              "value": -2,
+              "fault": null,
+              "parameter": null,
+              "actualValue": null,
+              "returnedOriginalRow": true,
+              "sku": "SKU-42",
+              "onHand": -2,
+              "reorderPoint": 3,
+              "history": [
+                90
+              ],
+              "deltas": []
+            },
+            "match": true
+          }
+        ],
+        "controls": [
+          {
+            "change": "equivalent-helper-image",
+            "input": "receive-and-project",
+            "expected": {
+              "value": 11,
+              "fault": null,
+              "parameter": null,
+              "actualValue": null,
+              "returnedOriginalRow": true,
+              "sku": "SKU-42",
+              "onHand": 10,
+              "reorderPoint": 3,
+              "history": [
+                90,
+                13,
+                13,
+                11
+              ],
+              "deltas": [
+                3,
+                0,
+                -2
+              ]
+            },
+            "actual": {
+              "value": 11,
+              "fault": null,
+              "parameter": null,
+              "actualValue": null,
+              "returnedOriginalRow": true,
+              "sku": "SKU-42",
+              "onHand": 10,
+              "reorderPoint": 3,
+              "history": [
+                90,
+                13,
+                13,
+                11
+              ],
+              "deltas": [
+                3,
+                0,
+                -2
+              ]
+            },
+            "match": true
+          },
+          {
+            "change": "raised-first-bound",
+            "input": "inclusive-floor",
+            "expected": {
+              "value": null,
+              "fault": "ArgumentOutOfRangeException",
+              "parameter": "a",
+              "actualValue": -1,
+              "returnedOriginalRow": null,
+              "sku": "SKU-42",
+              "onHand": 8,
+              "reorderPoint": 4,
+              "history": [
+                90
+              ],
+              "deltas": []
+            },
+            "actual": {
+              "value": null,
+              "fault": "ArgumentOutOfRangeException",
+              "parameter": "a",
+              "actualValue": -1,
+              "returnedOriginalRow": null,
+              "sku": "SKU-42",
+              "onHand": 8,
+              "reorderPoint": 4,
+              "history": [
+                90
+              ],
+              "deltas": []
+            },
+            "match": true
+          },
+          {
+            "change": "reversed-guards",
+            "input": "two-invalid-operands",
+            "expected": {
+              "value": null,
+              "fault": "ArgumentOutOfRangeException",
+              "parameter": "b",
+              "actualValue": -3,
+              "returnedOriginalRow": null,
+              "sku": "SKU-42",
+              "onHand": 8,
+              "reorderPoint": 4,
+              "history": [
+                90
+              ],
+              "deltas": [
+                1
+              ]
+            },
+            "actual": {
+              "value": null,
+              "fault": "ArgumentOutOfRangeException",
+              "parameter": "b",
+              "actualValue": -3,
+              "returnedOriginalRow": null,
+              "sku": "SKU-42",
+              "onHand": 8,
+              "reorderPoint": 4,
+              "history": [
+                90
+              ],
+              "deltas": [
+                1
+              ]
+            },
+            "match": true
+          },
+          {
+            "change": "swapped-getters",
+            "input": "receive-and-project",
+            "expected": {
+              "value": 4,
+              "fault": null,
+              "parameter": null,
+              "actualValue": null,
+              "returnedOriginalRow": true,
+              "sku": "SKU-42",
+              "onHand": 3,
+              "reorderPoint": 10,
+              "history": [
+                90,
+                6,
+                6,
+                4
+              ],
+              "deltas": [
+                3,
+                0,
+                -2
+              ]
+            },
+            "actual": {
+              "value": 4,
+              "fault": null,
+              "parameter": null,
+              "actualValue": null,
+              "returnedOriginalRow": true,
+              "sku": "SKU-42",
+              "onHand": 3,
+              "reorderPoint": 10,
+              "history": [
+                90,
+                6,
+                6,
+                4
+              ],
+              "deltas": [
+                3,
+                0,
+                -2
+              ]
+            },
+            "match": true
+          },
+          {
+            "change": "reversed-assignments",
+            "input": "second-setter-fails",
+            "expected": {
+              "value": null,
+              "fault": "ArgumentOutOfRangeException",
+              "parameter": "value",
+              "actualValue": -2,
+              "returnedOriginalRow": null,
+              "sku": "SKU-42",
+              "onHand": 8,
+              "reorderPoint": 4,
+              "history": [
+                90
+              ],
+              "deltas": [
+                1
+              ]
+            },
+            "actual": {
+              "value": null,
+              "fault": "ArgumentOutOfRangeException",
+              "parameter": "value",
+              "actualValue": -2,
+              "returnedOriginalRow": null,
+              "sku": "SKU-42",
+              "onHand": 8,
+              "reorderPoint": 4,
+              "history": [
+                90
+              ],
+              "deltas": [
+                1
+              ]
+            },
+            "match": true
+          },
+          {
+            "change": "append-delta",
+            "input": "receive-and-project",
+            "expected": {
+              "value": 11,
+              "fault": null,
+              "parameter": null,
+              "actualValue": null,
+              "returnedOriginalRow": true,
+              "sku": "SKU-42",
+              "onHand": 10,
+              "reorderPoint": 3,
+              "history": [
+                90,
+                3,
+                0,
+                -2
+              ],
+              "deltas": [
+                3,
+                0,
+                -2
+              ]
+            },
+            "actual": {
+              "value": 11,
+              "fault": null,
+              "parameter": null,
+              "actualValue": null,
+              "returnedOriginalRow": true,
+              "sku": "SKU-42",
+              "onHand": 10,
+              "reorderPoint": 3,
+              "history": [
+                90,
+                3,
+                0,
+                -2
+              ],
+              "deltas": [
+                3,
+                0,
+                -2
+              ]
+            },
+            "match": true
+          },
+          {
+            "change": "commit-after-traversal",
+            "input": "second-append-overflows",
+            "expected": {
+              "value": null,
+              "fault": "OverflowException",
+              "parameter": null,
+              "actualValue": null,
+              "returnedOriginalRow": true,
+              "sku": "SKU-42",
+              "onHand": 2147483646,
+              "reorderPoint": 3,
+              "history": [
+                90
+              ],
+              "deltas": [
+                1,
+                1
+              ]
+            },
+            "actual": {
+              "value": null,
+              "fault": "OverflowException",
+              "parameter": null,
+              "actualValue": null,
+              "returnedOriginalRow": true,
+              "sku": "SKU-42",
+              "onHand": 2147483646,
+              "reorderPoint": 3,
+              "history": [
+                90
+              ],
+              "deltas": [
+                1,
+                1
+              ]
+            },
+            "match": true
+          }
+        ]
+      },
+      "candidateReplay": {
+        "cases": [
+          {
+            "input": {
+              "name": "receive-and-project",
+              "units": 8,
+              "adjustment": 2,
+              "alertBelow": 3,
+              "deltas": [
+                3,
+                0,
+                -2
+              ]
+            },
+            "reference": {
+              "value": 11,
+              "fault": null,
+              "parameter": null,
+              "actualValue": null,
+              "returnedOriginalRow": true,
+              "sku": "SKU-42",
+              "onHand": 10,
+              "reorderPoint": 3,
+              "history": [
+                90,
+                13,
+                13,
+                11
+              ],
+              "deltas": [
+                3,
+                0,
+                -2
+              ]
+            },
+            "decoded": {
+              "value": 11,
+              "fault": null,
+              "parameter": null,
+              "actualValue": null,
+              "returnedOriginalRow": true,
+              "sku": "SKU-42",
+              "onHand": 10,
+              "reorderPoint": 3,
+              "history": [
+                90,
+                13,
+                13,
+                11
+              ],
+              "deltas": [
+                3,
+                0,
+                -2
+              ]
+            },
+            "match": true
+          },
+          {
+            "input": {
+              "name": "inclusive-floor",
+              "units": -1,
+              "adjustment": 0,
+              "alertBelow": 3,
+              "deltas": []
+            },
+            "reference": {
+              "value": -1,
+              "fault": null,
+              "parameter": null,
+              "actualValue": null,
+              "returnedOriginalRow": true,
+              "sku": "SKU-42",
+              "onHand": -1,
+              "reorderPoint": 3,
+              "history": [
+                90
+              ],
+              "deltas": []
+            },
+            "decoded": {
+              "value": -1,
+              "fault": null,
+              "parameter": null,
+              "actualValue": null,
+              "returnedOriginalRow": true,
+              "sku": "SKU-42",
+              "onHand": -1,
+              "reorderPoint": 3,
+              "history": [
+                90
+              ],
+              "deltas": []
+            },
+            "match": true
+          },
+          {
+            "input": {
+              "name": "two-invalid-operands",
+              "units": -2,
+              "adjustment": -3,
+              "alertBelow": 3,
+              "deltas": [
+                1
+              ]
+            },
+            "reference": {
+              "value": null,
+              "fault": "ArgumentOutOfRangeException",
+              "parameter": "a",
+              "actualValue": -2,
+              "returnedOriginalRow": null,
+              "sku": "SKU-42",
+              "onHand": 8,
+              "reorderPoint": 4,
+              "history": [
+                90
+              ],
+              "deltas": [
+                1
+              ]
+            },
+            "decoded": {
+              "value": null,
+              "fault": "ArgumentOutOfRangeException",
+              "parameter": "a",
+              "actualValue": -2,
+              "returnedOriginalRow": null,
+              "sku": "SKU-42",
+              "onHand": 8,
+              "reorderPoint": 4,
+              "history": [
+                90
+              ],
+              "deltas": [
+                1
+              ]
+            },
+            "match": true
+          },
+          {
+            "input": {
+              "name": "second-setter-fails",
+              "units": 15,
+              "adjustment": 2,
+              "alertBelow": -2,
+              "deltas": [
+                1
+              ]
+            },
+            "reference": {
+              "value": null,
+              "fault": "ArgumentOutOfRangeException",
+              "parameter": "value",
+              "actualValue": -2,
+              "returnedOriginalRow": null,
+              "sku": "SKU-42",
+              "onHand": 17,
+              "reorderPoint": 4,
+              "history": [
+                90
+              ],
+              "deltas": [
+                1
+              ]
+            },
+            "decoded": {
+              "value": null,
+              "fault": "ArgumentOutOfRangeException",
+              "parameter": "value",
+              "actualValue": -2,
+              "returnedOriginalRow": null,
+              "sku": "SKU-42",
+              "onHand": 17,
+              "reorderPoint": 4,
+              "history": [
+                90
+              ],
+              "deltas": [
+                1
+              ]
+            },
+            "match": true
+          },
+          {
+            "input": {
+              "name": "second-append-overflows",
+              "units": 2147483646,
+              "adjustment": 0,
+              "alertBelow": 3,
+              "deltas": [
+                1,
+                1
+              ]
+            },
+            "reference": {
+              "value": null,
+              "fault": "OverflowException",
+              "parameter": null,
+              "actualValue": null,
+              "returnedOriginalRow": true,
+              "sku": "SKU-42",
+              "onHand": 2147483646,
+              "reorderPoint": 3,
+              "history": [
+                90,
+                2147483647
+              ],
+              "deltas": [
+                1,
+                1
+              ]
+            },
+            "decoded": {
+              "value": null,
+              "fault": "OverflowException",
+              "parameter": null,
+              "actualValue": null,
+              "returnedOriginalRow": true,
+              "sku": "SKU-42",
+              "onHand": 2147483646,
+              "reorderPoint": 3,
+              "history": [
+                90,
+                2147483647
+              ],
+              "deltas": [
+                1,
+                1
+              ]
+            },
+            "match": true
+          },
+          {
+            "input": {
+              "name": "opening-overflow",
+              "units": 2147483647,
+              "adjustment": 1,
+              "alertBelow": 3,
+              "deltas": [
+                1
+              ]
+            },
+            "reference": {
+              "value": null,
+              "fault": "OverflowException",
+              "parameter": null,
+              "actualValue": null,
+              "returnedOriginalRow": null,
+              "sku": "SKU-42",
+              "onHand": 8,
+              "reorderPoint": 4,
+              "history": [
+                90
+              ],
+              "deltas": [
+                1
+              ]
+            },
+            "decoded": {
+              "value": null,
+              "fault": "OverflowException",
+              "parameter": null,
+              "actualValue": null,
+              "returnedOriginalRow": null,
+              "sku": "SKU-42",
+              "onHand": 8,
+              "reorderPoint": 4,
+              "history": [
+                90
+              ],
+              "deltas": [
+                1
+              ]
+            },
+            "match": true
+          },
+          {
+            "input": {
+              "name": "negative-total",
+              "units": -1,
+              "adjustment": -1,
+              "alertBelow": 3,
+              "deltas": []
+            },
+            "reference": {
+              "value": -2,
+              "fault": null,
+              "parameter": null,
+              "actualValue": null,
+              "returnedOriginalRow": true,
+              "sku": "SKU-42",
+              "onHand": -2,
+              "reorderPoint": 3,
+              "history": [
+                90
+              ],
+              "deltas": []
+            },
+            "decoded": {
+              "value": -2,
+              "fault": null,
+              "parameter": null,
+              "actualValue": null,
+              "returnedOriginalRow": true,
+              "sku": "SKU-42",
+              "onHand": -2,
+              "reorderPoint": 3,
+              "history": [
+                90
+              ],
+              "deltas": []
+            },
+            "match": true
+          }
+        ],
+        "controls": [
+          {
+            "change": "equivalent-helper-image",
+            "input": "receive-and-project",
+            "expected": {
+              "value": 11,
+              "fault": null,
+              "parameter": null,
+              "actualValue": null,
+              "returnedOriginalRow": true,
+              "sku": "SKU-42",
+              "onHand": 10,
+              "reorderPoint": 3,
+              "history": [
+                90,
+                13,
+                13,
+                11
+              ],
+              "deltas": [
+                3,
+                0,
+                -2
+              ]
+            },
+            "actual": {
+              "value": 11,
+              "fault": null,
+              "parameter": null,
+              "actualValue": null,
+              "returnedOriginalRow": true,
+              "sku": "SKU-42",
+              "onHand": 10,
+              "reorderPoint": 3,
+              "history": [
+                90,
+                13,
+                13,
+                11
+              ],
+              "deltas": [
+                3,
+                0,
+                -2
+              ]
+            },
+            "match": true
+          },
+          {
+            "change": "raised-first-bound",
+            "input": "inclusive-floor",
+            "expected": {
+              "value": null,
+              "fault": "ArgumentOutOfRangeException",
+              "parameter": "a",
+              "actualValue": -1,
+              "returnedOriginalRow": null,
+              "sku": "SKU-42",
+              "onHand": 8,
+              "reorderPoint": 4,
+              "history": [
+                90
+              ],
+              "deltas": []
+            },
+            "actual": {
+              "value": null,
+              "fault": "ArgumentOutOfRangeException",
+              "parameter": "a",
+              "actualValue": -1,
+              "returnedOriginalRow": null,
+              "sku": "SKU-42",
+              "onHand": 8,
+              "reorderPoint": 4,
+              "history": [
+                90
+              ],
+              "deltas": []
+            },
+            "match": true
+          },
+          {
+            "change": "reversed-guards",
+            "input": "two-invalid-operands",
+            "expected": {
+              "value": null,
+              "fault": "ArgumentOutOfRangeException",
+              "parameter": "b",
+              "actualValue": -3,
+              "returnedOriginalRow": null,
+              "sku": "SKU-42",
+              "onHand": 8,
+              "reorderPoint": 4,
+              "history": [
+                90
+              ],
+              "deltas": [
+                1
+              ]
+            },
+            "actual": {
+              "value": null,
+              "fault": "ArgumentOutOfRangeException",
+              "parameter": "b",
+              "actualValue": -3,
+              "returnedOriginalRow": null,
+              "sku": "SKU-42",
+              "onHand": 8,
+              "reorderPoint": 4,
+              "history": [
+                90
+              ],
+              "deltas": [
+                1
+              ]
+            },
+            "match": true
+          },
+          {
+            "change": "swapped-getters",
+            "input": "receive-and-project",
+            "expected": {
+              "value": 4,
+              "fault": null,
+              "parameter": null,
+              "actualValue": null,
+              "returnedOriginalRow": true,
+              "sku": "SKU-42",
+              "onHand": 3,
+              "reorderPoint": 10,
+              "history": [
+                90,
+                6,
+                6,
+                4
+              ],
+              "deltas": [
+                3,
+                0,
+                -2
+              ]
+            },
+            "actual": {
+              "value": 4,
+              "fault": null,
+              "parameter": null,
+              "actualValue": null,
+              "returnedOriginalRow": true,
+              "sku": "SKU-42",
+              "onHand": 3,
+              "reorderPoint": 10,
+              "history": [
+                90,
+                6,
+                6,
+                4
+              ],
+              "deltas": [
+                3,
+                0,
+                -2
+              ]
+            },
+            "match": true
+          },
+          {
+            "change": "reversed-assignments",
+            "input": "second-setter-fails",
+            "expected": {
+              "value": null,
+              "fault": "ArgumentOutOfRangeException",
+              "parameter": "value",
+              "actualValue": -2,
+              "returnedOriginalRow": null,
+              "sku": "SKU-42",
+              "onHand": 8,
+              "reorderPoint": 4,
+              "history": [
+                90
+              ],
+              "deltas": [
+                1
+              ]
+            },
+            "actual": {
+              "value": null,
+              "fault": "ArgumentOutOfRangeException",
+              "parameter": "value",
+              "actualValue": -2,
+              "returnedOriginalRow": null,
+              "sku": "SKU-42",
+              "onHand": 8,
+              "reorderPoint": 4,
+              "history": [
+                90
+              ],
+              "deltas": [
+                1
+              ]
+            },
+            "match": true
+          },
+          {
+            "change": "append-delta",
+            "input": "receive-and-project",
+            "expected": {
+              "value": 11,
+              "fault": null,
+              "parameter": null,
+              "actualValue": null,
+              "returnedOriginalRow": true,
+              "sku": "SKU-42",
+              "onHand": 10,
+              "reorderPoint": 3,
+              "history": [
+                90,
+                3,
+                0,
+                -2
+              ],
+              "deltas": [
+                3,
+                0,
+                -2
+              ]
+            },
+            "actual": {
+              "value": 11,
+              "fault": null,
+              "parameter": null,
+              "actualValue": null,
+              "returnedOriginalRow": true,
+              "sku": "SKU-42",
+              "onHand": 10,
+              "reorderPoint": 3,
+              "history": [
+                90,
+                3,
+                0,
+                -2
+              ],
+              "deltas": [
+                3,
+                0,
+                -2
+              ]
+            },
+            "match": true
+          },
+          {
+            "change": "commit-after-traversal",
+            "input": "second-append-overflows",
+            "expected": {
+              "value": null,
+              "fault": "OverflowException",
+              "parameter": null,
+              "actualValue": null,
+              "returnedOriginalRow": true,
+              "sku": "SKU-42",
+              "onHand": 2147483646,
+              "reorderPoint": 3,
+              "history": [
+                90
+              ],
+              "deltas": [
+                1,
+                1
+              ]
+            },
+            "actual": {
+              "value": null,
+              "fault": "OverflowException",
+              "parameter": null,
+              "actualValue": null,
+              "returnedOriginalRow": true,
+              "sku": "SKU-42",
+              "onHand": 2147483646,
+              "reorderPoint": 3,
+              "history": [
+                90
+              ],
+              "deltas": [
+                1,
+                1
+              ]
+            },
+            "match": true
+          }
+        ]
+      }
+    }
+  }
+}

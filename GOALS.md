@@ -4,6 +4,8 @@ Weightless aims to let a person specify what a program owes its caller and leave
 
 **The next milestone is a frozen vocabulary that encodes a held-out collection of programs in at most one tenth of the baseline bytes, including the cost of the vocabulary, and reproduces the behavior each program promises its caller.** Tenfold compaction across unfamiliar programs is an open research target. The existing experiments give us reasons to try it and examples precise enough to tell us when it fails.
 
+For each program-encoding experiment, the primary outputs are the **caller-behavior verdict** and the **change in complete encoded size against a named encoding of the same behavior**. A tie or an expansion answers the size question. Keep the measured direction, both byte counts and the cost of any shared material visible alongside the replay results. [Contribution and measurement guidance](CONTRIBUTING.md#what-a-reviewer-needs)
+
 ## What should earn a place in the vocabulary?
 
 A base-1024 digit can select one of 1,024 meanings in ten packed bits. The research question is how much recurring behavior a meaning can express. A keyword can name a typed operation with parameters for its magnitude, operands, and policy. A run can carry the number of repetitions. A traversal can take its length from the runtime input. With all other costs equal, ten-bit tags break even with eight-bit tags when a program needs 20% fewer tags. Greater savings depend on how much structure each keyword lets the decoder recover.
