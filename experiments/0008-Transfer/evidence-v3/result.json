@@ -1,0 +1,503 @@
+{
+  "pipeline": "0006-v1",
+  "route": "transfer/v3",
+  "parent": {
+    "id": "add.checked.plain",
+    "path": "experiments/0001-Addition/baseline-v1/add-checked.wlb",
+    "sha256": "F29EB79B426681794A0A7BDC22C47CF38B9792C93ADF96326CD3964563877B34"
+  },
+  "finding": {
+    "claim": "A fully serialized typed selector preserves v2 branch identity and checked C# outcomes on all 121 fixed-k pairs through both codecs.",
+    "verdict": "tested",
+    "checksPassed": true,
+    "evidence": {
+      "parentRoute": "transfer/v2",
+      "startRevision": "d17fb0ff88f12e566f755df7b587831602c5bf81",
+      "observation": "The executed arm, return value or exception type on two already evaluated Int32 inputs.",
+      "oracle": "The original arm is required at a == Int32.MaxValue or b == Int32.MinValue. Compare outcomes with checked(a \u002B b).",
+      "k": 1,
+      "values": [
+        -2147483648,
+        -2147483647,
+        -2147483646,
+        -2,
+        -1,
+        0,
+        1,
+        2,
+        2147483645,
+        2147483646,
+        2147483647
+      ],
+      "armIds": {
+        "original": 0,
+        "transferred": 1
+      },
+      "runs": [
+        {
+          "codec": "Baseline",
+          "file": "selector.wlb",
+          "totalBytes": 74,
+          "armBytes": 54,
+          "selectorAndFramingBytes": 20,
+          "gridCases": 121,
+          "original": 21,
+          "transferred": 100,
+          "admittedUpperOverflows": 10,
+          "admittedLowerOverflows": 10,
+          "fallbackOverflows": 10,
+          "gridMatches": 121,
+          "named": [
+            {
+              "name": "ordinary",
+              "trace": {
+                "a": 0,
+                "b": 1,
+                "expectedFunction": 1,
+                "selectedFunction": 1,
+                "expected": {
+                  "value": 1,
+                  "exceptionType": null
+                },
+                "actual": {
+                  "value": 1,
+                  "exceptionType": null
+                },
+                "match": true
+              }
+            },
+            {
+              "name": "parent-left-intermediate",
+              "trace": {
+                "a": 2147483647,
+                "b": 0,
+                "expectedFunction": 0,
+                "selectedFunction": 0,
+                "expected": {
+                  "value": 2147483647,
+                  "exceptionType": null
+                },
+                "actual": {
+                  "value": 2147483647,
+                  "exceptionType": null
+                },
+                "match": true
+              }
+            },
+            {
+              "name": "parent-right-intermediate",
+              "trace": {
+                "a": 0,
+                "b": -2147483648,
+                "expectedFunction": 0,
+                "selectedFunction": 0,
+                "expected": {
+                  "value": -2147483648,
+                  "exceptionType": null
+                },
+                "actual": {
+                  "value": -2147483648,
+                  "exceptionType": null
+                },
+                "match": true
+              }
+            },
+            {
+              "name": "both-intermediates-out-of-range",
+              "trace": {
+                "a": 2147483647,
+                "b": -2147483648,
+                "expectedFunction": 0,
+                "selectedFunction": 0,
+                "expected": {
+                  "value": -1,
+                  "exceptionType": null
+                },
+                "actual": {
+                  "value": -1,
+                  "exceptionType": null
+                },
+                "match": true
+              }
+            },
+            {
+              "name": "left-hits-maximum",
+              "trace": {
+                "a": 2147483646,
+                "b": 0,
+                "expectedFunction": 1,
+                "selectedFunction": 1,
+                "expected": {
+                  "value": 2147483646,
+                  "exceptionType": null
+                },
+                "actual": {
+                  "value": 2147483646,
+                  "exceptionType": null
+                },
+                "match": true
+              }
+            },
+            {
+              "name": "right-hits-minimum",
+              "trace": {
+                "a": 0,
+                "b": -2147483647,
+                "expectedFunction": 1,
+                "selectedFunction": 1,
+                "expected": {
+                  "value": -2147483647,
+                  "exceptionType": null
+                },
+                "actual": {
+                  "value": -2147483647,
+                  "exceptionType": null
+                },
+                "match": true
+              }
+            },
+            {
+              "name": "admitted-final-upper-overflow",
+              "trace": {
+                "a": 2147483646,
+                "b": 2,
+                "expectedFunction": 1,
+                "selectedFunction": 1,
+                "expected": {
+                  "value": null,
+                  "exceptionType": "OverflowException"
+                },
+                "actual": {
+                  "value": null,
+                  "exceptionType": "OverflowException"
+                },
+                "match": true
+              }
+            },
+            {
+              "name": "admitted-final-lower-overflow",
+              "trace": {
+                "a": -2147483648,
+                "b": -1,
+                "expectedFunction": 1,
+                "selectedFunction": 1,
+                "expected": {
+                  "value": null,
+                  "exceptionType": "OverflowException"
+                },
+                "actual": {
+                  "value": null,
+                  "exceptionType": "OverflowException"
+                },
+                "match": true
+              }
+            },
+            {
+              "name": "fallback-final-overflow",
+              "trace": {
+                "a": 2147483647,
+                "b": 1,
+                "expectedFunction": 0,
+                "selectedFunction": 0,
+                "expected": {
+                  "value": null,
+                  "exceptionType": "OverflowException"
+                },
+                "actual": {
+                  "value": null,
+                  "exceptionType": "OverflowException"
+                },
+                "match": true
+              }
+            }
+          ],
+          "branchControl": {
+            "matched": true,
+            "ordinary": {
+              "selectedFunction": 1,
+              "outcome": {
+                "value": 1,
+                "exceptionType": null,
+                "output": "",
+                "effects": [],
+                "buffers": []
+              }
+            },
+            "flippedSelection": {
+              "selectedFunction": 0,
+              "outcome": {
+                "value": 1,
+                "exceptionType": null,
+                "output": "",
+                "effects": [],
+                "buffers": []
+              }
+            }
+          },
+          "rejections": [
+            {
+              "name": "wrong-version",
+              "rejected": true
+            },
+            {
+              "name": "invalid-shift-argument",
+              "rejected": true
+            },
+            {
+              "name": "invalid-branch-opcode",
+              "rejected": true
+            },
+            {
+              "name": "invalid-branch-target",
+              "rejected": true
+            },
+            {
+              "name": "overlong-arm-length",
+              "rejected": true
+            },
+            {
+              "name": "truncated-arms",
+              "rejected": true
+            },
+            {
+              "name": "trailing-byte",
+              "rejected": true
+            }
+          ]
+        },
+        {
+          "codec": "Packed",
+          "file": "selector.wlp",
+          "totalBytes": 70,
+          "armBytes": 50,
+          "selectorAndFramingBytes": 20,
+          "gridCases": 121,
+          "original": 21,
+          "transferred": 100,
+          "admittedUpperOverflows": 10,
+          "admittedLowerOverflows": 10,
+          "fallbackOverflows": 10,
+          "gridMatches": 121,
+          "named": [
+            {
+              "name": "ordinary",
+              "trace": {
+                "a": 0,
+                "b": 1,
+                "expectedFunction": 1,
+                "selectedFunction": 1,
+                "expected": {
+                  "value": 1,
+                  "exceptionType": null
+                },
+                "actual": {
+                  "value": 1,
+                  "exceptionType": null
+                },
+                "match": true
+              }
+            },
+            {
+              "name": "parent-left-intermediate",
+              "trace": {
+                "a": 2147483647,
+                "b": 0,
+                "expectedFunction": 0,
+                "selectedFunction": 0,
+                "expected": {
+                  "value": 2147483647,
+                  "exceptionType": null
+                },
+                "actual": {
+                  "value": 2147483647,
+                  "exceptionType": null
+                },
+                "match": true
+              }
+            },
+            {
+              "name": "parent-right-intermediate",
+              "trace": {
+                "a": 0,
+                "b": -2147483648,
+                "expectedFunction": 0,
+                "selectedFunction": 0,
+                "expected": {
+                  "value": -2147483648,
+                  "exceptionType": null
+                },
+                "actual": {
+                  "value": -2147483648,
+                  "exceptionType": null
+                },
+                "match": true
+              }
+            },
+            {
+              "name": "both-intermediates-out-of-range",
+              "trace": {
+                "a": 2147483647,
+                "b": -2147483648,
+                "expectedFunction": 0,
+                "selectedFunction": 0,
+                "expected": {
+                  "value": -1,
+                  "exceptionType": null
+                },
+                "actual": {
+                  "value": -1,
+                  "exceptionType": null
+                },
+                "match": true
+              }
+            },
+            {
+              "name": "left-hits-maximum",
+              "trace": {
+                "a": 2147483646,
+                "b": 0,
+                "expectedFunction": 1,
+                "selectedFunction": 1,
+                "expected": {
+                  "value": 2147483646,
+                  "exceptionType": null
+                },
+                "actual": {
+                  "value": 2147483646,
+                  "exceptionType": null
+                },
+                "match": true
+              }
+            },
+            {
+              "name": "right-hits-minimum",
+              "trace": {
+                "a": 0,
+                "b": -2147483647,
+                "expectedFunction": 1,
+                "selectedFunction": 1,
+                "expected": {
+                  "value": -2147483647,
+                  "exceptionType": null
+                },
+                "actual": {
+                  "value": -2147483647,
+                  "exceptionType": null
+                },
+                "match": true
+              }
+            },
+            {
+              "name": "admitted-final-upper-overflow",
+              "trace": {
+                "a": 2147483646,
+                "b": 2,
+                "expectedFunction": 1,
+                "selectedFunction": 1,
+                "expected": {
+                  "value": null,
+                  "exceptionType": "OverflowException"
+                },
+                "actual": {
+                  "value": null,
+                  "exceptionType": "OverflowException"
+                },
+                "match": true
+              }
+            },
+            {
+              "name": "admitted-final-lower-overflow",
+              "trace": {
+                "a": -2147483648,
+                "b": -1,
+                "expectedFunction": 1,
+                "selectedFunction": 1,
+                "expected": {
+                  "value": null,
+                  "exceptionType": "OverflowException"
+                },
+                "actual": {
+                  "value": null,
+                  "exceptionType": "OverflowException"
+                },
+                "match": true
+              }
+            },
+            {
+              "name": "fallback-final-overflow",
+              "trace": {
+                "a": 2147483647,
+                "b": 1,
+                "expectedFunction": 0,
+                "selectedFunction": 0,
+                "expected": {
+                  "value": null,
+                  "exceptionType": "OverflowException"
+                },
+                "actual": {
+                  "value": null,
+                  "exceptionType": "OverflowException"
+                },
+                "match": true
+              }
+            }
+          ],
+          "branchControl": {
+            "matched": true,
+            "ordinary": {
+              "selectedFunction": 1,
+              "outcome": {
+                "value": 1,
+                "exceptionType": null,
+                "output": "",
+                "effects": [],
+                "buffers": []
+              }
+            },
+            "flippedSelection": {
+              "selectedFunction": 0,
+              "outcome": {
+                "value": 1,
+                "exceptionType": null,
+                "output": "",
+                "effects": [],
+                "buffers": []
+              }
+            }
+          },
+          "rejections": [
+            {
+              "name": "wrong-version",
+              "rejected": true
+            },
+            {
+              "name": "invalid-shift-argument",
+              "rejected": true
+            },
+            {
+              "name": "invalid-branch-opcode",
+              "rejected": true
+            },
+            {
+              "name": "invalid-branch-target",
+              "rejected": true
+            },
+            {
+              "name": "overlong-arm-length",
+              "rejected": true
+            },
+            {
+              "name": "truncated-arms",
+              "rejected": true
+            },
+            {
+              "name": "trailing-byte",
+              "rejected": true
+            }
+          ]
+        }
+      ],
+      "firstFailure": null
+    }
+  }
+}

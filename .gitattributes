@@ -1,0 +1,4 @@
+# Lab evidence is compared byte for byte on replay.
+experiments/*/evidence-v*/result.json text eol=lf
+*.wlb binary
+*.wlp binary

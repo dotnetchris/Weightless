@@ -1,0 +1,1242 @@
+{
+  "pipeline": "0006-v1",
+  "route": "add-input-guards/v1",
+  "parent": {
+    "id": "add.checked.plain",
+    "path": "experiments/0001-Addition/baseline-v1/add-checked.wlb",
+    "sha256": "F29EB79B426681794A0A7BDC22C47CF38B9792C93ADF96326CD3964563877B34"
+  },
+  "finding": {
+    "claim": "Both source forms lower to one ordered typed plan and preserve checked Add and public argument diagnostics.",
+    "verdict": "tested",
+    "checksPassed": true,
+    "evidence": {
+      "startRevision": "1ac9d1946048379a1d685e4cbf79c2cb03f3198e",
+      "predecessor": "0001-Addition and guarded arithmetic experiment 0005",
+      "source": {
+        "path": "experiments/0010-AddInputGuards/reference/GuardedAdd.cs",
+        "sha256LfUtf8": "2E2A26D800A1B7471C28A1F907C395B3E4F6E262EC2A590413433EB92DB5817A",
+        "compiler": "5.9.0.0",
+        "explicitForm": {
+          "method": "Weightless.Research.InputGuards.GuardedAdd.WithIf(int, int)",
+          "origins": [
+            {
+              "sourceLine": 7,
+              "boundTarget": "System.ArgumentOutOfRangeException.ArgumentOutOfRangeException(string?, object?, string?)",
+              "diagnosticArgumentKind": "Explicit",
+              "implicitDiagnostic": false
+            },
+            {
+              "sourceLine": 9,
+              "boundTarget": "System.ArgumentOutOfRangeException.ArgumentOutOfRangeException(string?, object?, string?)",
+              "diagnosticArgumentKind": "Explicit",
+              "implicitDiagnostic": false
+            }
+          ]
+        },
+        "helperForm": {
+          "method": "Weightless.Research.InputGuards.GuardedAdd.WithHelper(int, int)",
+          "origins": [
+            {
+              "sourceLine": 16,
+              "boundTarget": "System.ArgumentOutOfRangeException.ThrowIfLessThan\u003Cint\u003E(int, int, string?)",
+              "diagnosticArgumentKind": "DefaultValue",
+              "implicitDiagnostic": true
+            },
+            {
+              "sourceLine": 17,
+              "boundTarget": "System.ArgumentOutOfRangeException.ThrowIfLessThan\u003Cint\u003E(int, int, string?)",
+              "diagnosticArgumentKind": "DefaultValue",
+              "implicitDiagnostic": true
+            }
+          ]
+        }
+      },
+      "origin": "Roslyn independently binds the two source blocks, including the effective diagnostic arguments. The checked Add body is the frozen seed.",
+      "observation": "Return value or exception type, plus ParamName and ActualValue for argument failures.",
+      "guards": [
+        {
+          "operand": 0,
+          "lowerBound": -1,
+          "parameter": "a"
+        },
+        {
+          "operand": 1,
+          "lowerBound": -1,
+          "parameter": "b"
+        }
+      ],
+      "plansMatch": true,
+      "wiresMatch": true,
+      "images": [
+        {
+          "file": "from-if.wlp",
+          "totalBytes": 39,
+          "guardAndHeaderBytes": 21,
+          "checkedSumBytes": 18,
+          "sha256": "CF4A1F38AC1D547CCAC3C807F0E7BAE098A1760AB3B650B96333CE3DA0A35677"
+        },
+        {
+          "file": "from-helper.wlp",
+          "totalBytes": 39,
+          "guardAndHeaderBytes": 21,
+          "checkedSumBytes": 18,
+          "sha256": "CF4A1F38AC1D547CCAC3C807F0E7BAE098A1760AB3B650B96333CE3DA0A35677"
+        },
+        {
+          "file": "raised-first-bound.wlp",
+          "totalBytes": 39,
+          "guardAndHeaderBytes": 21,
+          "checkedSumBytes": 18,
+          "sha256": "050A9D904AA77FBCDB0BBD2010FB61C0EF75A9DA046888CA3B541228BAA00734"
+        },
+        {
+          "file": "reversed-guards.wlp",
+          "totalBytes": 39,
+          "guardAndHeaderBytes": 21,
+          "checkedSumBytes": 18,
+          "sha256": "CB4CE95209ED06B9ECB8FB0642532A00C1863AAA70A7CDB3B25DE16C02B6C2A0"
+        }
+      ],
+      "values": [
+        -2147483648,
+        -2,
+        -1,
+        0,
+        1,
+        2147483647
+      ],
+      "cases": [
+        {
+          "a": -2147483648,
+          "b": -2147483648,
+          "ifReference": {
+            "value": null,
+            "exceptionType": "ArgumentOutOfRangeException",
+            "parameter": "a",
+            "actualValue": -2147483648
+          },
+          "helperReference": {
+            "value": null,
+            "exceptionType": "ArgumentOutOfRangeException",
+            "parameter": "a",
+            "actualValue": -2147483648
+          },
+          "ifImage": {
+            "value": null,
+            "exceptionType": "ArgumentOutOfRangeException",
+            "parameter": "a",
+            "actualValue": -2147483648
+          },
+          "helperImage": {
+            "value": null,
+            "exceptionType": "ArgumentOutOfRangeException",
+            "parameter": "a",
+            "actualValue": -2147483648
+          },
+          "match": true
+        },
+        {
+          "a": -2147483648,
+          "b": -2,
+          "ifReference": {
+            "value": null,
+            "exceptionType": "ArgumentOutOfRangeException",
+            "parameter": "a",
+            "actualValue": -2147483648
+          },
+          "helperReference": {
+            "value": null,
+            "exceptionType": "ArgumentOutOfRangeException",
+            "parameter": "a",
+            "actualValue": -2147483648
+          },
+          "ifImage": {
+            "value": null,
+            "exceptionType": "ArgumentOutOfRangeException",
+            "parameter": "a",
+            "actualValue": -2147483648
+          },
+          "helperImage": {
+            "value": null,
+            "exceptionType": "ArgumentOutOfRangeException",
+            "parameter": "a",
+            "actualValue": -2147483648
+          },
+          "match": true
+        },
+        {
+          "a": -2147483648,
+          "b": -1,
+          "ifReference": {
+            "value": null,
+            "exceptionType": "ArgumentOutOfRangeException",
+            "parameter": "a",
+            "actualValue": -2147483648
+          },
+          "helperReference": {
+            "value": null,
+            "exceptionType": "ArgumentOutOfRangeException",
+            "parameter": "a",
+            "actualValue": -2147483648
+          },
+          "ifImage": {
+            "value": null,
+            "exceptionType": "ArgumentOutOfRangeException",
+            "parameter": "a",
+            "actualValue": -2147483648
+          },
+          "helperImage": {
+            "value": null,
+            "exceptionType": "ArgumentOutOfRangeException",
+            "parameter": "a",
+            "actualValue": -2147483648
+          },
+          "match": true
+        },
+        {
+          "a": -2147483648,
+          "b": 0,
+          "ifReference": {
+            "value": null,
+            "exceptionType": "ArgumentOutOfRangeException",
+            "parameter": "a",
+            "actualValue": -2147483648
+          },
+          "helperReference": {
+            "value": null,
+            "exceptionType": "ArgumentOutOfRangeException",
+            "parameter": "a",
+            "actualValue": -2147483648
+          },
+          "ifImage": {
+            "value": null,
+            "exceptionType": "ArgumentOutOfRangeException",
+            "parameter": "a",
+            "actualValue": -2147483648
+          },
+          "helperImage": {
+            "value": null,
+            "exceptionType": "ArgumentOutOfRangeException",
+            "parameter": "a",
+            "actualValue": -2147483648
+          },
+          "match": true
+        },
+        {
+          "a": -2147483648,
+          "b": 1,
+          "ifReference": {
+            "value": null,
+            "exceptionType": "ArgumentOutOfRangeException",
+            "parameter": "a",
+            "actualValue": -2147483648
+          },
+          "helperReference": {
+            "value": null,
+            "exceptionType": "ArgumentOutOfRangeException",
+            "parameter": "a",
+            "actualValue": -2147483648
+          },
+          "ifImage": {
+            "value": null,
+            "exceptionType": "ArgumentOutOfRangeException",
+            "parameter": "a",
+            "actualValue": -2147483648
+          },
+          "helperImage": {
+            "value": null,
+            "exceptionType": "ArgumentOutOfRangeException",
+            "parameter": "a",
+            "actualValue": -2147483648
+          },
+          "match": true
+        },
+        {
+          "a": -2147483648,
+          "b": 2147483647,
+          "ifReference": {
+            "value": null,
+            "exceptionType": "ArgumentOutOfRangeException",
+            "parameter": "a",
+            "actualValue": -2147483648
+          },
+          "helperReference": {
+            "value": null,
+            "exceptionType": "ArgumentOutOfRangeException",
+            "parameter": "a",
+            "actualValue": -2147483648
+          },
+          "ifImage": {
+            "value": null,
+            "exceptionType": "ArgumentOutOfRangeException",
+            "parameter": "a",
+            "actualValue": -2147483648
+          },
+          "helperImage": {
+            "value": null,
+            "exceptionType": "ArgumentOutOfRangeException",
+            "parameter": "a",
+            "actualValue": -2147483648
+          },
+          "match": true
+        },
+        {
+          "a": -2,
+          "b": -2147483648,
+          "ifReference": {
+            "value": null,
+            "exceptionType": "ArgumentOutOfRangeException",
+            "parameter": "a",
+            "actualValue": -2
+          },
+          "helperReference": {
+            "value": null,
+            "exceptionType": "ArgumentOutOfRangeException",
+            "parameter": "a",
+            "actualValue": -2
+          },
+          "ifImage": {
+            "value": null,
+            "exceptionType": "ArgumentOutOfRangeException",
+            "parameter": "a",
+            "actualValue": -2
+          },
+          "helperImage": {
+            "value": null,
+            "exceptionType": "ArgumentOutOfRangeException",
+            "parameter": "a",
+            "actualValue": -2
+          },
+          "match": true
+        },
+        {
+          "a": -2,
+          "b": -2,
+          "ifReference": {
+            "value": null,
+            "exceptionType": "ArgumentOutOfRangeException",
+            "parameter": "a",
+            "actualValue": -2
+          },
+          "helperReference": {
+            "value": null,
+            "exceptionType": "ArgumentOutOfRangeException",
+            "parameter": "a",
+            "actualValue": -2
+          },
+          "ifImage": {
+            "value": null,
+            "exceptionType": "ArgumentOutOfRangeException",
+            "parameter": "a",
+            "actualValue": -2
+          },
+          "helperImage": {
+            "value": null,
+            "exceptionType": "ArgumentOutOfRangeException",
+            "parameter": "a",
+            "actualValue": -2
+          },
+          "match": true
+        },
+        {
+          "a": -2,
+          "b": -1,
+          "ifReference": {
+            "value": null,
+            "exceptionType": "ArgumentOutOfRangeException",
+            "parameter": "a",
+            "actualValue": -2
+          },
+          "helperReference": {
+            "value": null,
+            "exceptionType": "ArgumentOutOfRangeException",
+            "parameter": "a",
+            "actualValue": -2
+          },
+          "ifImage": {
+            "value": null,
+            "exceptionType": "ArgumentOutOfRangeException",
+            "parameter": "a",
+            "actualValue": -2
+          },
+          "helperImage": {
+            "value": null,
+            "exceptionType": "ArgumentOutOfRangeException",
+            "parameter": "a",
+            "actualValue": -2
+          },
+          "match": true
+        },
+        {
+          "a": -2,
+          "b": 0,
+          "ifReference": {
+            "value": null,
+            "exceptionType": "ArgumentOutOfRangeException",
+            "parameter": "a",
+            "actualValue": -2
+          },
+          "helperReference": {
+            "value": null,
+            "exceptionType": "ArgumentOutOfRangeException",
+            "parameter": "a",
+            "actualValue": -2
+          },
+          "ifImage": {
+            "value": null,
+            "exceptionType": "ArgumentOutOfRangeException",
+            "parameter": "a",
+            "actualValue": -2
+          },
+          "helperImage": {
+            "value": null,
+            "exceptionType": "ArgumentOutOfRangeException",
+            "parameter": "a",
+            "actualValue": -2
+          },
+          "match": true
+        },
+        {
+          "a": -2,
+          "b": 1,
+          "ifReference": {
+            "value": null,
+            "exceptionType": "ArgumentOutOfRangeException",
+            "parameter": "a",
+            "actualValue": -2
+          },
+          "helperReference": {
+            "value": null,
+            "exceptionType": "ArgumentOutOfRangeException",
+            "parameter": "a",
+            "actualValue": -2
+          },
+          "ifImage": {
+            "value": null,
+            "exceptionType": "ArgumentOutOfRangeException",
+            "parameter": "a",
+            "actualValue": -2
+          },
+          "helperImage": {
+            "value": null,
+            "exceptionType": "ArgumentOutOfRangeException",
+            "parameter": "a",
+            "actualValue": -2
+          },
+          "match": true
+        },
+        {
+          "a": -2,
+          "b": 2147483647,
+          "ifReference": {
+            "value": null,
+            "exceptionType": "ArgumentOutOfRangeException",
+            "parameter": "a",
+            "actualValue": -2
+          },
+          "helperReference": {
+            "value": null,
+            "exceptionType": "ArgumentOutOfRangeException",
+            "parameter": "a",
+            "actualValue": -2
+          },
+          "ifImage": {
+            "value": null,
+            "exceptionType": "ArgumentOutOfRangeException",
+            "parameter": "a",
+            "actualValue": -2
+          },
+          "helperImage": {
+            "value": null,
+            "exceptionType": "ArgumentOutOfRangeException",
+            "parameter": "a",
+            "actualValue": -2
+          },
+          "match": true
+        },
+        {
+          "a": -1,
+          "b": -2147483648,
+          "ifReference": {
+            "value": null,
+            "exceptionType": "ArgumentOutOfRangeException",
+            "parameter": "b",
+            "actualValue": -2147483648
+          },
+          "helperReference": {
+            "value": null,
+            "exceptionType": "ArgumentOutOfRangeException",
+            "parameter": "b",
+            "actualValue": -2147483648
+          },
+          "ifImage": {
+            "value": null,
+            "exceptionType": "ArgumentOutOfRangeException",
+            "parameter": "b",
+            "actualValue": -2147483648
+          },
+          "helperImage": {
+            "value": null,
+            "exceptionType": "ArgumentOutOfRangeException",
+            "parameter": "b",
+            "actualValue": -2147483648
+          },
+          "match": true
+        },
+        {
+          "a": -1,
+          "b": -2,
+          "ifReference": {
+            "value": null,
+            "exceptionType": "ArgumentOutOfRangeException",
+            "parameter": "b",
+            "actualValue": -2
+          },
+          "helperReference": {
+            "value": null,
+            "exceptionType": "ArgumentOutOfRangeException",
+            "parameter": "b",
+            "actualValue": -2
+          },
+          "ifImage": {
+            "value": null,
+            "exceptionType": "ArgumentOutOfRangeException",
+            "parameter": "b",
+            "actualValue": -2
+          },
+          "helperImage": {
+            "value": null,
+            "exceptionType": "ArgumentOutOfRangeException",
+            "parameter": "b",
+            "actualValue": -2
+          },
+          "match": true
+        },
+        {
+          "a": -1,
+          "b": -1,
+          "ifReference": {
+            "value": -2,
+            "exceptionType": null,
+            "parameter": null,
+            "actualValue": null
+          },
+          "helperReference": {
+            "value": -2,
+            "exceptionType": null,
+            "parameter": null,
+            "actualValue": null
+          },
+          "ifImage": {
+            "value": -2,
+            "exceptionType": null,
+            "parameter": null,
+            "actualValue": null
+          },
+          "helperImage": {
+            "value": -2,
+            "exceptionType": null,
+            "parameter": null,
+            "actualValue": null
+          },
+          "match": true
+        },
+        {
+          "a": -1,
+          "b": 0,
+          "ifReference": {
+            "value": -1,
+            "exceptionType": null,
+            "parameter": null,
+            "actualValue": null
+          },
+          "helperReference": {
+            "value": -1,
+            "exceptionType": null,
+            "parameter": null,
+            "actualValue": null
+          },
+          "ifImage": {
+            "value": -1,
+            "exceptionType": null,
+            "parameter": null,
+            "actualValue": null
+          },
+          "helperImage": {
+            "value": -1,
+            "exceptionType": null,
+            "parameter": null,
+            "actualValue": null
+          },
+          "match": true
+        },
+        {
+          "a": -1,
+          "b": 1,
+          "ifReference": {
+            "value": 0,
+            "exceptionType": null,
+            "parameter": null,
+            "actualValue": null
+          },
+          "helperReference": {
+            "value": 0,
+            "exceptionType": null,
+            "parameter": null,
+            "actualValue": null
+          },
+          "ifImage": {
+            "value": 0,
+            "exceptionType": null,
+            "parameter": null,
+            "actualValue": null
+          },
+          "helperImage": {
+            "value": 0,
+            "exceptionType": null,
+            "parameter": null,
+            "actualValue": null
+          },
+          "match": true
+        },
+        {
+          "a": -1,
+          "b": 2147483647,
+          "ifReference": {
+            "value": 2147483646,
+            "exceptionType": null,
+            "parameter": null,
+            "actualValue": null
+          },
+          "helperReference": {
+            "value": 2147483646,
+            "exceptionType": null,
+            "parameter": null,
+            "actualValue": null
+          },
+          "ifImage": {
+            "value": 2147483646,
+            "exceptionType": null,
+            "parameter": null,
+            "actualValue": null
+          },
+          "helperImage": {
+            "value": 2147483646,
+            "exceptionType": null,
+            "parameter": null,
+            "actualValue": null
+          },
+          "match": true
+        },
+        {
+          "a": 0,
+          "b": -2147483648,
+          "ifReference": {
+            "value": null,
+            "exceptionType": "ArgumentOutOfRangeException",
+            "parameter": "b",
+            "actualValue": -2147483648
+          },
+          "helperReference": {
+            "value": null,
+            "exceptionType": "ArgumentOutOfRangeException",
+            "parameter": "b",
+            "actualValue": -2147483648
+          },
+          "ifImage": {
+            "value": null,
+            "exceptionType": "ArgumentOutOfRangeException",
+            "parameter": "b",
+            "actualValue": -2147483648
+          },
+          "helperImage": {
+            "value": null,
+            "exceptionType": "ArgumentOutOfRangeException",
+            "parameter": "b",
+            "actualValue": -2147483648
+          },
+          "match": true
+        },
+        {
+          "a": 0,
+          "b": -2,
+          "ifReference": {
+            "value": null,
+            "exceptionType": "ArgumentOutOfRangeException",
+            "parameter": "b",
+            "actualValue": -2
+          },
+          "helperReference": {
+            "value": null,
+            "exceptionType": "ArgumentOutOfRangeException",
+            "parameter": "b",
+            "actualValue": -2
+          },
+          "ifImage": {
+            "value": null,
+            "exceptionType": "ArgumentOutOfRangeException",
+            "parameter": "b",
+            "actualValue": -2
+          },
+          "helperImage": {
+            "value": null,
+            "exceptionType": "ArgumentOutOfRangeException",
+            "parameter": "b",
+            "actualValue": -2
+          },
+          "match": true
+        },
+        {
+          "a": 0,
+          "b": -1,
+          "ifReference": {
+            "value": -1,
+            "exceptionType": null,
+            "parameter": null,
+            "actualValue": null
+          },
+          "helperReference": {
+            "value": -1,
+            "exceptionType": null,
+            "parameter": null,
+            "actualValue": null
+          },
+          "ifImage": {
+            "value": -1,
+            "exceptionType": null,
+            "parameter": null,
+            "actualValue": null
+          },
+          "helperImage": {
+            "value": -1,
+            "exceptionType": null,
+            "parameter": null,
+            "actualValue": null
+          },
+          "match": true
+        },
+        {
+          "a": 0,
+          "b": 0,
+          "ifReference": {
+            "value": 0,
+            "exceptionType": null,
+            "parameter": null,
+            "actualValue": null
+          },
+          "helperReference": {
+            "value": 0,
+            "exceptionType": null,
+            "parameter": null,
+            "actualValue": null
+          },
+          "ifImage": {
+            "value": 0,
+            "exceptionType": null,
+            "parameter": null,
+            "actualValue": null
+          },
+          "helperImage": {
+            "value": 0,
+            "exceptionType": null,
+            "parameter": null,
+            "actualValue": null
+          },
+          "match": true
+        },
+        {
+          "a": 0,
+          "b": 1,
+          "ifReference": {
+            "value": 1,
+            "exceptionType": null,
+            "parameter": null,
+            "actualValue": null
+          },
+          "helperReference": {
+            "value": 1,
+            "exceptionType": null,
+            "parameter": null,
+            "actualValue": null
+          },
+          "ifImage": {
+            "value": 1,
+            "exceptionType": null,
+            "parameter": null,
+            "actualValue": null
+          },
+          "helperImage": {
+            "value": 1,
+            "exceptionType": null,
+            "parameter": null,
+            "actualValue": null
+          },
+          "match": true
+        },
+        {
+          "a": 0,
+          "b": 2147483647,
+          "ifReference": {
+            "value": 2147483647,
+            "exceptionType": null,
+            "parameter": null,
+            "actualValue": null
+          },
+          "helperReference": {
+            "value": 2147483647,
+            "exceptionType": null,
+            "parameter": null,
+            "actualValue": null
+          },
+          "ifImage": {
+            "value": 2147483647,
+            "exceptionType": null,
+            "parameter": null,
+            "actualValue": null
+          },
+          "helperImage": {
+            "value": 2147483647,
+            "exceptionType": null,
+            "parameter": null,
+            "actualValue": null
+          },
+          "match": true
+        },
+        {
+          "a": 1,
+          "b": -2147483648,
+          "ifReference": {
+            "value": null,
+            "exceptionType": "ArgumentOutOfRangeException",
+            "parameter": "b",
+            "actualValue": -2147483648
+          },
+          "helperReference": {
+            "value": null,
+            "exceptionType": "ArgumentOutOfRangeException",
+            "parameter": "b",
+            "actualValue": -2147483648
+          },
+          "ifImage": {
+            "value": null,
+            "exceptionType": "ArgumentOutOfRangeException",
+            "parameter": "b",
+            "actualValue": -2147483648
+          },
+          "helperImage": {
+            "value": null,
+            "exceptionType": "ArgumentOutOfRangeException",
+            "parameter": "b",
+            "actualValue": -2147483648
+          },
+          "match": true
+        },
+        {
+          "a": 1,
+          "b": -2,
+          "ifReference": {
+            "value": null,
+            "exceptionType": "ArgumentOutOfRangeException",
+            "parameter": "b",
+            "actualValue": -2
+          },
+          "helperReference": {
+            "value": null,
+            "exceptionType": "ArgumentOutOfRangeException",
+            "parameter": "b",
+            "actualValue": -2
+          },
+          "ifImage": {
+            "value": null,
+            "exceptionType": "ArgumentOutOfRangeException",
+            "parameter": "b",
+            "actualValue": -2
+          },
+          "helperImage": {
+            "value": null,
+            "exceptionType": "ArgumentOutOfRangeException",
+            "parameter": "b",
+            "actualValue": -2
+          },
+          "match": true
+        },
+        {
+          "a": 1,
+          "b": -1,
+          "ifReference": {
+            "value": 0,
+            "exceptionType": null,
+            "parameter": null,
+            "actualValue": null
+          },
+          "helperReference": {
+            "value": 0,
+            "exceptionType": null,
+            "parameter": null,
+            "actualValue": null
+          },
+          "ifImage": {
+            "value": 0,
+            "exceptionType": null,
+            "parameter": null,
+            "actualValue": null
+          },
+          "helperImage": {
+            "value": 0,
+            "exceptionType": null,
+            "parameter": null,
+            "actualValue": null
+          },
+          "match": true
+        },
+        {
+          "a": 1,
+          "b": 0,
+          "ifReference": {
+            "value": 1,
+            "exceptionType": null,
+            "parameter": null,
+            "actualValue": null
+          },
+          "helperReference": {
+            "value": 1,
+            "exceptionType": null,
+            "parameter": null,
+            "actualValue": null
+          },
+          "ifImage": {
+            "value": 1,
+            "exceptionType": null,
+            "parameter": null,
+            "actualValue": null
+          },
+          "helperImage": {
+            "value": 1,
+            "exceptionType": null,
+            "parameter": null,
+            "actualValue": null
+          },
+          "match": true
+        },
+        {
+          "a": 1,
+          "b": 1,
+          "ifReference": {
+            "value": 2,
+            "exceptionType": null,
+            "parameter": null,
+            "actualValue": null
+          },
+          "helperReference": {
+            "value": 2,
+            "exceptionType": null,
+            "parameter": null,
+            "actualValue": null
+          },
+          "ifImage": {
+            "value": 2,
+            "exceptionType": null,
+            "parameter": null,
+            "actualValue": null
+          },
+          "helperImage": {
+            "value": 2,
+            "exceptionType": null,
+            "parameter": null,
+            "actualValue": null
+          },
+          "match": true
+        },
+        {
+          "a": 1,
+          "b": 2147483647,
+          "ifReference": {
+            "value": null,
+            "exceptionType": "OverflowException",
+            "parameter": null,
+            "actualValue": null
+          },
+          "helperReference": {
+            "value": null,
+            "exceptionType": "OverflowException",
+            "parameter": null,
+            "actualValue": null
+          },
+          "ifImage": {
+            "value": null,
+            "exceptionType": "OverflowException",
+            "parameter": null,
+            "actualValue": null
+          },
+          "helperImage": {
+            "value": null,
+            "exceptionType": "OverflowException",
+            "parameter": null,
+            "actualValue": null
+          },
+          "match": true
+        },
+        {
+          "a": 2147483647,
+          "b": -2147483648,
+          "ifReference": {
+            "value": null,
+            "exceptionType": "ArgumentOutOfRangeException",
+            "parameter": "b",
+            "actualValue": -2147483648
+          },
+          "helperReference": {
+            "value": null,
+            "exceptionType": "ArgumentOutOfRangeException",
+            "parameter": "b",
+            "actualValue": -2147483648
+          },
+          "ifImage": {
+            "value": null,
+            "exceptionType": "ArgumentOutOfRangeException",
+            "parameter": "b",
+            "actualValue": -2147483648
+          },
+          "helperImage": {
+            "value": null,
+            "exceptionType": "ArgumentOutOfRangeException",
+            "parameter": "b",
+            "actualValue": -2147483648
+          },
+          "match": true
+        },
+        {
+          "a": 2147483647,
+          "b": -2,
+          "ifReference": {
+            "value": null,
+            "exceptionType": "ArgumentOutOfRangeException",
+            "parameter": "b",
+            "actualValue": -2
+          },
+          "helperReference": {
+            "value": null,
+            "exceptionType": "ArgumentOutOfRangeException",
+            "parameter": "b",
+            "actualValue": -2
+          },
+          "ifImage": {
+            "value": null,
+            "exceptionType": "ArgumentOutOfRangeException",
+            "parameter": "b",
+            "actualValue": -2
+          },
+          "helperImage": {
+            "value": null,
+            "exceptionType": "ArgumentOutOfRangeException",
+            "parameter": "b",
+            "actualValue": -2
+          },
+          "match": true
+        },
+        {
+          "a": 2147483647,
+          "b": -1,
+          "ifReference": {
+            "value": 2147483646,
+            "exceptionType": null,
+            "parameter": null,
+            "actualValue": null
+          },
+          "helperReference": {
+            "value": 2147483646,
+            "exceptionType": null,
+            "parameter": null,
+            "actualValue": null
+          },
+          "ifImage": {
+            "value": 2147483646,
+            "exceptionType": null,
+            "parameter": null,
+            "actualValue": null
+          },
+          "helperImage": {
+            "value": 2147483646,
+            "exceptionType": null,
+            "parameter": null,
+            "actualValue": null
+          },
+          "match": true
+        },
+        {
+          "a": 2147483647,
+          "b": 0,
+          "ifReference": {
+            "value": 2147483647,
+            "exceptionType": null,
+            "parameter": null,
+            "actualValue": null
+          },
+          "helperReference": {
+            "value": 2147483647,
+            "exceptionType": null,
+            "parameter": null,
+            "actualValue": null
+          },
+          "ifImage": {
+            "value": 2147483647,
+            "exceptionType": null,
+            "parameter": null,
+            "actualValue": null
+          },
+          "helperImage": {
+            "value": 2147483647,
+            "exceptionType": null,
+            "parameter": null,
+            "actualValue": null
+          },
+          "match": true
+        },
+        {
+          "a": 2147483647,
+          "b": 1,
+          "ifReference": {
+            "value": null,
+            "exceptionType": "OverflowException",
+            "parameter": null,
+            "actualValue": null
+          },
+          "helperReference": {
+            "value": null,
+            "exceptionType": "OverflowException",
+            "parameter": null,
+            "actualValue": null
+          },
+          "ifImage": {
+            "value": null,
+            "exceptionType": "OverflowException",
+            "parameter": null,
+            "actualValue": null
+          },
+          "helperImage": {
+            "value": null,
+            "exceptionType": "OverflowException",
+            "parameter": null,
+            "actualValue": null
+          },
+          "match": true
+        },
+        {
+          "a": 2147483647,
+          "b": 2147483647,
+          "ifReference": {
+            "value": null,
+            "exceptionType": "OverflowException",
+            "parameter": null,
+            "actualValue": null
+          },
+          "helperReference": {
+            "value": null,
+            "exceptionType": "OverflowException",
+            "parameter": null,
+            "actualValue": null
+          },
+          "ifImage": {
+            "value": null,
+            "exceptionType": "OverflowException",
+            "parameter": null,
+            "actualValue": null
+          },
+          "helperImage": {
+            "value": null,
+            "exceptionType": "OverflowException",
+            "parameter": null,
+            "actualValue": null
+          },
+          "match": true
+        }
+      ],
+      "comparisons": 72,
+      "firstOracleDisagreement": null,
+      "firstDisagreement": null,
+      "controls": {
+        "sourceBoundEdits": {
+          "explicitForm": {
+            "sha256LfUtf8": "E308E16763E7C1E7B7A8FB1465A0472816327AAB10AE9980A64C4D976A2639FF",
+            "importedGuards": [
+              {
+                "operand": 0,
+                "lowerBound": 0,
+                "parameter": "a"
+              },
+              {
+                "operand": 1,
+                "lowerBound": -1,
+                "parameter": "b"
+              }
+            ],
+            "passed": true
+          },
+          "helperForm": {
+            "sha256LfUtf8": "F5D12ECB763AC0F74522CC3589239A6531A2DA8BC8D408A85405175D381D516F",
+            "importedGuards": [
+              {
+                "operand": 0,
+                "lowerBound": 0,
+                "parameter": "a"
+              },
+              {
+                "operand": 1,
+                "lowerBound": -1,
+                "parameter": "b"
+              }
+            ],
+            "passed": true
+          }
+        },
+        "raisedBound": {
+          "a": -1,
+          "b": 0,
+          "original": {
+            "value": -1,
+            "exceptionType": null,
+            "parameter": null,
+            "actualValue": null
+          },
+          "expected": {
+            "value": null,
+            "exceptionType": "ArgumentOutOfRangeException",
+            "parameter": "a",
+            "actualValue": -1
+          },
+          "actual": {
+            "value": null,
+            "exceptionType": "ArgumentOutOfRangeException",
+            "parameter": "a",
+            "actualValue": -1
+          },
+          "passed": true
+        },
+        "reversedOrder": {
+          "a": -2,
+          "b": -3,
+          "original": {
+            "value": null,
+            "exceptionType": "ArgumentOutOfRangeException",
+            "parameter": "a",
+            "actualValue": -2
+          },
+          "expected": {
+            "value": null,
+            "exceptionType": "ArgumentOutOfRangeException",
+            "parameter": "b",
+            "actualValue": -3
+          },
+          "actual": {
+            "value": null,
+            "exceptionType": "ArgumentOutOfRangeException",
+            "parameter": "b",
+            "actualValue": -3
+          },
+          "passed": true
+        }
+      }
+    }
+  }
+}

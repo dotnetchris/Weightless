@@ -1,0 +1,586 @@
+{
+  "pipeline": "0006-v1",
+  "route": "effects/v2",
+  "parent": {
+    "id": "add.checked.plain",
+    "path": "experiments/0001-Addition/baseline-v1/add-checked.wlb",
+    "sha256": "F29EB79B426681794A0A7BDC22C47CF38B9792C93ADF96326CD3964563877B34"
+  },
+  "finding": {
+    "claim": "For the recorded single-threaded checked Add, store and load grid, the guard admits exactly the schedules with equal full observations.",
+    "verdict": "tested",
+    "checksPassed": true,
+    "evidence": {
+      "parentRoute": "effects/v1",
+      "observation": "Return or exception type, stdout, ordered writes by entry-buffer identity, and all final buffer contents.",
+      "layouts": [
+        {
+          "name": "aliased",
+          "destination": [
+            5,
+            7
+          ],
+          "source": [
+            5,
+            7
+          ],
+          "aliased": true
+        },
+        {
+          "name": "equal-distinct",
+          "destination": [
+            5,
+            7
+          ],
+          "source": [
+            5,
+            7
+          ],
+          "aliased": false
+        },
+        {
+          "name": "different-distinct",
+          "destination": [
+            5,
+            7
+          ],
+          "source": [
+            7,
+            5
+          ],
+          "aliased": false
+        },
+        {
+          "name": "empty-source",
+          "destination": [
+            5,
+            7
+          ],
+          "source": [],
+          "aliased": false
+        },
+        {
+          "name": "empty-destination",
+          "destination": [],
+          "source": [
+            5,
+            7
+          ],
+          "aliased": false
+        },
+        {
+          "name": "aliased-empty",
+          "destination": [],
+          "source": [],
+          "aliased": true
+        },
+        {
+          "name": "distinct-empty",
+          "destination": [],
+          "source": [],
+          "aliased": false
+        }
+      ],
+      "additions": [
+        {
+          "name": "write-five",
+          "a": 2,
+          "b": 3
+        },
+        {
+          "name": "write-seven",
+          "a": 3,
+          "b": 4
+        },
+        {
+          "name": "overflow-above",
+          "a": 2147483647,
+          "b": 1
+        },
+        {
+          "name": "overflow-below",
+          "a": -2147483648,
+          "b": -1
+        }
+      ],
+      "indices": [
+        -1,
+        0,
+        1,
+        2
+      ],
+      "cases": 448,
+      "admitted": 406,
+      "declined": 42,
+      "admittedDisagreements": 0,
+      "equivalentButDeclined": 0,
+      "countsByReason": {
+        "changed-same-cell": 2,
+        "disjoint-cells": 20,
+        "failed-write": 160,
+        "idempotent-same-cell": 2,
+        "overflow-before-memory": 224,
+        "write-before-failed-read": 40
+      },
+      "graphComparisons": 1792,
+      "selectedComparisons": 896,
+      "graphAndSelectionMismatches": [],
+      "witnesses": [
+        {
+          "name": "idempotent-aliased-cell",
+          "key": {
+            "layout": "aliased",
+            "addition": "write-five",
+            "write": 0,
+            "read": 0
+          },
+          "reason": "idempotent-same-cell",
+          "admit": true,
+          "equivalent": true,
+          "storeFirst": {
+            "value": 5,
+            "exceptionType": null,
+            "output": "",
+            "effects": [
+              {
+                "kind": "buffer-write",
+                "text": null,
+                "buffer": 0,
+                "index": 0,
+                "value": 5
+              }
+            ],
+            "buffers": [
+              [
+                5,
+                7
+              ]
+            ]
+          },
+          "loadFirst": {
+            "value": 5,
+            "exceptionType": null,
+            "output": "",
+            "effects": [
+              {
+                "kind": "buffer-write",
+                "text": null,
+                "buffer": 0,
+                "index": 0,
+                "value": 5
+              }
+            ],
+            "buffers": [
+              [
+                5,
+                7
+              ]
+            ]
+          },
+          "checksPassed": true
+        },
+        {
+          "name": "changed-aliased-cell",
+          "key": {
+            "layout": "aliased",
+            "addition": "write-seven",
+            "write": 0,
+            "read": 0
+          },
+          "reason": "changed-same-cell",
+          "admit": false,
+          "equivalent": false,
+          "storeFirst": {
+            "value": 7,
+            "exceptionType": null,
+            "output": "",
+            "effects": [
+              {
+                "kind": "buffer-write",
+                "text": null,
+                "buffer": 0,
+                "index": 0,
+                "value": 7
+              }
+            ],
+            "buffers": [
+              [
+                7,
+                7
+              ]
+            ]
+          },
+          "loadFirst": {
+            "value": 5,
+            "exceptionType": null,
+            "output": "",
+            "effects": [
+              {
+                "kind": "buffer-write",
+                "text": null,
+                "buffer": 0,
+                "index": 0,
+                "value": 7
+              }
+            ],
+            "buffers": [
+              [
+                7,
+                7
+              ]
+            ]
+          },
+          "checksPassed": true
+        },
+        {
+          "name": "different-indices-one-buffer",
+          "key": {
+            "layout": "aliased",
+            "addition": "write-seven",
+            "write": 0,
+            "read": 1
+          },
+          "reason": "disjoint-cells",
+          "admit": true,
+          "equivalent": true,
+          "storeFirst": {
+            "value": 7,
+            "exceptionType": null,
+            "output": "",
+            "effects": [
+              {
+                "kind": "buffer-write",
+                "text": null,
+                "buffer": 0,
+                "index": 0,
+                "value": 7
+              }
+            ],
+            "buffers": [
+              [
+                7,
+                7
+              ]
+            ]
+          },
+          "loadFirst": {
+            "value": 7,
+            "exceptionType": null,
+            "output": "",
+            "effects": [
+              {
+                "kind": "buffer-write",
+                "text": null,
+                "buffer": 0,
+                "index": 0,
+                "value": 7
+              }
+            ],
+            "buffers": [
+              [
+                7,
+                7
+              ]
+            ]
+          },
+          "checksPassed": true
+        },
+        {
+          "name": "overflow-before-valid-write",
+          "key": {
+            "layout": "aliased",
+            "addition": "overflow-below",
+            "write": 1,
+            "read": 1
+          },
+          "reason": "overflow-before-memory",
+          "admit": true,
+          "equivalent": true,
+          "storeFirst": {
+            "value": null,
+            "exceptionType": "OverflowException",
+            "output": "",
+            "effects": [],
+            "buffers": [
+              [
+                5,
+                7
+              ]
+            ]
+          },
+          "loadFirst": {
+            "value": null,
+            "exceptionType": "OverflowException",
+            "output": "",
+            "effects": [],
+            "buffers": [
+              [
+                5,
+                7
+              ]
+            ]
+          },
+          "checksPassed": true
+        },
+        {
+          "name": "same-index-two-buffers",
+          "key": {
+            "layout": "equal-distinct",
+            "addition": "write-seven",
+            "write": 0,
+            "read": 0
+          },
+          "reason": "disjoint-cells",
+          "admit": true,
+          "equivalent": true,
+          "storeFirst": {
+            "value": 5,
+            "exceptionType": null,
+            "output": "",
+            "effects": [
+              {
+                "kind": "buffer-write",
+                "text": null,
+                "buffer": 0,
+                "index": 0,
+                "value": 7
+              }
+            ],
+            "buffers": [
+              [
+                7,
+                7
+              ],
+              [
+                5,
+                7
+              ]
+            ]
+          },
+          "loadFirst": {
+            "value": 5,
+            "exceptionType": null,
+            "output": "",
+            "effects": [
+              {
+                "kind": "buffer-write",
+                "text": null,
+                "buffer": 0,
+                "index": 0,
+                "value": 7
+              }
+            ],
+            "buffers": [
+              [
+                7,
+                7
+              ],
+              [
+                5,
+                7
+              ]
+            ]
+          },
+          "checksPassed": true
+        },
+        {
+          "name": "idempotent-store-before-failed-load",
+          "key": {
+            "layout": "empty-source",
+            "addition": "write-five",
+            "write": 0,
+            "read": 0
+          },
+          "reason": "write-before-failed-read",
+          "admit": false,
+          "equivalent": false,
+          "storeFirst": {
+            "value": null,
+            "exceptionType": "IndexOutOfRangeException",
+            "output": "",
+            "effects": [
+              {
+                "kind": "buffer-write",
+                "text": null,
+                "buffer": 0,
+                "index": 0,
+                "value": 5
+              }
+            ],
+            "buffers": [
+              [
+                5,
+                7
+              ],
+              []
+            ]
+          },
+          "loadFirst": {
+            "value": null,
+            "exceptionType": "IndexOutOfRangeException",
+            "output": "",
+            "effects": [],
+            "buffers": [
+              [
+                5,
+                7
+              ],
+              []
+            ]
+          },
+          "checksPassed": true
+        },
+        {
+          "name": "changed-store-before-failed-load",
+          "key": {
+            "layout": "empty-source",
+            "addition": "write-seven",
+            "write": 0,
+            "read": 0
+          },
+          "reason": "write-before-failed-read",
+          "admit": false,
+          "equivalent": false,
+          "storeFirst": {
+            "value": null,
+            "exceptionType": "IndexOutOfRangeException",
+            "output": "",
+            "effects": [
+              {
+                "kind": "buffer-write",
+                "text": null,
+                "buffer": 0,
+                "index": 0,
+                "value": 7
+              }
+            ],
+            "buffers": [
+              [
+                7,
+                7
+              ],
+              []
+            ]
+          },
+          "loadFirst": {
+            "value": null,
+            "exceptionType": "IndexOutOfRangeException",
+            "output": "",
+            "effects": [],
+            "buffers": [
+              [
+                5,
+                7
+              ],
+              []
+            ]
+          },
+          "checksPassed": true
+        },
+        {
+          "name": "failed-write-valid-read",
+          "key": {
+            "layout": "empty-destination",
+            "addition": "write-five",
+            "write": 0,
+            "read": 0
+          },
+          "reason": "failed-write",
+          "admit": true,
+          "equivalent": true,
+          "storeFirst": {
+            "value": null,
+            "exceptionType": "IndexOutOfRangeException",
+            "output": "",
+            "effects": [],
+            "buffers": [
+              [],
+              [
+                5,
+                7
+              ]
+            ]
+          },
+          "loadFirst": {
+            "value": null,
+            "exceptionType": "IndexOutOfRangeException",
+            "output": "",
+            "effects": [],
+            "buffers": [
+              [],
+              [
+                5,
+                7
+              ]
+            ]
+          },
+          "checksPassed": true
+        },
+        {
+          "name": "both-accesses-fail",
+          "key": {
+            "layout": "aliased-empty",
+            "addition": "write-five",
+            "write": 0,
+            "read": 0
+          },
+          "reason": "failed-write",
+          "admit": true,
+          "equivalent": true,
+          "storeFirst": {
+            "value": null,
+            "exceptionType": "IndexOutOfRangeException",
+            "output": "",
+            "effects": [],
+            "buffers": [
+              []
+            ]
+          },
+          "loadFirst": {
+            "value": null,
+            "exceptionType": "IndexOutOfRangeException",
+            "output": "",
+            "effects": [],
+            "buffers": [
+              []
+            ]
+          },
+          "checksPassed": true
+        },
+        {
+          "name": "overflow-before-bounds",
+          "key": {
+            "layout": "distinct-empty",
+            "addition": "overflow-above",
+            "write": -1,
+            "read": -1
+          },
+          "reason": "overflow-before-memory",
+          "admit": true,
+          "equivalent": true,
+          "storeFirst": {
+            "value": null,
+            "exceptionType": "OverflowException",
+            "output": "",
+            "effects": [],
+            "buffers": [
+              [],
+              []
+            ]
+          },
+          "loadFirst": {
+            "value": null,
+            "exceptionType": "OverflowException",
+            "output": "",
+            "effects": [],
+            "buffers": [
+              [],
+              []
+            ]
+          },
+          "checksPassed": true
+        }
+      ]
+    }
+  }
+}

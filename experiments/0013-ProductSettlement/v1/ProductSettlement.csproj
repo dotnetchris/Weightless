@@ -1,0 +1,9 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <Import Project="../../0006-Settlement/support-v1/LabRoute.props" />
+  <ItemGroup>
+    <Compile Include="../../0007-Capacity/v3/RunPackedCodec.cs;../../0008-Transfer/v3/SelectorCodec.cs" />
+    <Compile Include="../../0010-AddInputGuards/v1/GuardCodec.cs;../../0010-AddInputGuards/reference/GuardedAdd.cs" />
+    <Compile Include="../../0011-PropertyMapping/v1/MappingCodec.cs;../../0011-PropertyMapping/reference/StockMapping.cs" />
+    <Compile Include="../../0012-BalanceHistory/v1/HistoryCodec.cs;../../0012-BalanceHistory/reference/BalanceHistory.cs" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,6 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <Import Project="../../0006-Settlement/support-v1/LabRoute.props" />
+  <ItemGroup>
+    <Compile Include="../v1/AddChain.cs" Link="AddChain.cs" />
+  </ItemGroup>
+</Project>

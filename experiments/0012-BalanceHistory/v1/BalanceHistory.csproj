@@ -1,0 +1,6 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <Import Project="../../0006-Settlement/support-v1/LabRoute.props" />
+  <ItemGroup>
+    <Compile Include="../reference/BalanceHistory.cs" Link="Reference/BalanceHistory.cs" />
+  </ItemGroup>
+</Project>

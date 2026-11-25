@@ -6,8 +6,25 @@ internal sealed record Fixture(string Name, Graph Graph, InputCase[] Cases, Func
 
 internal sealed record InputCase(string Name, object[] Arguments)
 {
-    internal object[] FreshArguments() =>
-        Arguments.Select(value => value is int[] buffer ? buffer.ToArray() : value).ToArray();
+    internal object[] FreshArguments()
+    {
+        var result = (object[])Arguments.Clone();
+        Dictionary<int[], int[]>? copies = null;
+        for (var index = 0; index < result.Length; index++)
+        {
+            if (result[index] is not int[] buffer)
+                continue;
+
+            copies ??= new(ReferenceEqualityComparer.Instance);
+            if (!copies.TryGetValue(buffer, out var copy))
+            {
+                copy = (int[])buffer.Clone();
+                copies.Add(buffer, copy);
+            }
+            result[index] = copy;
+        }
+        return result;
+    }
 }
 
 internal static class Fixtures

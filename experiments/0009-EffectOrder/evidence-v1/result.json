@@ -1,0 +1,286 @@
+{
+  "pipeline": "0006-v1",
+  "route": "effects/v1",
+  "parent": {
+    "id": "add.checked.plain",
+    "path": "experiments/0001-Addition/baseline-v1/add-checked.wlb",
+    "sha256": "F29EB79B426681794A0A7BDC22C47CF38B9792C93ADF96326CD3964563877B34"
+  },
+  "finding": {
+    "claim": "Moving a load ahead of the store following checked Add preserves all observations for every input.",
+    "verdict": "refuted",
+    "checksPassed": true,
+    "evidence": {
+      "rows": [
+        {
+          "codec": "Baseline",
+          "cases": [
+            {
+              "name": "distinct-equal-buffers",
+              "original": {
+                "value": 7,
+                "exceptionType": null,
+                "output": "",
+                "effects": [
+                  {
+                    "kind": "buffer-write",
+                    "text": null,
+                    "buffer": 0,
+                    "index": 0,
+                    "value": 5
+                  }
+                ],
+                "buffers": [
+                  [
+                    5
+                  ],
+                  [
+                    7
+                  ]
+                ]
+              },
+              "reordered": {
+                "value": 7,
+                "exceptionType": null,
+                "output": "",
+                "effects": [
+                  {
+                    "kind": "buffer-write",
+                    "text": null,
+                    "buffer": 0,
+                    "index": 0,
+                    "value": 5
+                  }
+                ],
+                "buffers": [
+                  [
+                    5
+                  ],
+                  [
+                    7
+                  ]
+                ]
+              },
+              "equivalent": true,
+              "match": true
+            },
+            {
+              "name": "same-cell",
+              "original": {
+                "value": 5,
+                "exceptionType": null,
+                "output": "",
+                "effects": [
+                  {
+                    "kind": "buffer-write",
+                    "text": null,
+                    "buffer": 0,
+                    "index": 0,
+                    "value": 5
+                  }
+                ],
+                "buffers": [
+                  [
+                    5
+                  ]
+                ]
+              },
+              "reordered": {
+                "value": 7,
+                "exceptionType": null,
+                "output": "",
+                "effects": [
+                  {
+                    "kind": "buffer-write",
+                    "text": null,
+                    "buffer": 0,
+                    "index": 0,
+                    "value": 5
+                  }
+                ],
+                "buffers": [
+                  [
+                    5
+                  ]
+                ]
+              },
+              "equivalent": false,
+              "match": true
+            },
+            {
+              "name": "idempotent-store-before-failed-load",
+              "original": {
+                "value": null,
+                "exceptionType": "IndexOutOfRangeException",
+                "output": "",
+                "effects": [
+                  {
+                    "kind": "buffer-write",
+                    "text": null,
+                    "buffer": 0,
+                    "index": 0,
+                    "value": 5
+                  }
+                ],
+                "buffers": [
+                  [
+                    5
+                  ],
+                  []
+                ]
+              },
+              "reordered": {
+                "value": null,
+                "exceptionType": "IndexOutOfRangeException",
+                "output": "",
+                "effects": [],
+                "buffers": [
+                  [
+                    5
+                  ],
+                  []
+                ]
+              },
+              "equivalent": false,
+              "match": true
+            }
+          ]
+        },
+        {
+          "codec": "Packed",
+          "cases": [
+            {
+              "name": "distinct-equal-buffers",
+              "original": {
+                "value": 7,
+                "exceptionType": null,
+                "output": "",
+                "effects": [
+                  {
+                    "kind": "buffer-write",
+                    "text": null,
+                    "buffer": 0,
+                    "index": 0,
+                    "value": 5
+                  }
+                ],
+                "buffers": [
+                  [
+                    5
+                  ],
+                  [
+                    7
+                  ]
+                ]
+              },
+              "reordered": {
+                "value": 7,
+                "exceptionType": null,
+                "output": "",
+                "effects": [
+                  {
+                    "kind": "buffer-write",
+                    "text": null,
+                    "buffer": 0,
+                    "index": 0,
+                    "value": 5
+                  }
+                ],
+                "buffers": [
+                  [
+                    5
+                  ],
+                  [
+                    7
+                  ]
+                ]
+              },
+              "equivalent": true,
+              "match": true
+            },
+            {
+              "name": "same-cell",
+              "original": {
+                "value": 5,
+                "exceptionType": null,
+                "output": "",
+                "effects": [
+                  {
+                    "kind": "buffer-write",
+                    "text": null,
+                    "buffer": 0,
+                    "index": 0,
+                    "value": 5
+                  }
+                ],
+                "buffers": [
+                  [
+                    5
+                  ]
+                ]
+              },
+              "reordered": {
+                "value": 7,
+                "exceptionType": null,
+                "output": "",
+                "effects": [
+                  {
+                    "kind": "buffer-write",
+                    "text": null,
+                    "buffer": 0,
+                    "index": 0,
+                    "value": 5
+                  }
+                ],
+                "buffers": [
+                  [
+                    5
+                  ]
+                ]
+              },
+              "equivalent": false,
+              "match": true
+            },
+            {
+              "name": "idempotent-store-before-failed-load",
+              "original": {
+                "value": null,
+                "exceptionType": "IndexOutOfRangeException",
+                "output": "",
+                "effects": [
+                  {
+                    "kind": "buffer-write",
+                    "text": null,
+                    "buffer": 0,
+                    "index": 0,
+                    "value": 5
+                  }
+                ],
+                "buffers": [
+                  [
+                    5
+                  ],
+                  []
+                ]
+              },
+              "reordered": {
+                "value": null,
+                "exceptionType": "IndexOutOfRangeException",
+                "output": "",
+                "effects": [],
+                "buffers": [
+                  [
+                    5
+                  ],
+                  []
+                ]
+              },
+              "equivalent": false,
+              "match": true
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

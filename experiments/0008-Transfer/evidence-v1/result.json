@@ -1,0 +1,192 @@
+{
+  "pipeline": "0006-v1",
+  "route": "transfer/v1",
+  "parent": {
+    "id": "add.checked.plain",
+    "path": "experiments/0001-Addition/baseline-v1/add-checked.wlb",
+    "sha256": "F29EB79B426681794A0A7BDC22C47CF38B9792C93ADF96326CD3964563877B34"
+  },
+  "finding": {
+    "claim": "For all pure Int32 a and b, the native checked transfer with k = 1 preserves the return value or exception type.",
+    "verdict": "refuted",
+    "checksPassed": true,
+    "evidence": {
+      "parentRelationship": "checked-transfer-v1",
+      "k": 1,
+      "rows": [
+        {
+          "codec": "Baseline",
+          "candidateHex": "574C4201000101020101060101010000000101FFFFFFFF020101000202010101030201010405080007",
+          "cases": [
+            {
+              "a": 0,
+              "b": 1,
+              "original": {
+                "value": 1,
+                "exceptionType": null,
+                "output": "",
+                "effects": [],
+                "buffers": []
+              },
+              "candidate": {
+                "value": 1,
+                "exceptionType": null,
+                "output": "",
+                "effects": [],
+                "buffers": []
+              },
+              "equivalent": true,
+              "match": true
+            },
+            {
+              "a": 2147483647,
+              "b": 0,
+              "original": {
+                "value": 2147483647,
+                "exceptionType": null,
+                "output": "",
+                "effects": [],
+                "buffers": []
+              },
+              "candidate": {
+                "value": null,
+                "exceptionType": "OverflowException",
+                "output": "",
+                "effects": [],
+                "buffers": []
+              },
+              "equivalent": false,
+              "match": true
+            },
+            {
+              "a": 0,
+              "b": -2147483648,
+              "original": {
+                "value": -2147483648,
+                "exceptionType": null,
+                "output": "",
+                "effects": [],
+                "buffers": []
+              },
+              "candidate": {
+                "value": null,
+                "exceptionType": "OverflowException",
+                "output": "",
+                "effects": [],
+                "buffers": []
+              },
+              "equivalent": false,
+              "match": true
+            },
+            {
+              "a": 2147483646,
+              "b": 2,
+              "original": {
+                "value": null,
+                "exceptionType": "OverflowException",
+                "output": "",
+                "effects": [],
+                "buffers": []
+              },
+              "candidate": {
+                "value": null,
+                "exceptionType": "OverflowException",
+                "output": "",
+                "effects": [],
+                "buffers": []
+              },
+              "equivalent": true,
+              "match": true
+            }
+          ]
+        },
+        {
+          "codec": "Packed",
+          "candidateHex": "574C5001000101020101060101010000000101FFFFFFFF020100020201010302010405080007",
+          "cases": [
+            {
+              "a": 0,
+              "b": 1,
+              "original": {
+                "value": 1,
+                "exceptionType": null,
+                "output": "",
+                "effects": [],
+                "buffers": []
+              },
+              "candidate": {
+                "value": 1,
+                "exceptionType": null,
+                "output": "",
+                "effects": [],
+                "buffers": []
+              },
+              "equivalent": true,
+              "match": true
+            },
+            {
+              "a": 2147483647,
+              "b": 0,
+              "original": {
+                "value": 2147483647,
+                "exceptionType": null,
+                "output": "",
+                "effects": [],
+                "buffers": []
+              },
+              "candidate": {
+                "value": null,
+                "exceptionType": "OverflowException",
+                "output": "",
+                "effects": [],
+                "buffers": []
+              },
+              "equivalent": false,
+              "match": true
+            },
+            {
+              "a": 0,
+              "b": -2147483648,
+              "original": {
+                "value": -2147483648,
+                "exceptionType": null,
+                "output": "",
+                "effects": [],
+                "buffers": []
+              },
+              "candidate": {
+                "value": null,
+                "exceptionType": "OverflowException",
+                "output": "",
+                "effects": [],
+                "buffers": []
+              },
+              "equivalent": false,
+              "match": true
+            },
+            {
+              "a": 2147483646,
+              "b": 2,
+              "original": {
+                "value": null,
+                "exceptionType": "OverflowException",
+                "output": "",
+                "effects": [],
+                "buffers": []
+              },
+              "candidate": {
+                "value": null,
+                "exceptionType": "OverflowException",
+                "output": "",
+                "effects": [],
+                "buffers": []
+              },
+              "equivalent": true,
+              "match": true
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
