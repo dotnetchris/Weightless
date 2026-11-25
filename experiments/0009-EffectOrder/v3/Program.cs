@@ -21,6 +21,7 @@ return LabRun.Run(args, "effects", 3, (seed, staging) =>
     const int predictedAdmitted = 286;
     const int v2Admissions = 406;
     object? firstFailure = null;
+    object? checkFailure = null;
     var probes = new List<(EncodingKind Codec, FaultSiteProbe StoreFirst, FaultSiteProbe LoadFirst)>();
     foreach (var (codec, extension) in new[] { (EncodingKind.Baseline, "wlb"), (EncodingKind.Packed, "wlp") })
     {
@@ -34,7 +35,7 @@ return LabRun.Run(args, "effects", 3, (seed, staging) =>
         }
         catch (InvalidDataException exception)
         {
-            firstFailure ??= new { codec = codec.ToString(), error = exception.Message };
+            checkFailure ??= new { codec = codec.ToString(), error = exception.Message };
         }
     }
 
@@ -103,7 +104,7 @@ return LabRun.Run(args, "effects", 3, (seed, staging) =>
             }
             catch (InvalidDataException exception)
             {
-                firstFailure ??= new { key, codec = probe.Codec.ToString(), error = exception.Message };
+                checkFailure ??= new { key, codec = probe.Codec.ToString(), error = exception.Message };
             }
         }
     }
@@ -114,8 +115,9 @@ return LabRun.Run(args, "effects", 3, (seed, staging) =>
         firstFailure ??= new { cases, newlyDistinguished, admitted, legacyAdmitted, admittedDisagreements,
             equivalentButDeclined, expected = new { cases = 448, predictedNewlyDistinguished, predictedAdmitted, v2Admissions } };
 
+    var verdict = checkFailure is not null ? "failed" : firstFailure is not null ? "refuted" : "tested";
     return new LabFinding("Observing fault site distinguishes 120 additional v2 schedule pairs. The refined guard admits 286 of 448 pairs with equal full observations.",
-        firstFailure is null ? "tested" : "refuted", firstFailure is null, new
+        verdict, verdict == "tested", new
         {
             parentRoute = "effects/v2",
             startRevision = "d17fb0ff88f12e566f755df7b587831602c5bf81",
@@ -128,7 +130,7 @@ return LabRun.Run(args, "effects", 3, (seed, staging) =>
             predictions = new { newlyDistinguished = predictedNewlyDistinguished, admitted = predictedAdmitted },
             cases, newlyDistinguished, newlyDistinguishedByLayout, legacyAdmitted, admitted, declined = cases - admitted,
             admittedDisagreements, equivalentButDeclined, countsByReason, observationsCompared, selectedComparisons,
-            firstLegacyCounterexample, firstFailure
+            firstLegacyCounterexample, firstFailure = checkFailure ?? firstFailure
         });
 });
 

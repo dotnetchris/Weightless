@@ -22,6 +22,7 @@ return LabRun.Run(args, "transfer", 3, (seed, staging) =>
     var program = new SelectorProgram(new ShiftFitsInt32(0, 1), new ShiftFitsInt32(1, -1),
         new SelectorBranch(transferredId, originalId), seed with { Functions = [seed.Functions[0], candidate.Functions[0]] });
     object? firstFailure = null;
+    object? checkFailure = null;
     var runs = new List<object>();
     foreach (var (codec, extension) in new[] { (EncodingKind.Baseline, "wlb"), (EncodingKind.Packed, "wlp") })
     {
@@ -75,12 +76,12 @@ return LabRun.Run(args, "transfer", 3, (seed, staging) =>
             var branchControl = ordinary.SelectedFunction == transferredId && flippedSelection.SelectedFunction == originalId &&
                 ordinary.Outcome.Matches(flippedSelection.Outcome);
             if (!branchControl)
-                firstFailure ??= new { codec = codecName, ordinary, flippedSelection };
+                checkFailure ??= new { codec = codecName, ordinary, flippedSelection };
 
             var rejections = ProbeMalformed(image.Bytes, codec);
             var acceptedMalformed = rejections.FirstOrDefault(rejection => !rejection.Rejected);
             if (acceptedMalformed is not null)
-                firstFailure ??= new { codec = codecName, acceptedMalformed };
+                checkFailure ??= new { codec = codecName, acceptedMalformed };
 
             runs.Add(new
             {
@@ -93,18 +94,20 @@ return LabRun.Run(args, "transfer", 3, (seed, staging) =>
         }
         catch (InvalidDataException exception)
         {
-            firstFailure ??= new { codec = codecName, error = exception.Message };
+            checkFailure ??= new { codec = codecName, error = exception.Message };
         }
     }
 
+    var verdict = checkFailure is not null ? "failed" : firstFailure is not null ? "refuted" : "tested";
     return new LabFinding("A fully serialized typed selector preserves v2 branch identity and checked C# outcomes on all 121 fixed-k pairs through both codecs.",
-        firstFailure is null ? "tested" : "refuted", firstFailure is null, new
+        verdict, verdict == "tested", new
         {
             parentRoute = "transfer/v2",
             startRevision = "d17fb0ff88f12e566f755df7b587831602c5bf81",
             observation = "The executed arm, return value or exception type on two already evaluated Int32 inputs.",
             oracle = "The original arm is required at a == Int32.MaxValue or b == Int32.MinValue. Compare outcomes with checked(a + b).",
-            k = 1, values, armIds = new { original = originalId, transferred = transferredId }, runs, firstFailure
+            k = 1, values, armIds = new { original = originalId, transferred = transferredId }, runs,
+            firstFailure = checkFailure ?? firstFailure
         });
 });
 

@@ -13,6 +13,7 @@ return LabRun.Run(args, "capacity", 3, (seed, staging) =>
     var mixed = new List<object>();
     var comparisons = 0;
     object? firstFailure = null;
+    object? checkFailure = null;
 
     foreach (var adds in lengths)
     foreach (var contract in new[] { Postcondition.None, Postcondition.NonNegativeInt32 })
@@ -38,7 +39,7 @@ return LabRun.Run(args, "capacity", 3, (seed, staging) =>
         }
         catch (InvalidDataException exception)
         {
-            firstFailure ??= new { name, adds, contract = contract.ToString(), error = exception.Message };
+            checkFailure ??= new { name, adds, contract = contract.ToString(), error = exception.Message };
         }
     }
 
@@ -72,9 +73,10 @@ return LabRun.Run(args, "capacity", 3, (seed, staging) =>
         firstFailure ??= new { expectedFirstSavingAdds = 2, actualFirstSavingAdds = firstSavingAdds };
 
     var rejectionProbes = ProbeMalformed(AddChain.FromSeed(seed, 2));
-    firstFailure ??= rejectionProbes.FirstOrDefault(probe => !probe.Rejected);
+    checkFailure ??= rejectionProbes.FirstOrDefault(probe => !probe.Rejected);
+    var verdict = checkFailure is not null ? "failed" : firstFailure is not null ? "refuted" : "tested";
     return new LabFinding("A run of checked Adds recovers the original graph and C# observations and first beats packed v1 at two Adds.",
-        firstFailure is null ? "tested" : "refuted", firstFailure is null,
+        verdict, verdict == "tested",
         new
         {
             parentRoute = "capacity/v2",
@@ -82,7 +84,7 @@ return LabRun.Run(args, "capacity", 3, (seed, staging) =>
             observation = "Return value or exception type, stdout, ordered writes and final buffer state.",
             wire = "Standalone WLP v2. Tag 09, run count, initial left slot and shared right slot.",
             firstSavingAdds, probes = probes.Select(probe => new { probe.Name, probe.A, probe.B }), chains, mixed,
-            comparisons, rejectionProbes, firstFailure
+            comparisons, rejectionProbes, firstFailure = checkFailure ?? firstFailure
         });
 
     Images CompareSize(string name, Graph graph, int expectedSaving)
@@ -132,7 +134,7 @@ return LabRun.Run(args, "capacity", 3, (seed, staging) =>
         }
         catch (InvalidDataException exception)
         {
-            firstFailure ??= new { name, error = exception.Message };
+            checkFailure ??= new { name, error = exception.Message };
         }
     }
 });
